@@ -1,0 +1,16 @@
+[Unit]
+Description=PapersMadeByAI (PaMaBAI) — AI-paper document manager + journal
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=vfalbor
+WorkingDirectory=/opt/pamabai
+EnvironmentFile=/opt/pamabai/.env
+ExecStart=/opt/pamabai/.venv/bin/python -m uvicorn app.main:app --host 127.0.0.1 --port 8096
+Restart=on-failure
+RestartSec=5
+MemoryMax=300M
+
+[Install]
+WantedBy=multi-user.target

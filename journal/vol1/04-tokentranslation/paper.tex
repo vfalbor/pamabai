@@ -1,0 +1,45 @@
+\documentclass[10pt]{article}
+\usepackage[accepted]{pamabai}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+
+\def\month{07}\def\year{2026}
+\def\openreview{\url{https://papersmadebyai.tokenstree.eu}}
+
+\title{TokenTranslation: Cross-Lingual Token Arbitrage\\and a Reversible Compression Dialect for LLM Prompts}
+
+\author{\name The TokensTree project \email carorega@gmail.com \\
+      \addr Paper researched and written by AI agents; human owner supervising scope and claims.\\
+      Part of the TokensTree ecosystem (\url{https://tokenstree.com})}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The same meaning costs a different number of tokens in different languages: BPE vocabularies are English-heavy, so Spanish, Chinese, Japanese or Hindi prompts routinely tokenise 1.3--2$\times$ longer than their English equivalents. TokenTranslation is a middleware that exploits this \emph{token arbitrage}: it detects the input language, translates prompts into the cheapest adequate token space before the LLM call, and restores the answer's language afterwards, choosing per call between a local translator and an external one through a translation router. The service also ships \emph{tokinensis}, a deterministic, reversible compression dialect that abbreviates high-frequency words with per-language maps (English, Spanish, Chinese, Japanese, Hindi), detects the writing system, and encodes Latin, CJK and Devanagari text with dedicated encoders, so that token counting (via the provider's tokeniser) can verify savings per request. We describe the architecture and the honest boundaries: translation adds latency and a quality risk that must be paid attention per task type, and arbitrage gains shrink as providers improve multilingual tokenisers.
+\end{abstract}
+
+\section{Introduction}
+Token counts, not characters, are the billing unit of LLM APIs --- and tokenisers are not language-neutral. A Spanish instruction can cost substantially more tokens than its English translation while carrying identical intent. For an ecosystem whose users write in Spanish (TokensTree's home market), the difference compounds across every call. TokenTranslation packages the countermeasure as middleware: \emph{translate the prompt into the cheapest token space that preserves the task, run the model there, answer in the user's language}.
+
+\section{Architecture}
+\paragraph{Service shape.} A FastAPI application (``token-efficient LLM middleware --- translate prompts to save tokens'') with three route groups: \texttt{auth}, \texttt{translate}, and \texttt{stats}. A \texttt{token\_counter} service measures each request before and after transformation with the target model's tokeniser, so every saving reported by \texttt{stats} is measured on real traffic, not estimated.
+\paragraph{Translation router.} Per call, a router chooses among translators: a local model (free, private, lower quality ceiling) and an external service (higher quality, external dependency), following the same local-first philosophy as the ecosystem's LLM router hibrid \citep{hibrid2026}. The router considers language pair, length and consumer configuration.
+\paragraph{tokinensis: a reversible dialect.} Orthogonal to translation, \emph{tokinensis} (v2) compresses text deterministically: it detects the script, applies per-language abbreviation maps for high-frequency vocabulary across five languages (e.g.\ the \emph{model/m\'odulo} family with its Chinese, Japanese and Hindi equivalents), and encodes Latin, Chinese, Japanese and Devanagari text with dedicated encoders. Crucially it is \emph{reversible} --- \texttt{decode(encode(x))} restores the original --- so it can be applied to prompts whose exact wording must survive a round trip, where lossy learned compression cannot be trusted.
+
+\section{Discussion: when arbitrage pays}
+Three boundaries define the useful region. (1)~\textbf{Task sensitivity}: translation before an LLM call is safe for instructions and general Q\&A, riskier for wordplay, legal nuance or code comments in the source language; the middleware leaves task-type policy to the caller. (2)~\textbf{Latency}: a translation hop adds time; batch and background traffic absorb it, interactive traffic may not. (3)~\textbf{Tokeniser drift}: as providers ship more multilingual vocabularies the arbitrage margin narrows --- which is why measuring per-request savings with the actual tokeniser, rather than assuming a fixed ratio, is load-bearing in the design.
+
+\section{Limitations}
+We publish no aggregate savings benchmark in this paper: the honest number depends on language mix, task mix and target tokeniser, and the deployed instance's traffic is not yet volumous enough for a stable estimate. The \texttt{stats} endpoint accumulates exactly the data the follow-up study needs. tokinensis' abbreviation maps are hand-curated and currently cover five languages; coverage beyond the top of each language's frequency distribution is thin, and its savings on top of translation are unmeasured.
+
+\subsubsection*{Author note: an AI-made paper}
+Written by AI agents from the service's code and configuration; human owner audited the claims. Published in The PaMaBAI Journal \citep{pamabai2026}.
+
+\subsubsection*{Artifact}
+The service (FastAPI backend: \texttt{translate}, \texttt{auth}, \texttt{stats}; services \texttt{token\_counter}, \texttt{tokinensis\_v2}, \texttt{translation\_router}, local and external translators) runs in the TokensTree ecosystem; source publication is planned and tracked by the journal's artifact policy.
+
+\bibliography{ecosystem}
+\bibliographystyle{tmlr}
+\end{document}

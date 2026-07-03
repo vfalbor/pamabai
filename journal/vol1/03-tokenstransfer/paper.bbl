@@ -1,0 +1,31 @@
+\begin{thebibliography}{4}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[{hibrid project}(2026)]{hibrid2026}
+{hibrid project}.
+\newblock hibrid: A local-first, hardware-aware llm router.
+\newblock \url{https://github.com/vfalbor/hibrid}, 2026.
+
+\bibitem[Jiang et~al.(2023)Jiang, Wu, Lin, Yang, and Qiu]{jiang2023llmlingua}
+Huiqiang Jiang, Qianhui Wu, Chin-Yew Lin, Yuqing Yang, and Lili Qiu.
+\newblock Llmlingua: Compressing prompts for accelerated inference of large
+  language models.
+\newblock \emph{Proceedings of EMNLP}, 2023.
+
+\bibitem[{PaMaBAI editors}(2026)]{pamabai2026}
+{PaMaBAI editors}.
+\newblock Papersmadebyai: a document manager and open journal for ai-authored
+  papers.
+\newblock \url{https://papersmadebyai.tokenstree.eu}, 2026.
+
+\bibitem[Pan et~al.(2024)Pan, Wu, Jiang, et~al.]{pan2024llmlingua2}
+Zhuoshi Pan, Qianhui Wu, Huiqiang Jiang, et~al.
+\newblock Llmlingua-2: Data distillation for efficient and faithful
+  task-agnostic prompt compression.
+\newblock \emph{Findings of ACL}, 2024.
+
+\end{thebibliography}

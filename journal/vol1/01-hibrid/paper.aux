@@ -1,0 +1,79 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{hibrid2026}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{Research questions.}{1}{section*.1}\protected@file@percent }
+\citation{ong2024routellm}
+\citation{chen2024frugalgpt}
+\citation{hu2024routerbench}
+\citation{llmrouterbench2026}
+\citation{martian2024}
+\citation{notdiamond2024}
+\citation{openrouter2024}
+\citation{semanticrouter2024}
+\citation{litellm2024}
+\citation{ollama2024}
+\citation{bang2023gptcache}
+\citation{portkey2026}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces The router landscape. Competitor savings/quality figures are \emph  {reported by their authors under their own conditions} (dataset, models, date) and are not directly comparable to our measured numbers.}}{2}{table.1}\protected@file@percent }
+\newlabel{tab:landscape}{{1}{2}{The router landscape. Competitor savings/quality figures are \emph {reported by their authors under their own conditions} (dataset, models, date) and are not directly comparable to our measured numbers}{table.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{Contributions.}{2}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{A note on data integrity.}{2}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{2}{section.2}\protected@file@percent }
+\newlabel{sec:related}{{2}{2}{Related Work}{section.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Experimental Setup}{3}{section.3}\protected@file@percent }
+\newlabel{sec:setup}{{3}{3}{Experimental Setup}{section.3}{}}
+\@writefile{toc}{\contentsline {paragraph}{System and tiers.}{3}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Token-honest design with provenance checks.}{3}{section*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Workload.}{3}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Hardware and models.}{3}{section*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Metrics.}{3}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Results}{3}{section.4}\protected@file@percent }
+\newlabel{sec:results}{{4}{3}{Results}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}RQ1 --- Routing correctness}{3}{subsection.4.1}\protected@file@percent }
+\newlabel{sec:rq1}{{4.1}{3}{RQ1 --- Routing correctness}{subsection.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}RQ3 --- Quality retention (the central result)}{3}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:rq3}{{4.2}{3}{RQ3 --- Quality retention (the central result)}{subsection.4.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Blind-judged quality by task axis, local (3B, free) vs.\ frontier (paid), $n{=}15$. The gap is smallest on general knowledge and largest on multi-step reasoning.}}{4}{table.2}\protected@file@percent }
+\newlabel{tab:axis}{{2}{4}{Blind-judged quality by task axis, local (3B, free) vs.\ frontier (paid), $n{=}15$. The gap is smallest on general knowledge and largest on multi-step reasoning}{table.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Quality by difficulty level, $n{=}15$. The local tier is usable on everyday tasks and collapses on hard ones --- the split that makes routing worthwhile.}}{4}{table.3}\protected@file@percent }
+\newlabel{tab:difficulty}{{3}{4}{Quality by difficulty level, $n{=}15$. The local tier is usable on everyday tasks and collapses on hard ones --- the split that makes routing worthwhile}{table.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}RQ2 --- Token efficiency}{4}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:rq2}{{4.3}{4}{RQ2 --- Token efficiency}{subsection.4.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}RQ4 --- Cost/quality}{4}{subsection.4.4}\protected@file@percent }
+\newlabel{sec:rq4}{{4.4}{4}{RQ4 --- Cost/quality}{subsection.4.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Blind-judged quality, local (3B, free) vs.\ frontier (paid), overall and per axis ($n{=}15$). The local model is competitive on general knowledge, degraded on writing/code/multilingual, and far behind on hard reasoning.}}{5}{figure.1}\protected@file@percent }
+\newlabel{fig:quality}{{1}{5}{Blind-judged quality, local (3B, free) vs.\ frontier (paid), overall and per axis ($n{=}15$). The local model is competitive on general knowledge, degraded on writing/code/multilingual, and far behind on hard reasoning}{figure.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Paid (frontier) tokens over the judged workload ($n{=}15$): all-paid 9{,}487 vs.\ 8{,}401 with difficulty-aware routing ($-11.4\%$) vs.\ 0 all-local. Hard tasks dominate token volume in this one-shot mix.}}{5}{figure.2}\protected@file@percent }
+\newlabel{fig:tokens}{{2}{5}{Paid (frontier) tokens over the judged workload ($n{=}15$): all-paid 9{,}487 vs.\ 8{,}401 with difficulty-aware routing ($-11.4\%$) vs.\ 0 all-local. Hard tasks dominate token volume in this one-shot mix}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}RQ5 --- Positioning}{5}{subsection.4.5}\protected@file@percent }
+\newlabel{sec:rq5}{{4.5}{5}{RQ5 --- Positioning}{subsection.4.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Cost/quality plane ($n{=}15$). Difficulty-aware routing keeps 92.9\% of all-paid quality below the all-paid cost; all-local is free but drops to $Q\,0.631$.}}{6}{figure.3}\protected@file@percent }
+\newlabel{fig:pareto}{{3}{6}{Cost/quality plane ($n{=}15$). Difficulty-aware routing keeps 92.9\% of all-paid quality below the all-paid cost; all-local is free but drops to $Q\,0.631$}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Reported cost/token savings across routers (authors' own conditions; not comparable). hibrid's numbers are measured in this paper (Figures~\ref {fig:tokens} and \ref {fig:pareto}), not reported.}}{6}{figure.4}\protected@file@percent }
+\newlabel{fig:competitors}{{4}{6}{Reported cost/token savings across routers (authors' own conditions; not comparable). hibrid's numbers are measured in this paper (Figures~\ref {fig:tokens} and \ref {fig:pareto}), not reported}{figure.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{6}{section.5}\protected@file@percent }
+\newlabel{sec:discussion}{{5}{6}{Discussion}{section.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Limitations and Future Work}{7}{section.6}\protected@file@percent }
+\newlabel{sec:limitations}{{6}{7}{Limitations and Future Work}{section.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{7}{section.7}\protected@file@percent }
+\newlabel{sec:conclusion}{{7}{7}{Conclusion}{section.7}{}}
+\bibdata{refs}
+\bibcite{semanticrouter2024}{{1}{2024}{{Aurelio Labs}}{{}}}
+\bibcite{bang2023gptcache}{{2}{2023}{{Bang}}{{}}}
+\bibcite{litellm2024}{{3}{2024}{{BerriAI}}{{}}}
+\bibcite{chen2024frugalgpt}{{4}{2024}{{Chen et~al.}}{{Chen, Zaharia, and Zou}}}
+\bibcite{hibrid2026}{{5}{2026}{{hibrid project}}{{}}}
+\bibcite{hu2024routerbench}{{6}{2024}{{Hu et~al.}}{{Hu, Bieker, Li, Jiang, Keigwin, Ranganath, Keutzer, and Upadhyay}}}
+\bibcite{llmrouterbench2026}{{7}{2026}{{LLMRouterBench authors}}{{}}}
+\bibcite{martian2024}{{8}{2024}{{Martian}}{{}}}
+\bibcite{notdiamond2024}{{9}{2024}{{Not Diamond}}{{}}}
+\bibcite{ollama2024}{{10}{2024}{{Ollama}}{{}}}
+\bibcite{ong2024routellm}{{11}{2025}{{Ong et~al.}}{{Ong, Almahairi, Wu, Chiang, Wu, Gonzalez, Kadous, and Stoica}}}
+\bibcite{openrouter2024}{{12}{2024}{{OpenRouter}}{{}}}
+\bibcite{portkey2026}{{13}{2026}{{Portkey}}{{}}}
+\bibstyle{tmlr}
+\gdef \@abspage@last{8}

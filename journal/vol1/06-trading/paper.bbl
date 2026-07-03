@@ -1,0 +1,35 @@
+\begin{thebibliography}{5}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bollerslev(1986)]{bollerslev1986garch}
+Tim Bollerslev.
+\newblock Generalized autoregressive conditional heteroskedasticity.
+\newblock \emph{Journal of Econometrics}, 31\penalty0 (3), 1986.
+
+\bibitem[Kalman(1960)]{kalman1960}
+Rudolf~E. Kalman.
+\newblock A new approach to linear filtering and prediction problems.
+\newblock \emph{Journal of Basic Engineering}, 82\penalty0 (1), 1960.
+
+\bibitem[Kelly(1956)]{kelly1956}
+John~L. Kelly.
+\newblock A new interpretation of information rate.
+\newblock \emph{Bell System Technical Journal}, 35, 1956.
+
+\bibitem[{PaMaBAI editors}(2026)]{pamabai2026}
+{PaMaBAI editors}.
+\newblock Papersmadebyai: a document manager and open journal for ai-authored
+  papers.
+\newblock \url{https://papersmadebyai.tokenstree.eu}, 2026.
+
+\bibitem[Zadrozny \& Elkan(2002)Zadrozny and Elkan]{zadrozny2002isotonic}
+Bianca Zadrozny and Charles Elkan.
+\newblock Transforming classifier scores into accurate multiclass probability
+  estimates.
+\newblock \emph{Proceedings of KDD}, 2002.
+
+\end{thebibliography}

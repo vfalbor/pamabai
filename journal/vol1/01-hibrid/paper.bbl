@@ -1,0 +1,84 @@
+\begin{thebibliography}{13}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[{Aurelio Labs}(2024)]{semanticrouter2024}
+{Aurelio Labs}.
+\newblock semantic-router: Superfast decision-making layer for llms.
+\newblock \url{https://github.com/aurelio-labs/semantic-router}, 2024.
+
+\bibitem[Bang(2023)]{bang2023gptcache}
+Fu~Bang.
+\newblock Gptcache: An open-source semantic cache for llm applications enabling
+  faster answers and cost savings.
+\newblock In \emph{Proceedings of the 3rd Workshop for Natural Language
+  Processing Open Source Software (NLP-OSS)}, 2023.
+
+\bibitem[{BerriAI}(2024)]{litellm2024}
+{BerriAI}.
+\newblock Litellm: A unified gateway for 100+ llm apis.
+\newblock \url{https://github.com/BerriAI/litellm}, 2024.
+
+\bibitem[Chen et~al.(2024)Chen, Zaharia, and Zou]{chen2024frugalgpt}
+Lingjiao Chen, Matei Zaharia, and James Zou.
+\newblock Frugalgpt: How to use large language models while reducing cost and
+  improving performance.
+\newblock \emph{Transactions on Machine Learning Research}, 2024.
+\newblock arXiv:2305.05176.
+
+\bibitem[{hibrid project}(2026)]{hibrid2026}
+{hibrid project}.
+\newblock hibrid: A local-first, hardware-aware llm router.
+\newblock \url{https://github.com/vfalbor/hibrid}, 2026.
+
+\bibitem[Hu et~al.(2024)Hu, Bieker, Li, Jiang, Keigwin, Ranganath, Keutzer, and
+  Upadhyay]{hu2024routerbench}
+Qitian~Jason Hu, Jason Bieker, Xiuyu Li, Nan Jiang, Benjamin Keigwin, Gaurav
+  Ranganath, Kurt Keutzer, and Shriyash~Kaustubh Upadhyay.
+\newblock Routerbench: A benchmark for multi-llm routing systems.
+\newblock \emph{arXiv preprint arXiv:2403.12031}, 2024.
+
+\bibitem[{LLMRouterBench authors}(2026)]{llmrouterbench2026}
+{LLMRouterBench authors}.
+\newblock Llmrouterbench: Standardized evaluation of llm routing under cost
+  constraints.
+\newblock \emph{arXiv preprint arXiv:2601.07206}, 2026.
+
+\bibitem[{Martian}(2024)]{martian2024}
+{Martian}.
+\newblock Model routing case studies.
+\newblock \url{https://martian.ai}, industry report with Accenture, 2024.
+
+\bibitem[{Not Diamond}(2024)]{notdiamond2024}
+{Not Diamond}.
+\newblock Not diamond: Model routing for accuracy.
+\newblock \url{https://notdiamond.ai}, 2024.
+
+\bibitem[{Ollama}(2024)]{ollama2024}
+{Ollama}.
+\newblock Ollama: Run large language models locally.
+\newblock \url{https://ollama.com}, 2024.
+
+\bibitem[Ong et~al.(2025)Ong, Almahairi, Wu, Chiang, Wu, Gonzalez, Kadous, and
+  Stoica]{ong2024routellm}
+Isaac Ong, Amjad Almahairi, Vincent Wu, Wei-Lin Chiang, Tianhao Wu, Joseph~E.
+  Gonzalez, M.~Waleed Kadous, and Ion Stoica.
+\newblock Routellm: Learning to route llms with preference data.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2025.
+\newblock arXiv:2406.18665.
+
+\bibitem[{OpenRouter}(2024)]{openrouter2024}
+{OpenRouter}.
+\newblock Openrouter: A unified interface for llms.
+\newblock \url{https://openrouter.ai}, 2024.
+
+\bibitem[{Portkey}(2026)]{portkey2026}
+{Portkey}.
+\newblock Portkey: Ai gateway.
+\newblock \url{https://portkey.ai}, 2026.
+
+\end{thebibliography}

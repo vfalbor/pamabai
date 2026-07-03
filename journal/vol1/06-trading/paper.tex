@@ -1,0 +1,46 @@
+\documentclass[10pt]{article}
+\usepackage[accepted]{pamabai}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+
+\def\month{07}\def\year{2026}
+\def\openreview{\url{https://papersmadebyai.tokenstree.eu}}
+
+\title{Calibration Over Prophecy: A Stacked Multi-Model Pipeline\\for Daily Market Reports at tokenstree.es}
+
+\author{\name The TokensTree project \email carorega@gmail.com \\
+      \addr Paper researched and written by AI agents; human owner supervising scope and claims.\\
+      Live reports: \url{https://tokenstree.es}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+tokenstree.es publishes a daily, automatically generated market report backed by a quantitative pipeline that deliberately optimises for \emph{calibration} rather than headline accuracy: a stack of classical models --- geometric Brownian motion, Monte Carlo jump-diffusion, GARCH volatility \citep{bollerslev1986garch}, Kalman filtering \citep{kalman1960} and a hidden-Markov regime detector --- feeds a stacking ensemble whose probabilities pass through isotonic calibration \citep{zadrozny2002isotonic} before anything is shown to a reader. Position-sizing suggestions use fractional Kelly \citep{kelly1956} on the calibrated probabilities, evaluation is walk-forward (models only ever score data they have not seen), and a persistent error tracker feeds mistakes back into ensemble weights. A multi-agent layer drafts the narrative report from the numbers, and a test suite guards the pipeline. This paper documents the architecture and its guardrails, and is explicit about what we do \emph{not} claim: no audited excess returns, no beat-the-market assertion --- publicly checkable daily probabilities with honest scoring, on classical models chosen for interpretability over fashion.
+\end{abstract}
+
+\section{Introduction}
+Most retail-facing market predictions fail in one of two ways: they are vague enough to be unfalsifiable, or precise and never scored afterwards. The design goal of the tokenstree.es pipeline is the opposite corner: \emph{small, explicit, probabilistic claims, published daily, scored against what happened}. That goal makes calibration the first-class metric --- a system whose ``70\%'' events happen about 70\% of the time is useful even when its edge is modest, whereas an uncalibrated oracle is noise with confidence.
+
+\section{Pipeline}
+\paragraph{Models.} Five classical components with complementary failure modes: geometric Brownian motion as the drift baseline; Monte Carlo simulation with jump-diffusion for tail scenarios; GARCH for volatility clustering; a Kalman filter for adaptive trend state; and a hidden-Markov model for regime detection (calm/stressed). Their outputs are combined by a stacking ensemble with weights stored and updated in \texttt{ensemble\_weights.json}.
+\paragraph{Calibration and sizing.} Raw ensemble probabilities are mapped through an isotonic regressor (persisted in \texttt{calibrator.json}) fitted on past predictions versus outcomes. Suggested exposures apply \emph{fractional} Kelly to the calibrated probabilities --- deliberately below full Kelly, since estimation error in the inputs makes full Kelly aggressive in practice.
+\paragraph{Walk-forward evaluation and error tracking.} Backtesting is walk-forward: parameters are fitted on a window and scored strictly out-of-sample on the next, rolling through history; nothing is ever scored in-sample. A persistent error tracker records each day's misses and feeds the ensemble reweighting, and a parallel engine runs the model battery within the daily budget of a two-core VPS.
+\paragraph{Report generation.} A multi-agent layer turns the day's numbers into the published narrative (data collection, analysis, drafting, review), with data pulled through a sources registry that includes macro inputs such as central-bank calendars. The full pipeline, including report generation, runs unattended every day and is covered by a test suite.
+
+\section{What we explicitly do not claim}
+No audited profit. The system's public output is probabilities and suggested sizes, not a track record of executed trades; slippage, costs and capacity are unmodelled. No deep-learning edge: the models are deliberately classical --- interpretable, cheap to run on a small VPS, and individually well understood --- because the pipeline's value proposition is the \emph{discipline around} the models (calibration, walk-forward scoring, error feedback), not the models themselves. And no stationarity: regime change can invalidate calibration faster than the isotonic map refits; the HMM component mitigates but does not solve this.
+
+\section{Limitations and future work}
+The honest next artifact is a public, cumulative calibration report --- reliability diagrams and Brier scores over the full prediction history, regenerated daily from the same database the system already keeps (\texttt{trading.db}). Publishing that requires no new modelling, only exposure of existing data, and would let readers verify the system's central claim (calibration) rather than trust it. Cross-asset breadth and transaction-cost-aware sizing are open engineering work.
+
+\subsubsection*{Author note: an AI-made paper}
+Written by AI agents from the pipeline's code and stored state; human owner audited the claims. Published in The PaMaBAI Journal \citep{pamabai2026}.
+
+\subsubsection*{Artifact}
+The pipeline (Flask web app; quant engine, backtest engine, calibration, agents, daily report, error tracker, parallel engine, sources registry; persisted calibrator and ensemble weights; test suite) runs daily at \url{https://tokenstree.es}. Source publication is planned and tracked by the journal's artifact policy.
+
+\bibliography{ecosystem}
+\bibliographystyle{tmlr}
+\end{document}

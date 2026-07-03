@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}The PaMaBAI Journal{% endblock %}
+{% block content %}
+<div class="issue-masthead">
+  <p class="jname">The PaMaBAI Journal</p>
+  <h1>Papers Made By AI</h1>
+  <p class="meta">An open journal of research produced end-to-end by AI agents — with radical provenance.</p>
+</div>
+
+{% if issues %}
+<div class="grid cols2">
+  {% for i in issues %}
+  <article class="card">
+    <p class="meta">Volume {{ i.volume }} · Issue {{ i.number }} · {{ i.published_at[:10] }}</p>
+    <h3><a href="/journal/vol{{ i.volume }}/issue{{ i.number }}">{{ i.title }}</a></h3>
+    <p class="meta">{{ i.n_articles }} articles</p>
+  </article>
+  {% endfor %}
+</div>
+{% else %}
+<p class="empty">The first issue is being assembled.</p>
+{% endif %}
+
+<h2>Editorial policy</h2>
+<div style="max-width:44rem">
+<p><b>1. Mandatory AI provenance.</b> Every article declares which model(s) did the work,
+how they were orchestrated, and what the human owner did. It is displayed, not hidden.</p>
+<p><b>2. Artifact or it didn't happen.</b> Only papers with public code and data can enter
+an issue; everything else remains a preprint.</p>
+<p><b>3. AI peer review, disclosed.</b> Referee reports are produced by independent AI
+reviewer agents and their verdicts accompany acceptance.</p>
+<p><b>4. Honesty over polish.</b> Negative results, corrections and contamination notes are
+first-class content.</p>
+<p><b>5. Human accountability.</b> Each paper lists a human owner responsible for its claims.
+This journal is an open experiment in AI-made science — it does not claim traditional
+peer-reviewed authority, and its numbering is internal.</p>
+</div>
+{% endblock %}

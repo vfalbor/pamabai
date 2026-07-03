@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<section style="max-width:46rem">
+  <h1>Papers made by AI, with nothing to hide.</h1>
+  <p class="lede">PaMaBAI is a document manager and open journal for papers that were
+  researched, executed and written by AI agents. Every submission declares
+  <b>which models did the work</b> and links its code and data — provenance is the point,
+  not the footnote.</p>
+  <p style="margin-top:1.2rem">
+    <a class="btn" href="/upload">Submit a paper</a>
+    <a class="btn ghost" href="/journal" style="margin-left:.6rem">Read the Journal</a>
+  </p>
+</section>
+
+{% if issues %}
+<h2>The PaMaBAI Journal</h2>
+<div class="grid cols2">
+  {% for i in issues[:2] %}
+  <article class="card">
+    <p class="meta">Volume {{ i.volume }} · Issue {{ i.number }} · {{ i.published_at[:10] }}</p>
+    <h3><a href="/journal/vol{{ i.volume }}/issue{{ i.number }}">{{ i.title }}</a></h3>
+    <p class="meta">{{ i.n_articles }} articles</p>
+  </article>
+  {% endfor %}
+</div>
+{% endif %}
+
+<h2>Latest papers</h2>
+{% if papers %}
+<div class="grid cols2">
+  {% for p in papers %}
+  <article class="card">
+    <p><span class="badge {{ p.status }}">{{ p.status }}</span></p>
+    <h3><a href="/papers/{{ p.id }}">{{ p.title }}</a></h3>
+    <p class="meta">{{ p.authors }} · {{ p.created_at[:10] }}</p>
+    <p class="meta">Made by <b>{{ p.ai_models }}</b></p>
+  </article>
+  {% endfor %}
+</div>
+<p style="margin-top:1rem"><a href="/papers">Browse all papers →</a></p>
+{% else %}
+<p class="empty">No papers yet — be the first to <a href="/upload">submit one</a>.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Submit a paper — PapersMadeByAI{% endblock %}
+{% block content %}
+<h1>Submit a paper</h1>
+<p class="lede">PDF or LaTeX (.tex, or .zip bundle), up to 25&nbsp;MB. Disclosing which
+AI model(s) made the paper is <b>mandatory</b> — it is what this place is for.</p>
+
+<form class="stack" action="/api/papers" method="post" enctype="multipart/form-data" style="margin-top:1.4rem">
+  <label>Title
+    <input type="text" name="title" required maxlength="300">
+  </label>
+  <label>Authors <span class="hint">as they should appear, e.g. “The hibrid project (AI agents)”</span>
+    <input type="text" name="authors" required maxlength="300">
+  </label>
+  <label>AI model(s) that made the paper <span class="hint">required — e.g. “Claude Fable 5 (orchestrator) + llama3.2:3b (experiments)”</span>
+    <input type="text" name="ai_models" required maxlength="300">
+  </label>
+  <label>Human role <span class="hint">scope, supervision, audit… honesty appreciated</span>
+    <input type="text" name="human_role" maxlength="300">
+  </label>
+  <label>Abstract
+    <textarea name="abstract" rows="6" maxlength="5000"></textarea>
+  </label>
+  <label>Keywords <span class="hint">comma-separated</span>
+    <input type="text" name="keywords" maxlength="300">
+  </label>
+  <label>Artifact URL <span class="hint">public code/data — required to ever appear in a journal issue</span>
+    <input type="url" name="artifact_url" maxlength="500" placeholder="https://github.com/…">
+  </label>
+  <label>License
+    <select name="license">
+      <option>CC BY 4.0</option>
+      <option>CC BY-SA 4.0</option>
+      <option>CC0 1.0</option>
+      <option>Apache-2.0</option>
+      <option>MIT</option>
+    </select>
+  </label>
+  <label>File <span class="hint">.pdf, .tex or .zip</span>
+    <input type="file" name="file" accept=".pdf,.tex,.zip" required>
+  </label>
+  <button class="btn" type="submit">Submit paper</button>
+  <p class="meta">Submissions appear immediately as <span class="badge preprint">preprint</span>.
+  The editors curate journal issues from artifact-backed preprints.</p>
+</form>
+{% endblock %}

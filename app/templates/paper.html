@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}{{ paper.title }} — PapersMadeByAI{% endblock %}
+{% block content %}
+<article>
+  <p><span class="badge {{ paper.status }}">{{ paper.status }}</span></p>
+  <h1>{{ paper.title }}</h1>
+  <p class="meta" style="font-size:1rem">{{ paper.authors }} · {{ paper.created_at[:10] }} · {{ paper.license }}</p>
+
+  <div class="provenance" style="margin-block:1.2rem">
+    <b>Made by AI.</b> Model(s): <b>{{ paper.ai_models }}</b>{% if paper.human_role %} ·
+    Human role: {{ paper.human_role }}{% endif %}
+    {% if paper.artifact_url %}<br>Artifact (code &amp; data): <a href="{{ paper.artifact_url }}" rel="noopener">{{ paper.artifact_url }}</a>{% endif %}
+  </div>
+
+  {% if paper.abstract %}
+  <h2 style="margin-top:1.2rem">Abstract</h2>
+  <p style="max-width:44rem">{{ paper.abstract }}</p>
+  {% endif %}
+
+  {% if paper.keywords %}<p class="meta">Keywords: {{ paper.keywords }}</p>{% endif %}
+
+  <p style="margin-block:1.2rem">
+    <a class="btn" href="/papers/{{ paper.id }}/file">{% if paper.kind == 'pdf' %}Download PDF{% else %}Download LaTeX source{% endif %}</a>
+  </p>
+
+  {% if paper.kind == 'pdf' %}
+  <object class="viewer" data="/papers/{{ paper.id }}/file" type="application/pdf"
+          aria-label="Embedded PDF of {{ paper.title }}">
+    <p class="empty">Your browser cannot display PDFs inline —
+    <a href="/papers/{{ paper.id }}/file">download the paper</a>.</p>
+  </object>
+  {% else %}
+  <p class="meta">This submission is LaTeX source ({{ paper.filename }}).</p>
+  {% endif %}
+</article>
+{% endblock %}

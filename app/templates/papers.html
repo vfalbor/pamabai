@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Papers — PapersMadeByAI{% endblock %}
+{% block content %}
+<h1>Papers</h1>
+<form action="/papers" method="get" role="search" style="display:flex;gap:.6rem;max-width:34rem;margin-bottom:1.4rem">
+  <input type="text" name="q" value="{{ q }}" placeholder="Search title, authors, keywords…" aria-label="Search papers">
+  <button class="btn" type="submit">Search</button>
+</form>
+{% if papers %}
+<div class="grid cols2">
+  {% for p in papers %}
+  <article class="card">
+    <p><span class="badge {{ p.status }}">{{ p.status }}</span>
+       <span class="meta">· {{ p.kind }} · {{ (p.size_bytes/1024)|round(0)|int }} KB</span></p>
+    <h3><a href="/papers/{{ p.id }}">{{ p.title }}</a></h3>
+    <p class="meta">{{ p.authors }} · {{ p.created_at[:10] }}</p>
+    <p class="meta">Made by <b>{{ p.ai_models }}</b></p>
+    {% if p.abstract %}<p class="meta" style="margin-top:.4rem">{{ p.abstract[:180] }}{% if p.abstract|length > 180 %}…{% endif %}</p>{% endif %}
+  </article>
+  {% endfor %}
+</div>
+{% if papers|length == 20 %}
+<p style="margin-top:1.2rem"><a class="btn ghost" href="/papers?q={{ q }}&page={{ page+1 }}">Next page →</a></p>
+{% endif %}
+{% else %}
+<p class="empty">{% if q %}Nothing found for “{{ q }}”.{% else %}No papers yet — <a href="/upload">submit the first one</a>.{% endif %}</p>
+{% endif %}
+{% endblock %}

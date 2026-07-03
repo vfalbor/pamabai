@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Vol. {{ issue.volume }}, Issue {{ issue.number }} — The PaMaBAI Journal{% endblock %}
+{% block content %}
+<div class="issue-masthead">
+  <p class="jname">The PaMaBAI Journal · Papers Made By AI</p>
+  <h1>{{ issue.title }}</h1>
+  <p class="meta">Volume {{ issue.volume }} · Issue {{ issue.number }} · Published {{ issue.published_at[:10] }}</p>
+</div>
+
+{% if issue.editorial %}
+<h2 style="margin-top:0">Editorial</h2>
+<div style="max-width:44rem;margin-bottom:1.6rem">
+  {% for para in issue.editorial.split('\n\n') %}<p>{{ para }}</p>{% endfor %}
+</div>
+{% endif %}
+
+<h2>In this issue</h2>
+{% if issue.articles %}
+<ol class="toc">
+  {% for a in issue.articles %}
+  <li>
+    <span class="t"><a href="/papers/{{ a.id }}">{{ a.title }}</a></span>
+    <span class="pg">{{ a.pages }}</span>
+    <span class="a">{{ a.authors }} — made by {{ a.ai_models }}</span>
+  </li>
+  {% endfor %}
+</ol>
+{% else %}
+<p class="empty">No articles in this issue yet.</p>
+{% endif %}
+{% endblock %}

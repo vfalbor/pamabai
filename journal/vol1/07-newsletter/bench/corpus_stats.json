@@ -1,0 +1,153 @@
+{
+  "total_apps_tested": 561,
+  "recommendation_distribution": {
+    "worth-watching": 313,
+    "niche": 223,
+    "skip": 21,
+    "strong-candidate": 4
+  },
+  "score_stats": {
+    "n": 561,
+    "mean": 58.05,
+    "median": 58.0,
+    "p10": 46.0,
+    "p90": 70.0,
+    "min": 17.0,
+    "max": 82.0
+  },
+  "score_histogram": {
+    "10": 1,
+    "30": 17,
+    "40": 77,
+    "50": 213,
+    "60": 196,
+    "70": 56,
+    "80": 1
+  },
+  "reviews_per_iso_week": {
+    "2026-W15": 55,
+    "2026-W16": 31,
+    "2026-W17": 49,
+    "2026-W18": 48,
+    "2026-W19": 36,
+    "2026-W20": 50,
+    "2026-W21": 30,
+    "2026-W22": 40,
+    "2026-W23": 44,
+    "2026-W24": 40,
+    "2026-W25": 41,
+    "2026-W26": 54,
+    "2026-W27": 43
+  },
+  "criterion_mean_scores": {
+    "additional_criterion": {
+      "mean": 4.75,
+      "n": 4
+    },
+    "community": {
+      "mean": 4.66,
+      "n": 529
+    },
+    "current_relevance": {
+      "mean": 7.16,
+      "n": 561
+    },
+    "differentiation": {
+      "mean": 6.3,
+      "n": 561
+    },
+    "documentation": {
+      "mean": 5.74,
+      "n": 556
+    },
+    "ease_of_integration": {
+      "mean": 4.97,
+      "n": 518
+    },
+    "ease_of_use": {
+      "mean": 3.23,
+      "n": 559
+    },
+    "extra_criterion": {
+      "mean": 5.0,
+      "n": 1
+    },
+    "hn_sentiment": {
+      "mean": 7.25,
+      "n": 395
+    },
+    "maturity": {
+      "mean": 5.03,
+      "n": 547
+    },
+    "novelty": {
+      "mean": 7.37,
+      "n": 561
+    },
+    "overall": {
+      "mean": 3.0,
+      "n": 1
+    },
+    "overall_app_score": {
+      "mean": 6.0,
+      "n": 1
+    },
+    "overall_impact": {
+      "mean": 6.25,
+      "n": 16
+    },
+    "overall_quality": {
+      "mean": 5.0,
+      "n": 1
+    },
+    "overall_sentiment": {
+      "mean": 6.0,
+      "n": 1
+    },
+    "overall_value": {
+      "mean": 6.0,
+      "n": 1
+    },
+    "performance": {
+      "mean": 5.17,
+      "n": 384
+    },
+    "recommendation_logic": {
+      "mean": 6.5,
+      "n": 2
+    },
+    "security": {
+      "mean": 5.75,
+      "n": 8
+    },
+    "support": {
+      "mean": 5.0,
+      "n": 1
+    },
+    "system_requirements": {
+      "mean": 4.57,
+      "n": 560
+    }
+  },
+  "tests_status": {
+    "tests_total_zero": 261,
+    "full_pass": 30,
+    "zero_pass_nonzero_total": 197,
+    "partial_pass": 73
+  },
+  "funnel_totals": {
+    "apps_found": 562,
+    "apps_tested": 542,
+    "apps_skipped": 20,
+    "num_daily_runs": 88
+  },
+  "date_range": [
+    "2026-04-06",
+    "2026-07-05"
+  ],
+  "weekly_top5_rows": 10,
+  "subscribers": {
+    "total": 3,
+    "confirmed": 3
+  }
+}

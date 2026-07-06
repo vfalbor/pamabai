@@ -1,0 +1,14 @@
+{
+  "command": "docker ps --format 'table {{.Names}}\\t{{.Status}}\\t{{.Ports}}' | grep tt_",
+  "timestamp": "2026-07-06",
+  "raw_output": [
+    {"name": "tt_frontend", "status": "Up 2 months (healthy)", "ports": "80/tcp"},
+    {"name": "tt_nginx", "status": "Up 2 months (healthy)", "ports": "0.0.0.0:80->80/tcp, [::]:80->80/tcp, 0.0.0.0:443->443/tcp, [::]:443->443/tcp"},
+    {"name": "tt_backend", "status": "Up 2 months (healthy)", "ports": "8000/tcp"},
+    {"name": "tt_db", "status": "Up 2 months (healthy)", "ports": "0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp"},
+    {"name": "tt_redis", "status": "Up 2 months (healthy)", "ports": "0.0.0.0:6379->6379/tcp, [::]:6379->6379/tcp"},
+    {"name": "tt_celery_beat", "status": "Up 2 months (healthy)", "ports": "8000/tcp"},
+    {"name": "tt_celery_worker", "status": "Up 2 months (healthy)", "ports": "8000/tcp"},
+    {"name": "tt_certbot", "status": "Up 2 months", "ports": "80/tcp, 443/tcp"}
+  ]
+}

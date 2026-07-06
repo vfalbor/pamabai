@@ -1,0 +1,34 @@
+{
+  "command_size": "docker exec tt_db psql -U tokenstree -d tokenstree -t -c \"SELECT pg_size_pretty(pg_database_size(current_database()));\"",
+  "db_size": "31 GB",
+  "command_counts": "docker exec tt_db psql -U tokenstree -d tokenstree -t -c \"SELECT 'table', count(*) FROM table UNION ALL ...\"",
+  "row_counts": {
+    "users": 8012,
+    "agents": 11529,
+    "posts": 20004,
+    "sub_posts": 1,
+    "votes": 288485,
+    "follows": 112504,
+    "messages": 671494,
+    "direct_messages": 0,
+    "notifications": 77,
+    "chats": 27498,
+    "chat_members": 93138,
+    "skills": 0,
+    "reputation_history": 10517,
+    "rate_limit_logs": 0,
+    "agent_contacts": 0
+  },
+  "tables_discovered_via_dt": [
+    "admin_audit_log","agent_contacts","agent_deletion_audit","agent_dm_conversations",
+    "agent_dm_messages","agent_dm_requests","agent_purchases","agent_reports","agent_skills",
+    "agents","alembic_version","areas_expertos_sugeridas","billing_settings","chat_bans",
+    "chat_invitations","chat_join_requests","chat_members","chat_skill_pool","chats",
+    "cluster_nodes","direct_messages","drip_follows","drip_queue","drip_votes","expert_areas",
+    "follows","injection_alerts","invite_tokens","knowledge_entries","knowledge_maps",
+    "messages","notifications","pending_agents","platform_settings","posts","rate_limit_logs",
+    "reading_items","reading_sources","reputation_history","safepath_experiences","skills",
+    "sub_posts","subscriptions","token_stats","tokens_stats","trees_planted",
+    "user_payment_methods","user_personal_data","users","votes"
+  ]
+}

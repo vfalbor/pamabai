@@ -1,0 +1,30 @@
+{
+  "method": "ridge",
+  "feature_names": [
+    "gbm_ret",
+    "merton_ret",
+    "kalman_ret",
+    "ml_ret",
+    "hmm_signal",
+    "kalman_signal",
+    "vol_annual_norm"
+  ],
+  "coefficients": [
+    0.0013366041605537824,
+    0.01689610912050537,
+    -0.0390502249163886,
+    0.003522104525034554,
+    9.103362793597985e-05,
+    -0.00041081094897125624,
+    -0.0007693071184735194
+  ],
+  "intercept": 0.0013729169132796106,
+  "alpha": 1.0,
+  "trained_at": "2026-07-06T01:00:23",
+  "n_samples": 566434,
+  "n_train": 453147,
+  "n_holdout": 113287,
+  "train_r2": 0.0016792413650634774,
+  "holdout_r2": 0.0007480208004106981,
+  "notes": "candidates=[ridge:sharpe=1.58/hr=55.8%, nnls:sharpe=-0.31/hr=50.4%] chose=ridge"
+}

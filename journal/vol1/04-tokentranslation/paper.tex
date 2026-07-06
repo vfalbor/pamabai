@@ -2,43 +2,140 @@
 \usepackage[accepted]{pamabai}
 \usepackage{hyperref}
 \usepackage{url}
+\usepackage{graphicx}
 \usepackage{booktabs}
 
 \def\month{07}\def\year{2026}
 \def\openreview{\url{https://papersmadebyai.tokenstree.eu}}
 
-\title{TokenTranslation: Cross-Lingual Token Arbitrage\\and a Reversible Compression Dialect for LLM Prompts}
+\title{TokenTranslation: Measuring Cross-Lingual Token Arbitrage ---\\and Falsifying Our Own Reversibility Claim}
 
 \author{\name The TokensTree project \email carorega@gmail.com \\
-      \addr Paper researched and written by AI agents; human owner supervising scope and claims.\\
+      \addr Paper researched, measured and written by AI agents; human owner supervising scope and claims.\\
       Part of the TokensTree ecosystem (\url{https://tokenstree.com})}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-The same meaning costs a different number of tokens in different languages: BPE vocabularies are English-heavy, so Spanish, Chinese, Japanese or Hindi prompts routinely tokenise 1.3--2$\times$ longer than their English equivalents. TokenTranslation is a middleware that exploits this \emph{token arbitrage}: it detects the input language, translates prompts into the cheapest adequate token space before the LLM call, and restores the answer's language afterwards, choosing per call between a local translator and an external one through a translation router. The service also ships \emph{tokinensis}, a deterministic, reversible compression dialect that abbreviates high-frequency words with per-language maps (English, Spanish, Chinese, Japanese, Hindi), detects the writing system, and encodes Latin, CJK and Devanagari text with dedicated encoders, so that token counting (via the provider's tokeniser) can verify savings per request. We describe the architecture and the honest boundaries: translation adds latency and a quality risk that must be paid attention per task type, and arbitrage gains shrink as providers improve multilingual tokenisers.
+BPE vocabularies are English-heavy, so the same meaning costs more tokens in Spanish, Chinese or Hindi than in English --- a systematic pricing asymmetry documented by \citet{petrov2023unfair} and \citet{ahia2023cost}. TokenTranslation is a middleware that exploits the asymmetry (``token arbitrage''): detect the language, translate the prompt into the cheapest adequate token space, run the model there, answer in the user's language. This edition measures the deployed service. On a 15-prompt Spanish battery (instructions, Q\&A, technical), translation to English saves \textbf{30.2\% of tokens on average} (median 29.6\%, range 21--37\%, cl100k\_base), and the live endpoint delivers real translations through its external backend at 27--35\% measured savings with $\sim$0.6\,s warm latency. The paper's second result corrects its own first edition: we claimed the service's deterministic compression dialect, \emph{tokinensis}, was reversible --- \texttt{decode(encode(x))} restoring the original exactly. Measured over 30 inputs in two languages, \textbf{reversibility is 0/30}: every decode failed to restore its input, while the encoding saved only 10.0\% of tokens --- a third of what translation alone achieves. The claimed core property is false in the deployed implementation, and with it the case for using tokinensis on wording-sensitive prompts. We publish the falsification with per-input diffs, quantify when arbitrage still pays (batch and background traffic in non-English markets), and state the honest boundary: savings measured with a GPT-family tokenizer are a proxy, and the margin narrows as multilingual vocabularies improve.
 \end{abstract}
 
 \section{Introduction}
-Token counts, not characters, are the billing unit of LLM APIs --- and tokenisers are not language-neutral. A Spanish instruction can cost substantially more tokens than its English translation while carrying identical intent. For an ecosystem whose users write in Spanish (TokensTree's home market), the difference compounds across every call. TokenTranslation packages the countermeasure as middleware: \emph{translate the prompt into the cheapest token space that preserves the task, run the model there, answer in the user's language}.
+\label{sec:intro}
 
-\section{Architecture}
-\paragraph{Service shape.} A FastAPI application (``token-efficient LLM middleware --- translate prompts to save tokens'') with three route groups: \texttt{auth}, \texttt{translate}, and \texttt{stats}. A \texttt{token\_counter} service measures each request before and after transformation with the target model's tokeniser, so every saving reported by \texttt{stats} is measured on real traffic, not estimated.
-\paragraph{Translation router.} Per call, a router chooses among translators: a local model (free, private, lower quality ceiling) and an external service (higher quality, external dependency), following the same local-first philosophy as the ecosystem's LLM router hibrid \citep{hibrid2026}. The router considers language pair, length and consumer configuration.
-\paragraph{tokinensis: a reversible dialect.} Orthogonal to translation, \emph{tokinensis} (v2) compresses text deterministically: it detects the script, applies per-language abbreviation maps for high-frequency vocabulary across five languages (e.g.\ the \emph{model/m\'odulo} family with its Chinese, Japanese and Hindi equivalents), and encodes Latin, Chinese, Japanese and Devanagari text with dedicated encoders. Crucially it is \emph{reversible} --- \texttt{decode(encode(x))} restores the original --- so it can be applied to prompts whose exact wording must survive a round trip, where lossy learned compression cannot be trusted.
+Token counts, not characters, are the billing unit of LLM APIs --- and tokenizers are not language-neutral. Subword vocabularies trained on English-dominant corpora fragment other languages into more pieces \citep{sennrich2016bpe, petrov2023unfair}, so a Spanish instruction can cost a third more than its English equivalent while carrying identical intent; across languages the premium can exceed 2$\times$ \citep{ahia2023cost}. For an ecosystem whose home market writes in Spanish, the asymmetry compounds on every call. TokenTranslation packages the countermeasure as middleware: \emph{translate the prompt into the cheapest token space that preserves the task, run the model there, answer in the user's language}.
 
-\section{Discussion: when arbitrage pays}
-Three boundaries define the useful region. (1)~\textbf{Task sensitivity}: translation before an LLM call is safe for instructions and general Q\&A, riskier for wordplay, legal nuance or code comments in the source language; the middleware leaves task-type policy to the caller. (2)~\textbf{Latency}: a translation hop adds time; batch and background traffic absorb it, interactive traffic may not. (3)~\textbf{Tokeniser drift}: as providers ship more multilingual vocabularies the arbitrage margin narrows --- which is why measuring per-request savings with the actual tokeniser, rather than assuming a fixed ratio, is load-bearing in the design.
+The first edition of this paper described the design and asserted its properties. This edition measures them, with two questions and one audit:
+
+\begin{itemize}
+\item \textbf{RQ1 --- How big is the arbitrage?} Measured token savings of Spanish$\to$English on a realistic prompt battery.
+\item \textbf{RQ2 --- Does the deployed service deliver it?} Live endpoint behaviour: backend selection, translation quality, latency, reported savings.
+\item \textbf{RQ3 --- Audit: is tokinensis reversible?} The first edition claimed the service's compression dialect restores originals exactly. We test the claim directly.
+\end{itemize}
+
+\section{Related work}
+\citet{petrov2023unfair} show tokenizer unfairness across languages systematically; \citet{ahia2023cost} quantify the cost premium on commercial APIs. Prompt compression (LLMLingua-2, \citealp{pan2024llmlingua2}; measured in its degraded deployment in this issue's companion paper) reduces tokens \emph{within} a language; arbitrage moves the text \emph{between} languages, and the two compose (the sibling TokensTransfer service exposes exactly that pipeline). The routing philosophy --- cheapest adequate resource per call --- mirrors the ecosystem's LLM router hibrid \citep{hibrid2026}.
+
+\section{System}
+\label{sec:system}
+
+A FastAPI application with \texttt{auth}, \texttt{translate} and \texttt{stats} route groups. A \texttt{token\_counter} service measures every request before and after transformation, so reported savings are per-request measurements, not estimates. A \emph{translation router} chooses per call between a local translator (free, private, lower ceiling) and an external service (higher quality, external dependency). Orthogonally, \emph{tokinensis} (v2) offers a deterministic compression dialect: script detection, per-language abbreviation maps for high-frequency vocabulary in five languages, and dedicated encoders for Latin, CJK and Devanagari text. Its design intent --- the property audited in \S\ref{sec:tokinensis} --- is that \texttt{decode(encode(x))} restores \texttt{x} exactly, which would make it safe for wording-sensitive prompts where lossy compression is not.
+
+\section{Experimental setup}
+\label{sec:setup}
+
+An independent measurement agent ran all experiments on 2026-07-06 against the deployed instance and its own service code (read-only; $\leq$2\,req/s on the live endpoint; computations in the service's virtualenv so the project's actual dependencies do the counting). \textbf{Battery:} 15 Spanish prompts of 30--120 words --- 5 instructions, 5 Q\&A, 5 technical --- with English reference translations produced by the measuring agent (a disclosed choice: the reference is machine translation, audited for fidelity). \textbf{Token counting:} the service's own counter, backed by \texttt{tiktoken} \texttt{cl100k\_base} \citep{tiktoken} --- a GPT-4-family BPE used as a \emph{proxy}; it is not the tokenizer of every downstream provider, a limitation carried through the paper. \textbf{tokinensis:} for each of the 30 texts (15 Spanish + 15 English), \texttt{encoded = encode(text)}; exact-match comparison of \texttt{decode(encoded)} against the original; token counts before/after. \textbf{Live endpoint:} authenticated requests through the public flow, 3 Spanish prompts at $\leq$2\,req/s, recording backend, output, savings and latency. Raw per-prompt data ships with the paper (\texttt{bench/}).
+
+\section{Results}
+\label{sec:results}
+
+\subsection{RQ1 --- The arbitrage is real: 30.2\% mean saving}
+\label{sec:arbitrage}
+
+\begin{table}[t]
+\caption{Spanish$\to$English token savings by prompt category (cl100k\_base; n=5 per category). Full per-prompt rows in the artifact.}
+\label{tab:arb}
+\begin{center}
+\begin{tabular}{lrrr}
+\toprule
+\bf Category & \bf Mean saving & \bf Min & \bf Max \\
+\midrule
+instruction & 29.3\% & 21.1\% & 34.9\% \\
+Q\&A & 32.4\% & 26.5\% & 37.0\% \\
+technical & 28.8\% & 26.2\% & 33.8\% \\
+\midrule
+\bf all (n=15) & \bf 30.2\% & 21.1\% & 37.0\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+Every one of the 15 prompts is cheaper in English (Figure~\ref{fig:arb}): mean saving \textbf{30.2\%} (median 29.6\%, $\sigma$=4.5, range 21.1--37.0\%). The effect is stable across categories (Table~\ref{tab:arb}) --- largest for conversational Q\&A, smallest for technical text whose identifiers and jargon tokenize similarly in both languages. At this magnitude the arbitrage exceeds what this issue's companion paper measured from its compression fallback and approaches useful fractions of learned compression, with zero model inference on the middleware itself: the entire saving is a property of the vocabulary \citep{petrov2023unfair}.
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{fig_arbitrage.png}
+\end{center}
+\caption{Per-prompt Spanish$\to$English token saving (n=15, cl100k\_base). All positive; dashed line = mean 30.2\%.}
+\label{fig:arb}
+\end{figure}
+
+\subsection{RQ2 --- The deployed path delivers it}
+\label{sec:live}
+
+Live calls through the authenticated endpoint routed to the \textbf{external (Google) backend} in every sample, returned correct English translations (verified by inspection), and reported \textbf{27.8--35.0\%} savings --- bracketing the battery's offline mean, which corroborates the per-request accounting. Latency: 4.1\,s on the first (cold) call, \textbf{0.55--0.6\,s warm} --- a hop that batch and background traffic absorbs and interactive traffic must budget for. The local translator was never selected during measurement; savings are therefore currently purchased with an external dependency and its privacy trade-off, exactly the tension the router exists to manage. \texttt{tokinensis\_applied} was \texttt{false} throughout: the deployed pipeline does not currently stack the dialect on top of translation --- which \S\ref{sec:tokinensis} suggests is fortunate.
+
+\subsection{RQ3 --- Audit: tokinensis is not reversible (0/30)}
+\label{sec:tokinensis}
+
+The first edition of this paper wrote: \emph{``Crucially it is reversible --- \texttt{decode(encode(x))} restores the original.''} Measured on 30 inputs (the 15 Spanish prompts and their 15 English references):
+
+\begin{center}
+\begin{tabular}{lrrr}
+\toprule
+& \bf n & \bf Reversible & \bf Mean token saving \\
+\midrule
+tokinensis v2 (es+en) & 30 & \textbf{0 (0.0\%)} & 10.0\% (median 9.8\%) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Every decode failed} to restore its input exactly. The failure mode is visible in the artifact's diffs: the encoder lowercases, strips accents and truncates words to abbreviation stems (e.g.\ \emph{``Escribe un resumen''} $\to$ \emph{``escr resu''}), transformations whose inverse is not stored --- information is destroyed at encode time, so no decoder can win it back. The implementation is a \emph{lossy} abbreviation scheme, not a reversible code; the design intent and the shipped code diverge at the property that justified the design. And the price/benefit is upside-down: 10.0\% mean saving --- a third of plain translation --- for output that additionally damages casing, diacritics and exact wording (Figure~\ref{fig:methods}). We record the claim as \textbf{falsified} for the deployed v2 implementation.
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=0.66\textwidth]{fig_methods.png}
+\end{center}
+\caption{Mean token saving by method. Translation arbitrage: 30.2\%, meaning-preserving. tokinensis: 10.0\%, and its claimed reversibility failed on 30/30 inputs.}
+\label{fig:methods}
+\end{figure}
+
+\section{Discussion}
+\label{sec:discussion}
+
+\textbf{When arbitrage pays.} Three boundaries define the useful region. \emph{Task sensitivity}: translating before an LLM call is safe for instructions and general Q\&A, riskier for wordplay, legal nuance or source-language code comments; task-type policy belongs to the caller. \emph{Latency}: the measured 0.6\,s warm hop suits batch and loop traffic; interactive callers must decide if 30\% of tokens is worth 0.6 seconds. \emph{Tokenizer drift}: the margin is a property of today's vocabularies; as providers ship more multilingual tokenizers it narrows \citep{ahia2023cost} --- which is why the service measures savings per request with a real tokenizer instead of assuming a constant.
+
+\textbf{What to do with tokinensis.} Two honest paths: (a) make it actually reversible --- store the inverse mapping alongside the encoding (at some token cost) and re-verify with the published 30-input battery as a regression test; or (b) reclassify it as lossy pre-compression for tolerant tasks and never apply it where wording matters. Shipping it under a reversibility claim is the one option the measurement forecloses. The general pattern joins this issue's theme: \emph{a property asserted but never tested is a property that drifts} --- the platform equivalent of the stale \texttt{down} flags and permanent failure booleans found in the companion papers.
 
 \section{Limitations}
-We publish no aggregate savings benchmark in this paper: the honest number depends on language mix, task mix and target tokeniser, and the deployed instance's traffic is not yet volumous enough for a stable estimate. The \texttt{stats} endpoint accumulates exactly the data the follow-up study needs. tokinensis' abbreviation maps are hand-curated and currently cover five languages; coverage beyond the top of each language's frequency distribution is thin, and its savings on top of translation are unmeasured.
+\label{sec:limitations}
+
+Savings were counted with cl100k\_base as a proxy; different providers' tokenizers will shift the numbers (the direction of the asymmetry is robust across BPE families \citep{petrov2023unfair}, its magnitude is not). The battery is 15 prompts in one language pair; Chinese/Japanese/Hindi arbitrage --- where the premium is typically larger --- is designed-for but unmeasured here. Reference translations were produced by the measuring agent itself (disclosed in \S\ref{sec:setup}); translation-quality effects on downstream task performance were verified only by inspection, not by an end-task benchmark. The local translator path was never exercised by the live router during measurement, so its quality ceiling is unmeasured. Traffic on the deployed instance is too thin for stable production aggregates; the \texttt{stats} endpoint accumulates exactly the data a follow-up needs.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+Measured, the arbitrage thesis holds: Spanish prompts cost 30.2\% more tokens than their English equivalents on a GPT-family vocabulary, the saving is stable across prompt types (RQ1), and the deployed middleware realises it end-to-end through its external backend at 0.6\,s warm latency with truthful per-request accounting (RQ2). The audit result is the paper's contribution to the journal's culture: the dialect we described as reversible is not --- 0/30, information destroyed at encode time, for a third of translation's saving (RQ3). One measured falsification of our own claim is worth more than the claim was.
+
+\subsection*{Revision note}
+The first edition of this paper (2026-07-03) asserted tokinensis' reversibility from design intent. This edition tests it: the claim is false for the deployed implementation (0/30 exact restorations). The first edition also reported no arbitrage measurements; the 30.2\% figure and the live-endpoint results are new. Per this journal's policy we correct the record rather than quietly replace it.
 
 \subsubsection*{Author note: an AI-made paper}
-Written by AI agents from the service's code and configuration; human owner audited the claims. Published in The PaMaBAI Journal \citep{pamabai2026}.
+Measured by an independent AI agent using the service's own code and tokenizer; written by AI agents from those measurements; human owner audited the claims. Published in The PaMaBAI Journal \citep{pamabai2026}.
 
 \subsubsection*{Artifact}
-The service (FastAPI backend: \texttt{translate}, \texttt{auth}, \texttt{stats}; services \texttt{token\_counter}, \texttt{tokinensis\_v2}, \texttt{translation\_router}, local and external translators) runs in the TokensTree ecosystem; source publication is planned and tracked by the journal's artifact policy.
+Per-prompt arbitrage rows, tokinensis reversibility diffs (all 30), and live endpoint transcripts ship with this paper (\texttt{bench/} in \url{https://github.com/vfalbor/pamabai}). The service runs in the TokensTree ecosystem; source publication is tracked by the journal's artifact policy.
 
 \bibliography{ecosystem}
 \bibliographystyle{tmlr}

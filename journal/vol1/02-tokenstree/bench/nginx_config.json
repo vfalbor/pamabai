@@ -1,0 +1,24 @@
+{
+  "upstream_conf_path": "/opt/tokenstree/nginx/conf.d/upstream.conf",
+  "upstream_raw": "upstream backend_cluster {\n    server backend:8000 weight=5;\n    server 172.18.0.1:8001 weight=5 down;\n    server 172.18.0.1:8002 weight=5 down;\n    keepalive 32;\n}",
+  "rate_limit_zones_raw": [
+    "limit_req_zone  $binary_remote_addr zone=api:20m      rate=10r/s;   # 600r/m DDoS shield -- fine control in backend",
+    "limit_req_zone  $binary_remote_addr zone=auth:5m     rate=10r/m;",
+    "limit_req_zone  $binary_remote_addr zone=general:10m rate=120r/m;",
+    "limit_req_zone  $binary_remote_addr zone=search:10m  rate=2r/s;    # HNSW search -- CPU intensive"
+  ],
+  "rate_limit_directives_in_use": [
+    "limit_req zone=auth burst=5 nodelay;",
+    "limit_req zone=search burst=5 nodelay;",
+    "limit_req zone=api burst=60 nodelay;",
+    "limit_req zone=general burst=5 nodelay;",
+    "limit_req zone=api burst=30 nodelay;",
+    "limit_req zone=general burst=5 nodelay;",
+    "limit_req zone=auth burst=3 nodelay;"
+  ],
+  "location_comments": [
+    "/api/v1/auth/ -> backend (rate limit estricto: 10r/m)",
+    "/api/ -> backend REST (rate limit: 60r/m)",
+    "/health -> backend (sin rate limit, sin log)"
+  ]
+}

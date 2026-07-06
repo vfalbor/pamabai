@@ -1,0 +1,47 @@
+[
+  {
+    "original_text": "¿Cuál es la capital de Francia y por qué es importante históricamente?",
+    "optimized_text": "What is the capital of France and why is it historically important?",
+    "source_lang": "es",
+    "target_lang": "en",
+    "tokens_original": 18,
+    "tokens_final": 13,
+    "tokens_saved": 5,
+    "savings_percent": 27.78,
+    "backend_used": "google",
+    "tokinensis_applied": false,
+    "tokinensis_version": null,
+    "_latency_ms": 4135.8,
+    "_prompt": "¿Cuál es la capital de Francia y por qué es importante históricamente?"
+  },
+  {
+    "original_text": "Explícame brevemente cómo funciona la fotosíntesis en las plantas verdes.",
+    "optimized_text": "Briefly explain to me how photosynthesis works in green plants.",
+    "source_lang": "es",
+    "target_lang": "en",
+    "tokens_original": 20,
+    "tokens_final": 13,
+    "tokens_saved": 7,
+    "savings_percent": 35.0,
+    "backend_used": "google",
+    "tokinensis_applied": false,
+    "tokinensis_version": null,
+    "_latency_ms": 554.9,
+    "_prompt": "Explícame brevemente cómo funciona la fotosíntesis en las plantas verdes."
+  },
+  {
+    "original_text": "Necesito una lista corta de tres ideas para mejorar la productividad en el trabajo remoto.",
+    "optimized_text": "I need a short list of three ideas to improve productivity in remote work.",
+    "source_lang": "es",
+    "target_lang": "en",
+    "tokens_original": 22,
+    "tokens_final": 15,
+    "tokens_saved": 7,
+    "savings_percent": 31.82,
+    "backend_used": "google",
+    "tokinensis_applied": false,
+    "tokinensis_version": null,
+    "_latency_ms": 601.7,
+    "_prompt": "Necesito una lista corta de tres ideas para mejorar la productividad en el trabajo remoto."
+  }
+]

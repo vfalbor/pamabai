@@ -1,0 +1,27 @@
+{
+  "command": "curl -s -m5 -o /dev/null -w '%{http_code} %{time_total}' http://172.18.0.1:PORT/health  (run from primary node, 5 samples per port)",
+  "results": {
+    "8000": [
+      {"http_code": "000", "time_total": 0.000170, "note": "connection failed/refused"},
+      {"http_code": "000", "time_total": 0.000110},
+      {"http_code": "000", "time_total": 0.000108},
+      {"http_code": "000", "time_total": 0.000108},
+      {"http_code": "000", "time_total": 0.000111}
+    ],
+    "8001": [
+      {"http_code": 200, "time_total": 0.005310},
+      {"http_code": 200, "time_total": 0.039379},
+      {"http_code": 200, "time_total": 0.037531},
+      {"http_code": 200, "time_total": 0.038142},
+      {"http_code": 200, "time_total": 0.037762}
+    ],
+    "8002": [
+      {"http_code": 200, "time_total": 0.015938},
+      {"http_code": 200, "time_total": 0.041062},
+      {"http_code": 200, "time_total": 0.037612},
+      {"http_code": 200, "time_total": 0.037338},
+      {"http_code": 200, "time_total": 0.036768}
+    ]
+  },
+  "note": "Port 8000 is not host-bound on 172.18.0.1 (tt_backend container only exposes 8000/tcp internally, reached via nginx's 'backend' docker-network alias, not the 172.18.0.1 bridge IP). Ports 8001/8002 ARE reachable and healthy despite being marked 'down' in nginx upstream.conf -- see findings.md for discussion."
+}

@@ -1,0 +1,1359 @@
+{
+  "arbitrage_rows": [
+    {
+      "id": "instr-1",
+      "category": "instruction",
+      "words_es": 56,
+      "words_en": 49,
+      "tokens_es": 86,
+      "tokens_en": 56,
+      "saving_pct_es_to_en": 34.88
+    },
+    {
+      "id": "instr-2",
+      "category": "instruction",
+      "words_es": 48,
+      "words_en": 46,
+      "tokens_es": 71,
+      "tokens_en": 56,
+      "saving_pct_es_to_en": 21.13
+    },
+    {
+      "id": "instr-3",
+      "category": "instruction",
+      "words_es": 50,
+      "words_en": 48,
+      "tokens_es": 72,
+      "tokens_en": 53,
+      "saving_pct_es_to_en": 26.39
+    },
+    {
+      "id": "instr-4",
+      "category": "instruction",
+      "words_es": 50,
+      "words_en": 45,
+      "tokens_es": 78,
+      "tokens_en": 51,
+      "saving_pct_es_to_en": 34.62
+    },
+    {
+      "id": "instr-5",
+      "category": "instruction",
+      "words_es": 51,
+      "words_en": 49,
+      "tokens_es": 78,
+      "tokens_en": 55,
+      "saving_pct_es_to_en": 29.49
+    },
+    {
+      "id": "qa-1",
+      "category": "qa",
+      "words_es": 52,
+      "words_en": 47,
+      "tokens_es": 77,
+      "tokens_en": 53,
+      "saving_pct_es_to_en": 31.17
+    },
+    {
+      "id": "qa-2",
+      "category": "qa",
+      "words_es": 47,
+      "words_en": 46,
+      "tokens_es": 68,
+      "tokens_en": 50,
+      "saving_pct_es_to_en": 26.47
+    },
+    {
+      "id": "qa-3",
+      "category": "qa",
+      "words_es": 47,
+      "words_en": 47,
+      "tokens_es": 81,
+      "tokens_en": 51,
+      "saving_pct_es_to_en": 37.04
+    },
+    {
+      "id": "qa-4",
+      "category": "qa",
+      "words_es": 48,
+      "words_en": 44,
+      "tokens_es": 75,
+      "tokens_en": 48,
+      "saving_pct_es_to_en": 36.0
+    },
+    {
+      "id": "qa-5",
+      "category": "qa",
+      "words_es": 46,
+      "words_en": 44,
+      "tokens_es": 73,
+      "tokens_en": 50,
+      "saving_pct_es_to_en": 31.51
+    },
+    {
+      "id": "tech-1",
+      "category": "technical",
+      "words_es": 48,
+      "words_en": 43,
+      "tokens_es": 71,
+      "tokens_en": 50,
+      "saving_pct_es_to_en": 29.58
+    },
+    {
+      "id": "tech-2",
+      "category": "technical",
+      "words_es": 49,
+      "words_en": 41,
+      "tokens_es": 70,
+      "tokens_en": 51,
+      "saving_pct_es_to_en": 27.14
+    },
+    {
+      "id": "tech-3",
+      "category": "technical",
+      "words_es": 49,
+      "words_en": 42,
+      "tokens_es": 77,
+      "tokens_en": 51,
+      "saving_pct_es_to_en": 33.77
+    },
+    {
+      "id": "tech-4",
+      "category": "technical",
+      "words_es": 45,
+      "words_en": 43,
+      "tokens_es": 65,
+      "tokens_en": 48,
+      "saving_pct_es_to_en": 26.15
+    },
+    {
+      "id": "tech-5",
+      "category": "technical",
+      "words_es": 48,
+      "words_en": 48,
+      "tokens_es": 73,
+      "tokens_en": 53,
+      "saving_pct_es_to_en": 27.4
+    }
+  ],
+  "arbitrage_summary": {
+    "mean_saving_pct": 30.18,
+    "median_saving_pct": 29.58,
+    "stdev_saving_pct": 4.49,
+    "min_saving_pct": 21.13,
+    "max_saving_pct": 37.04,
+    "tokenizer": "tiktoken cl100k_base (GPT-4-family BPE; used as proxy, NOT Anthropic's own tokenizer)"
+  },
+  "tokinensis_rows": [
+    {
+      "id": "instr-1",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 86,
+      "tokens_after": 70,
+      "saving_pct": 18.6,
+      "reversible": false,
+      "original": "Escribe un resumen de tres párrafos sobre los efectos del cambio climático en la agricultura de América Latina. Incluye datos sobre la disminución de las cosechas de maíz y trigo, menciona al menos dos países afectados y propone dos medidas de adaptación que los agricultores pequeños podrían implementar con recursos limitados en los próximos cinco años.",
+      "encoded": "escr resu de tres párr sobr efec del camb clim en agri de amér lati. incl dat sobr dism de cose de maíz y trig, menc al men dos país afec y prop dos medi de adap que agri pequ podr impl con recu limi en próx cinc años.",
+      "decoded": "escr resu de tres párr sobr efec delete camb clim en agri de amér lati. incl data sobr dism de cose de maíz y trig, menc al less dos país afec y prop dos medi de adap que agri pequ podr impl con recu limi en próx cinc años.",
+      "glossary_sample": [
+        "escribe→escr",
+        "resumen→resu",
+        "párrafos→párr",
+        "sobre→sobr",
+        "efectos→efec",
+        "cambio→camb"
+      ]
+    },
+    {
+      "id": "instr-1",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 56,
+      "tokens_after": 62,
+      "saving_pct": -10.71,
+      "reversible": false,
+      "original": "Write a three-paragraph summary about the effects of climate change on agriculture in Latin America. Include data on the decline of corn and wheat harvests, mention at least two affected countries, and propose two adaptation measures that small farmers could implement with limited resources over the next five years.",
+      "encoded": "skr thre - para summ abou effe of clim chan on agri in lati amer. imp dat on decl of corn and whea harv, ment at leas two affe coun, and prop two adap meas pet farm kan impl with limi reso over fut five year.",
+      "decoded": "write thre - para summ abou effe of clim chan on agri in lati amer. import data on decl of corn and whea harv, ment at leas two affe coun, and prop two adap meas small farm can impl with limi reso over future five year.",
+      "glossary_sample": [
+        "write→skr",
+        "three→thre",
+        "paragraph→para",
+        "summary→summ",
+        "about→abou",
+        "effects→effe"
+      ]
+    },
+    {
+      "id": "instr-2",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 71,
+      "tokens_after": 61,
+      "saving_pct": 14.08,
+      "reversible": false,
+      "original": "Organiza una lista de tareas para lanzar un producto de software en tres semanas. Divide el trabajo en diseño, desarrollo, pruebas y marketing. Para cada categoría, indica quién debería ser responsable, cuánto tiempo tomará aproximadamente y qué riesgos podrían retrasar la entrega si no se gestionan a tiempo.",
+      "encoded": "orga list de tare por run prod de kod en tres sema. divi trab en dise, desa, prue y mark. por tot cate, indi quié debe est resp, cuán tem toma apro y qué ries podr retr entr kon no se gest a tem.",
+      "decoded": "orga list de tare for run prod de code en tres sema. divi trab en dise, desa, prue y mark. for all cate, indi quié debe is resp, cuán time toma apro y qué ries podr retr entr if no se gest a time.",
+      "glossary_sample": [
+        "organiza→orga",
+        "lista→list",
+        "tareas→tare",
+        "para→por",
+        "lanzar→run",
+        "producto→prod"
+      ]
+    },
+    {
+      "id": "instr-2",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 56,
+      "tokens_after": 55,
+      "saving_pct": 1.79,
+      "reversible": false,
+      "original": "Organize a task list to launch a software product in three weeks. Divide the work into design, development, testing, and marketing. For each category, indicate who should be responsible, roughly how long it will take, and what risks could delay delivery if not managed in time.",
+      "encoded": "orga task list to run kod prod in thre week. divi work into desi, deve, test, and mark. por each cate, indi mus est resp, roug how long fut take, and risk kan dela deli kon not mana in tem.",
+      "decoded": "orga task list to run code prod in thre week. divi work into desi, deve, test, and mark. for each cate, indi must is resp, roug how long future take, and risk can dela deli if not mana in time.",
+      "glossary_sample": [
+        "organize→orga",
+        "launch→run",
+        "software→kod",
+        "product→prod",
+        "three→thre",
+        "weeks→week"
+      ]
+    },
+    {
+      "id": "instr-3",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 72,
+      "tokens_after": 72,
+      "saving_pct": 0.0,
+      "reversible": false,
+      "original": "Redacta un correo electrónico formal dirigido al departamento de recursos humanos solicitando dos semanas de vacaciones en agosto. Explica brevemente que el equipo ya tiene cobertura asegurada durante ese periodo, adjunta la fecha exacta de inicio y fin, y pide confirmación por escrito antes de que finalice la semana actual.",
+      "encoded": "reda corr elec form diri al depa de recu huma soli dos sema de vaca en agos. expl brev que gru pas tien cobe aseg dura peri, adju fech exac de inic y fin, y pide conf por escr pas de que fina sema now.",
+      "decoded": "reda corr elec form diri al depa de recu huma soli dos sema de vaca en agos. expl brev que group past tien cobe aseg dura peri, adju fech exac de inic y fin, y pide conf for escr past de que fina sema now.",
+      "glossary_sample": [
+        "redacta→reda",
+        "correo→corr",
+        "electrónico→elec",
+        "formal→form",
+        "dirigido→diri",
+        "departamento→depa"
+      ]
+    },
+    {
+      "id": "instr-3",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 53,
+      "tokens_after": 56,
+      "saving_pct": -5.66,
+      "reversible": false,
+      "original": "Draft a formal email addressed to the human resources department requesting two weeks of vacation in August. Briefly explain that the team already has coverage arranged for that period, attach the exact start and end dates, and ask for written confirmation before the end of the current week.",
+      "encoded": "draf form emai addr to hom reso depa requ two week of vaca in augu. brie exp gru pas ten cove arra por tem, atta exac akt and end date, and ask por writ conf pas end of now week.",
+      "decoded": "draf form emai addr to human reso depa requ two week of vaca in augu. brie explain group past have cove arra for time, atta exac activate and end date, and ask for writ conf past end of now week.",
+      "glossary_sample": [
+        "draft→draf",
+        "formal→form",
+        "email→emai",
+        "addressed→addr",
+        "human→hom",
+        "resources→reso"
+      ]
+    },
+    {
+      "id": "instr-4",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 78,
+      "tokens_after": 61,
+      "saving_pct": 21.79,
+      "reversible": false,
+      "original": "Diseña un plan de estudio de ocho semanas para preparar un examen de certificación en gestión de proyectos. Incluye temas semanales, tiempo diario recomendado de estudio, un simulacro de examen en la semana seis y una revisión final concentrada en los conceptos que suelen causar más errores según exámenes anteriores.",
+      "encoded": "dise plan de lem de ocho sema por prep exam de cert en gest de proy. incl tema sema, tem diar reco de lem, simu de exam en sema seis y revi fina conc en conc que suel caus mas erro segú exám ante.",
+      "decoded": "dise plan de learn de ocho sema for prep exam de cert en gest de proy. incl tema sema, time diar reco de learn, simu de exam en sema seis y revi fina conc en conc que suel caus more erro segú exám ante.",
+      "glossary_sample": [
+        "diseña→dise",
+        "estudio→lem",
+        "semanas→sema",
+        "para→por",
+        "preparar→prep",
+        "examen→exam"
+      ]
+    },
+    {
+      "id": "instr-4",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 51,
+      "tokens_after": 53,
+      "saving_pct": -3.92,
+      "reversible": false,
+      "original": "Design an eight-week study plan to prepare for a project management certification exam. Include weekly topics, recommended daily study time, a practice exam in week six, and a final review focused on the concepts that tend to cause the most errors according to previous exams.",
+      "encoded": "desi eigh - week lem plan to prep por proj mana cert exam. imp week topi, reco dail lem tem, prac exam in week six, and fina revi focu on conc tend to caus most erro acco to pas exam.",
+      "decoded": "desi eigh - week learn plan to prep for proj mana cert exam. import week topi, reco dail learn time, prac exam in week six, and fina revi focu on conc tend to caus most erro acco to past exam.",
+      "glossary_sample": [
+        "design→desi",
+        "eight→eigh",
+        "study→lem",
+        "prepare→prep",
+        "for→por",
+        "project→proj"
+      ]
+    },
+    {
+      "id": "instr-5",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 78,
+      "tokens_after": 62,
+      "saving_pct": 20.51,
+      "reversible": false,
+      "original": "Crea una receta detallada para un plato vegetariano que pueda prepararse en menos de cuarenta minutos, usando ingredientes comunes de temporada. Especifica las cantidades exactas, el orden de los pasos, el tiempo de cocción de cada componente y una sugerencia de acompañamiento que combine bien con el sabor principal del plato.",
+      "encoded": "crea rece deta por plat vege que pued prep en men de cuar minu, usan ingr comu de temp. espe cant exac, orde de paso, tem de cocc de tot comp y suge de acom que comb bon con sabo prin del plat.",
+      "decoded": "crea rece deta for plat vege que pued prep en less de cuar minu, usan ingr comu de temp. espe cant exac, orde de paso, time de cocc de all comp y suge de acom que comb good con sabo prin delete plat.",
+      "glossary_sample": [
+        "receta→rece",
+        "detallada→deta",
+        "para→por",
+        "plato→plat",
+        "vegetariano→vege",
+        "pueda→pued"
+      ]
+    },
+    {
+      "id": "instr-5",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 55,
+      "tokens_after": 54,
+      "saving_pct": 1.82,
+      "reversible": false,
+      "original": "Create a detailed recipe for a vegetarian dish that can be prepared in under forty minutes, using common seasonal ingredients. Specify exact quantities, the order of the steps, the cooking time for each component, and a side dish suggestion that pairs well with the main flavor of the dish.",
+      "encoded": "gen deta reci por vege dish kan est prep in unde fort minu, usin comm seas ingr. spec exac quan, orde of step, cook tem por each comp, and side dish sugg pair well with main flav of dish.",
+      "decoded": "generate deta reci for vege dish can is prep in unde fort minu, usin comm seas ingr. spec exac quan, orde of step, cook time for each comp, and side dish sugg pair well with main flav of dish.",
+      "glossary_sample": [
+        "create→gen",
+        "detailed→deta",
+        "recipe→reci",
+        "for→por",
+        "vegetarian→vege",
+        "can→kan"
+      ]
+    },
+    {
+      "id": "qa-1",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 77,
+      "tokens_after": 59,
+      "saving_pct": 23.38,
+      "reversible": false,
+      "original": "¿Por qué el cielo se ve azul durante el día pero se torna rojo o naranja al atardecer? Explica el fenómeno físico detrás de este cambio de color, menciona el nombre del proceso involucrado y describe cómo la posición del sol en el horizonte afecta la longitud del recorrido de la luz.",
+      "encoded": "por qué ciel se ve azul dura día pero se torn rojo o nara al atar? expl fenó físi detr de camb de colo, menc nomb del proc invo y desc cómo lok del sol en hori afec num del reco de luz.",
+      "decoded": "for qué ciel se ve azul dura día pero se torn rojo o nara al atar? expl fenó físi detr de camb de colo, menc nomb delete proc invo y desc cómo location delete sol en hori afec number delete reco de luz.",
+      "glossary_sample": [
+        "cielo→ciel",
+        "durante→dura",
+        "torna→torn",
+        "naranja→nara",
+        "atardecer→atar",
+        "explica→expl"
+      ]
+    },
+    {
+      "id": "qa-1",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 53,
+      "tokens_after": 52,
+      "saving_pct": 1.89,
+      "reversible": false,
+      "original": "Why does the sky look blue during the day but turn red or orange at sunset? Explain the physical phenomenon behind this color change, mention the name of the process involved, and describe how the sun's position on the horizon affects the length of the light's path.",
+      "encoded": "why fak sky vid blue duri day but turn red or oran at suns? exp phys phen behi colo chan, ment name of kal invo, and exp how sun s lok on hori affe num of ligh s path.",
+      "decoded": "why make sky see blue duri day but turn red or oran at suns? explain phys phen behi colo chan, ment name of process invo, and explain how sun s location on hori affe number of ligh s path.",
+      "glossary_sample": [
+        "does→fak",
+        "look→vid",
+        "during→duri",
+        "orange→oran",
+        "sunset→suns",
+        "explain→exp"
+      ]
+    },
+    {
+      "id": "qa-2",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 68,
+      "tokens_after": 53,
+      "saving_pct": 22.06,
+      "reversible": false,
+      "original": "¿Cuál es la diferencia entre una economía de mercado y una economía planificada? Da un ejemplo histórico de cada tipo, señala una ventaja y una desventaja de cada sistema, y explica brevemente por qué muchos países modernos combinan elementos de ambos modelos en su política económica actual.",
+      "encoded": "cuál est dife entr econ de merc y econ plan? da ejem hist de tot tipo, seña vent y desv de tot sys, y expl brev por qué mul país mode comb elem de ambo mode en su polí econ now.",
+      "decoded": "cuál is dife entr econ de merc y econ plan? da ejem hist de all tipo, seña vent y desv de all system, y expl brev for qué many país mode comb elem de ambo mode en he polí econ now.",
+      "glossary_sample": [
+        "es→est",
+        "diferencia→dife",
+        "entre→entr",
+        "economía→econ",
+        "mercado→merc",
+        "economía→econ"
+      ]
+    },
+    {
+      "id": "qa-2",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 50,
+      "tokens_after": 52,
+      "saving_pct": -4.0,
+      "reversible": false,
+      "original": "What is the difference between a market economy and a planned economy? Give a historical example of each type, point out one advantage and one disadvantage of each system, and briefly explain why many modern countries combine elements of both models in their current economic policy.",
+      "encoded": "est diff betw mark econ and plan econ? don hist exam of each skr, poin out one adva and one disa of each sys, and brie exp why mul nov coun comb elem of both mode in los now econ poli.",
+      "decoded": "is diff betw mark econ and plan econ? give hist exam of each write, poin output one adva and one disa of each system, and brie explain why many new coun comb elem of both mode in they now econ poli.",
+      "glossary_sample": [
+        "is→est",
+        "difference→diff",
+        "between→betw",
+        "market→mark",
+        "economy→econ",
+        "planned→plan"
+      ]
+    },
+    {
+      "id": "qa-3",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 81,
+      "tokens_after": 64,
+      "saving_pct": 20.99,
+      "reversible": false,
+      "original": "¿Cómo afecta la falta de sueño al rendimiento cognitivo a largo plazo? Describe al menos tres consecuencias documentadas por estudios científicos, indica cuántas horas de sueño se recomiendan generalmente para un adulto sano, y sugiere dos hábitos simples que ayudan a mejorar la calidad del descanso nocturno.",
+      "encoded": "cómo afec falt de sueñ al rend cogn a larg plaz? desc al men tres cons docu por estu cien, indi cuán hora de sueñ se reco gene por adul sano, y sugi dos hábi simp que ayud a bon2 cali del desc noct.",
+      "decoded": "cómo afec falt de sueñ al rend cogn a larg plaz? desc al less tres cons docu for estu cien, indi cuán hora de sueñ se reco gene for adul sano, y sugi dos hábi simp que ayud a better cali delete desc noct.",
+      "glossary_sample": [
+        "afecta→afec",
+        "falta→falt",
+        "sueño→sueñ",
+        "rendimiento→rend",
+        "cognitivo→cogn",
+        "largo→larg"
+      ]
+    },
+    {
+      "id": "qa-3",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 51,
+      "tokens_after": 58,
+      "saving_pct": -13.73,
+      "reversible": false,
+      "original": "How does lack of sleep affect cognitive performance in the long term? Describe at least three consequences documented by scientific studies, indicate how many hours of sleep are generally recommended for a healthy adult, and suggest two simple habits that help improve the quality of nighttime rest.",
+      "encoded": "how fak lack of slee affe cogn perf in long term? exp at leas thre cons docu by scie lem, indi how mul hour of slee est gene reco por heal adul, and sugg two simp habi help bon2 qual of nigh rest.",
+      "decoded": "how make lack of slee affe cogn perf in long term? explain at leas thre cons docu by scie learn, indi how many hour of slee is gene reco for heal adul, and sugg two simp habi help better qual of nigh rest.",
+      "glossary_sample": [
+        "does→fak",
+        "sleep→slee",
+        "affect→affe",
+        "cognitive→cogn",
+        "performance→perf",
+        "describe→exp"
+      ]
+    },
+    {
+      "id": "qa-4",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 75,
+      "tokens_after": 51,
+      "saving_pct": 32.0,
+      "reversible": false,
+      "original": "¿Qué papel jugaron las rutas comerciales de la seda en el intercambio cultural entre Asia y Europa? Menciona al menos dos productos que se transportaban regularmente, explica cómo estas rutas influyeron en la propagación de ideas religiosas y describe brevemente por qué su importancia disminuyó con el tiempo.",
+      "encoded": "qué pape juga ruta come de seda en inte cult entr asia y euro? menc al men dos prod que se tran regu, expl cómo ruta infl en prop de idea reli y desc brev por qué su impo dism con tem.",
+      "decoded": "qué pape juga ruta come de seda en inte cult entr asia y euro? menc al less dos prod que se tran regu, expl cómo ruta infl en prop de idea reli y desc brev for qué he impo dism con time.",
+      "glossary_sample": [
+        "papel→pape",
+        "jugaron→juga",
+        "rutas→ruta",
+        "comerciales→come",
+        "intercambio→inte",
+        "cultural→cult"
+      ]
+    },
+    {
+      "id": "qa-4",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 48,
+      "tokens_after": 50,
+      "saving_pct": -4.17,
+      "reversible": false,
+      "original": "What role did the Silk Road trade routes play in cultural exchange between Asia and Europe? Mention at least two products that were regularly transported, explain how these routes influenced the spread of religious ideas, and briefly describe why their importance declined over time.",
+      "encoded": "role fak silk road trad rout play in cult exch betw asia and euro? ment at leas two prod est regu tran, exp how rout infl spre of reli idea, and brie exp why los impo decl over tem.",
+      "decoded": "role make silk road trad rout play in cult exch betw asia and euro? ment at leas two prod is regu tran, explain how rout infl spre of reli idea, and brie explain why they impo decl over time.",
+      "glossary_sample": [
+        "did→fak",
+        "trade→trad",
+        "routes→rout",
+        "cultural→cult",
+        "exchange→exch",
+        "between→betw"
+      ]
+    },
+    {
+      "id": "qa-5",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 73,
+      "tokens_after": 56,
+      "saving_pct": 23.29,
+      "reversible": false,
+      "original": "¿Por qué algunas especies de animales migran miles de kilómetros cada año en lugar de quedarse en un mismo lugar? Explica los factores ambientales que impulsan este comportamiento, da dos ejemplos de especies migratorias conocidas y describe cómo los animales logran orientarse durante trayectos tan largos.",
+      "encoded": "por qué algu espe de anim migr mile de kiló tot año en lok de qued en mism lok? expl fact ambi que impu comp, da dos ejem de espe migr cono y desc cómo anim logr orie dura tray tan larg.",
+      "decoded": "for qué algu espe de anim migr mile de kiló all año en location de qued en mism location? expl fact ambi que impu comp, da dos ejem de espe migr cono y desc cómo anim logr orie dura tray tan larg.",
+      "glossary_sample": [
+        "algunas→algu",
+        "especies→espe",
+        "animales→anim",
+        "migran→migr",
+        "miles→mile",
+        "kilómetros→kiló"
+      ]
+    },
+    {
+      "id": "qa-5",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 50,
+      "tokens_after": 52,
+      "saving_pct": -4.0,
+      "reversible": false,
+      "original": "Why do some animal species migrate thousands of kilometers every year instead of staying in one place? Explain the environmental factors that drive this behavior, give two examples of well-known migratory species, and describe how animals manage to orient themselves during such long journeys.",
+      "encoded": "why fak par anim spec migr thou of kilo tot year inst of stay in one lok? exp envi fact driv beha, don two exam of well - know migr spec, and exp how anim mana to orie them duri such long jour.",
+      "decoded": "why make some anim spec migr thou of kilo all year inst of stay in one location? explain envi fact driv beha, give two exam of well - know migr spec, and explain how anim mana to orie them duri such long jour.",
+      "glossary_sample": [
+        "do→fak",
+        "some→par",
+        "animal→anim",
+        "species→spec",
+        "migrate→migr",
+        "thousands→thou"
+      ]
+    },
+    {
+      "id": "tech-1",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 71,
+      "tokens_after": 52,
+      "saving_pct": 26.76,
+      "reversible": false,
+      "original": "Explica la diferencia entre una base de datos relacional y una base de datos no relacional. Menciona un ejemplo concreto de cada categoría, describe una situación donde convendría usar cada tipo, y comenta brevemente cómo afecta la elección del modelo de datos al rendimiento de las consultas complejas.",
+      "encoded": "expl dife entr base de dat rela y base de dat no rela. menc ejem conc de tot cate, desc situ lok conv use tot tipo, y come brev cómo afec elec del mod de dat al rend de cons comp.",
+      "decoded": "expl dife entr base de data rela y base de data no rela. menc ejem conc de all cate, desc situ location conv use all tipo, y come brev cómo afec elec delete model de data al rend de cons comp.",
+      "glossary_sample": [
+        "explica→expl",
+        "diferencia→dife",
+        "entre→entr",
+        "datos→dat",
+        "relacional→rela",
+        "datos→dat"
+      ]
+    },
+    {
+      "id": "tech-1",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 50,
+      "tokens_after": 50,
+      "saving_pct": 0.0,
+      "reversible": false,
+      "original": "Explain the difference between a relational database and a non-relational database. Mention a concrete example of each category, describe a situation where each type would be preferable, and briefly comment on how the choice of data model affects the performance of complex queries.",
+      "encoded": "exp diff betw rela db and non - rela db. ment conc exam of each cate, exp situ lok each skr woul est pref, and brie comm on how choi of dat mod affe perf of comp quer.",
+      "decoded": "explain diff betw rela database and non - rela database. ment conc exam of each cate, explain situ location each write woul is pref, and brie comm on how choi of data model affe perf of comp quer.",
+      "glossary_sample": [
+        "explain→exp",
+        "difference→diff",
+        "between→betw",
+        "relational→rela",
+        "database→db",
+        "relational→rela"
+      ]
+    },
+    {
+      "id": "tech-2",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 70,
+      "tokens_after": 55,
+      "saving_pct": 21.43,
+      "reversible": false,
+      "original": "Describe el proceso completo de una solicitud HTTP desde que el navegador la envía hasta que recibe la respuesta del servidor. Incluye la resolución DNS, el establecimiento de la conexión TCP, el intercambio TLS si aplica, y explica qué diferencia hay entre los códigos de estado 4xx y 5xx.",
+      "encoded": "desc proc tot de inp http desd que cli enví hast que reci out del srv. incl reso dns, esta de net tcp, inte tls kon apli, y expl qué dife hay entr códi de esta 4 xx y 5 xx.",
+      "decoded": "desc proc all de input http desd que client enví hast que reci output delete server. incl reso dns, esta de network tcp, inte tls if apli, y expl qué dife hay entr códi de esta 4 xx y 5 xx.",
+      "glossary_sample": [
+        "describe→desc",
+        "proceso→proc",
+        "completo→tot",
+        "solicitud→inp",
+        "desde→desd",
+        "navegador→cli"
+      ]
+    },
+    {
+      "id": "tech-2",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 51,
+      "tokens_after": 46,
+      "saving_pct": 9.8,
+      "reversible": false,
+      "original": "Describe the complete process of an HTTP request from when the browser sends it until it receives the server's response. Include DNS resolution, TCP connection establishment, the TLS handshake if applicable, and explain the difference between 4xx and 5xx status codes.",
+      "encoded": "exp ful kal of http inp from kon cli sen unti rece srv s out. imp dns reso, tcp net esta, tls hand kon appl, and exp diff betw 4 xx and 5 xx stat code.",
+      "decoded": "explain full process of http input from if client send unti rece server s output. import dns reso, tcp network esta, tls hand if appl, and explain diff betw 4 xx and 5 xx stat code.",
+      "glossary_sample": [
+        "describe→exp",
+        "complete→ful",
+        "process→kal",
+        "request→inp",
+        "when→kon",
+        "browser→cli"
+      ]
+    },
+    {
+      "id": "tech-3",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 77,
+      "tokens_after": 55,
+      "saving_pct": 28.57,
+      "reversible": false,
+      "original": "Explica qué es la complejidad algorítmica y por qué es importante al diseñar software que procesa grandes volúmenes de datos. Compara la notación O(n) con O(n al cuadrado) usando un ejemplo simple de ordenamiento, y menciona una estructura de datos que ayudaría a mejorar el rendimiento en ese caso.",
+      "encoded": "expl qué est comp algo y por qué est impo al dise kod que proc gran volú de dat. comp nota o n con o n al cuad usan ejem simp de orde, y menc estr de dat que ayud a bon2 rend en caso.",
+      "decoded": "expl qué is comp algo y for qué is impo al dise code que proc gran volú de data. comp nota o n con o n al cuad usan ejem simp de orde, y menc estr de data que ayud a better rend en caso.",
+      "glossary_sample": [
+        "explica→expl",
+        "es→est",
+        "complejidad→comp",
+        "algorítmica→algo",
+        "es→est",
+        "importante→impo"
+      ]
+    },
+    {
+      "id": "tech-3",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 51,
+      "tokens_after": 46,
+      "saving_pct": 9.8,
+      "reversible": false,
+      "original": "Explain what algorithmic complexity is and why it matters when designing software that processes large volumes of data. Compare O(n) notation with O(n squared) using a simple sorting example, and mention a data structure that would help improve performance in that case.",
+      "encoded": "exp algo comp est and why matt kon desi kod proc gra volu of dat. comp o n nota with o n squa usin simp sort exam, and ment dat stru woul help bon2 perf in case.",
+      "decoded": "explain algo comp is and why matt if desi code proc big volu of data. comp o n nota with o n squa usin simp sort exam, and ment data stru woul help better perf in case.",
+      "glossary_sample": [
+        "explain→exp",
+        "algorithmic→algo",
+        "complexity→comp",
+        "is→est",
+        "matters→matt",
+        "when→kon"
+      ]
+    },
+    {
+      "id": "tech-4",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 65,
+      "tokens_after": 50,
+      "saving_pct": 23.08,
+      "reversible": false,
+      "original": "Describe cómo funciona la autenticación mediante tokens JWT en una aplicación web moderna. Explica las tres partes que componen un token, indica dónde se almacena habitualmente en el cliente, y menciona un riesgo de seguridad común asociado con su uso incorrecto en aplicaciones de producción.",
+      "encoded": "desc cómo func aute medi toke jwt en cli web mode. expl tres part que comp tok, indi dónd se alma habi en cli, y menc ries de segu comú asoc con su use mal en apli de prod.",
+      "decoded": "desc cómo func aute medi toke jwt en client web mode. expl tres part que comp token, indi dónd se alma habi en client, y menc ries de segu comú asoc con he use bad en apli de prod.",
+      "glossary_sample": [
+        "describe→desc",
+        "funciona→func",
+        "autenticación→aute",
+        "mediante→medi",
+        "tokens→toke",
+        "aplicación→cli"
+      ]
+    },
+    {
+      "id": "tech-4",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 48,
+      "tokens_after": 47,
+      "saving_pct": 2.08,
+      "reversible": false,
+      "original": "Describe how JWT token-based authentication works in a modern web application. Explain the three parts that make up a token, indicate where it is typically stored on the client, and mention a common security risk associated with its incorrect use in production applications.",
+      "encoded": "exp how jwt tok - base auth work in nov net cli. exp thre part fak up tok, indi lok est typi stor on cli, and ment comm secu risk asso with mal use in prod appl.",
+      "decoded": "explain how jwt token - base auth work in new network client. explain thre part make up token, indi location is typi stor on client, and ment comm secu risk asso with bad use in prod appl.",
+      "glossary_sample": [
+        "describe→exp",
+        "token→tok",
+        "based→base",
+        "authentication→auth",
+        "works→work",
+        "modern→nov"
+      ]
+    },
+    {
+      "id": "tech-5",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 73,
+      "tokens_after": 56,
+      "saving_pct": 23.29,
+      "reversible": false,
+      "original": "Explica la diferencia entre contenedores y máquinas virtuales en términos de arquitectura y consumo de recursos. Da un ejemplo de herramienta representativa de cada tecnología, describe un caso de uso donde los contenedores serían más apropiados, y otro caso donde una máquina virtual seguiría siendo la mejor opción.",
+      "encoded": "expl dife entr cont y máqu virt en térm de arqu y cons de recu. da ejem de herr repr de tot tecn, desc caso de use lok cont serí mas apro, y otro caso lok rob virt segu sien bon2 opci.",
+      "decoded": "expl dife entr cont y máqu virt en térm de arqu y cons de recu. da ejem de herr repr de all tecn, desc caso de use location cont serí more apro, y otro caso location machine virt segu sien better opci.",
+      "glossary_sample": [
+        "explica→expl",
+        "diferencia→dife",
+        "entre→entr",
+        "contenedores→cont",
+        "máquinas→máqu",
+        "virtuales→virt"
+      ]
+    },
+    {
+      "id": "tech-5",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 53,
+      "tokens_after": 53,
+      "saving_pct": 0.0,
+      "reversible": false,
+      "original": "Explain the difference between containers and virtual machines in terms of architecture and resource consumption. Give an example of a representative tool for each technology, describe a use case where containers would be more appropriate, and another case where a virtual machine would still be the best choice.",
+      "encoded": "exp diff betw cont and virt mach in term of arch and reso cons. don exam of repr tool por each tech, exp use case lok cont woul est mas appr, and anot case lok virt rob woul stil est best choi.",
+      "decoded": "explain diff betw cont and virt mach in term of arch and reso cons. give exam of repr tool for each tech, explain use case location cont woul is more appr, and anot case location virt machine woul stil is best choi.",
+      "glossary_sample": [
+        "explain→exp",
+        "difference→diff",
+        "between→betw",
+        "containers→cont",
+        "virtual→virt",
+        "machines→mach"
+      ]
+    }
+  ],
+  "tokinensis_summary": {
+    "n_total": 30,
+    "n_reversible": 0,
+    "n_failed": 30,
+    "reversibility_rate_pct": 0.0,
+    "mean_saving_pct": 10.03,
+    "median_saving_pct": 9.8
+  },
+  "tokinensis_failures": [
+    {
+      "id": "instr-1",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 86,
+      "tokens_after": 70,
+      "saving_pct": 18.6,
+      "reversible": false,
+      "original": "Escribe un resumen de tres párrafos sobre los efectos del cambio climático en la agricultura de América Latina. Incluye datos sobre la disminución de las cosechas de maíz y trigo, menciona al menos dos países afectados y propone dos medidas de adaptación que los agricultores pequeños podrían implementar con recursos limitados en los próximos cinco años.",
+      "encoded": "escr resu de tres párr sobr efec del camb clim en agri de amér lati. incl dat sobr dism de cose de maíz y trig, menc al men dos país afec y prop dos medi de adap que agri pequ podr impl con recu limi en próx cinc años.",
+      "decoded": "escr resu de tres párr sobr efec delete camb clim en agri de amér lati. incl data sobr dism de cose de maíz y trig, menc al less dos país afec y prop dos medi de adap que agri pequ podr impl con recu limi en próx cinc años.",
+      "glossary_sample": [
+        "escribe→escr",
+        "resumen→resu",
+        "párrafos→párr",
+        "sobre→sobr",
+        "efectos→efec",
+        "cambio→camb"
+      ]
+    },
+    {
+      "id": "instr-1",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 56,
+      "tokens_after": 62,
+      "saving_pct": -10.71,
+      "reversible": false,
+      "original": "Write a three-paragraph summary about the effects of climate change on agriculture in Latin America. Include data on the decline of corn and wheat harvests, mention at least two affected countries, and propose two adaptation measures that small farmers could implement with limited resources over the next five years.",
+      "encoded": "skr thre - para summ abou effe of clim chan on agri in lati amer. imp dat on decl of corn and whea harv, ment at leas two affe coun, and prop two adap meas pet farm kan impl with limi reso over fut five year.",
+      "decoded": "write thre - para summ abou effe of clim chan on agri in lati amer. import data on decl of corn and whea harv, ment at leas two affe coun, and prop two adap meas small farm can impl with limi reso over future five year.",
+      "glossary_sample": [
+        "write→skr",
+        "three→thre",
+        "paragraph→para",
+        "summary→summ",
+        "about→abou",
+        "effects→effe"
+      ]
+    },
+    {
+      "id": "instr-2",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 71,
+      "tokens_after": 61,
+      "saving_pct": 14.08,
+      "reversible": false,
+      "original": "Organiza una lista de tareas para lanzar un producto de software en tres semanas. Divide el trabajo en diseño, desarrollo, pruebas y marketing. Para cada categoría, indica quién debería ser responsable, cuánto tiempo tomará aproximadamente y qué riesgos podrían retrasar la entrega si no se gestionan a tiempo.",
+      "encoded": "orga list de tare por run prod de kod en tres sema. divi trab en dise, desa, prue y mark. por tot cate, indi quié debe est resp, cuán tem toma apro y qué ries podr retr entr kon no se gest a tem.",
+      "decoded": "orga list de tare for run prod de code en tres sema. divi trab en dise, desa, prue y mark. for all cate, indi quié debe is resp, cuán time toma apro y qué ries podr retr entr if no se gest a time.",
+      "glossary_sample": [
+        "organiza→orga",
+        "lista→list",
+        "tareas→tare",
+        "para→por",
+        "lanzar→run",
+        "producto→prod"
+      ]
+    },
+    {
+      "id": "instr-2",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 56,
+      "tokens_after": 55,
+      "saving_pct": 1.79,
+      "reversible": false,
+      "original": "Organize a task list to launch a software product in three weeks. Divide the work into design, development, testing, and marketing. For each category, indicate who should be responsible, roughly how long it will take, and what risks could delay delivery if not managed in time.",
+      "encoded": "orga task list to run kod prod in thre week. divi work into desi, deve, test, and mark. por each cate, indi mus est resp, roug how long fut take, and risk kan dela deli kon not mana in tem.",
+      "decoded": "orga task list to run code prod in thre week. divi work into desi, deve, test, and mark. for each cate, indi must is resp, roug how long future take, and risk can dela deli if not mana in time.",
+      "glossary_sample": [
+        "organize→orga",
+        "launch→run",
+        "software→kod",
+        "product→prod",
+        "three→thre",
+        "weeks→week"
+      ]
+    },
+    {
+      "id": "instr-3",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 72,
+      "tokens_after": 72,
+      "saving_pct": 0.0,
+      "reversible": false,
+      "original": "Redacta un correo electrónico formal dirigido al departamento de recursos humanos solicitando dos semanas de vacaciones en agosto. Explica brevemente que el equipo ya tiene cobertura asegurada durante ese periodo, adjunta la fecha exacta de inicio y fin, y pide confirmación por escrito antes de que finalice la semana actual.",
+      "encoded": "reda corr elec form diri al depa de recu huma soli dos sema de vaca en agos. expl brev que gru pas tien cobe aseg dura peri, adju fech exac de inic y fin, y pide conf por escr pas de que fina sema now.",
+      "decoded": "reda corr elec form diri al depa de recu huma soli dos sema de vaca en agos. expl brev que group past tien cobe aseg dura peri, adju fech exac de inic y fin, y pide conf for escr past de que fina sema now.",
+      "glossary_sample": [
+        "redacta→reda",
+        "correo→corr",
+        "electrónico→elec",
+        "formal→form",
+        "dirigido→diri",
+        "departamento→depa"
+      ]
+    },
+    {
+      "id": "instr-3",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 53,
+      "tokens_after": 56,
+      "saving_pct": -5.66,
+      "reversible": false,
+      "original": "Draft a formal email addressed to the human resources department requesting two weeks of vacation in August. Briefly explain that the team already has coverage arranged for that period, attach the exact start and end dates, and ask for written confirmation before the end of the current week.",
+      "encoded": "draf form emai addr to hom reso depa requ two week of vaca in augu. brie exp gru pas ten cove arra por tem, atta exac akt and end date, and ask por writ conf pas end of now week.",
+      "decoded": "draf form emai addr to human reso depa requ two week of vaca in augu. brie explain group past have cove arra for time, atta exac activate and end date, and ask for writ conf past end of now week.",
+      "glossary_sample": [
+        "draft→draf",
+        "formal→form",
+        "email→emai",
+        "addressed→addr",
+        "human→hom",
+        "resources→reso"
+      ]
+    },
+    {
+      "id": "instr-4",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 78,
+      "tokens_after": 61,
+      "saving_pct": 21.79,
+      "reversible": false,
+      "original": "Diseña un plan de estudio de ocho semanas para preparar un examen de certificación en gestión de proyectos. Incluye temas semanales, tiempo diario recomendado de estudio, un simulacro de examen en la semana seis y una revisión final concentrada en los conceptos que suelen causar más errores según exámenes anteriores.",
+      "encoded": "dise plan de lem de ocho sema por prep exam de cert en gest de proy. incl tema sema, tem diar reco de lem, simu de exam en sema seis y revi fina conc en conc que suel caus mas erro segú exám ante.",
+      "decoded": "dise plan de learn de ocho sema for prep exam de cert en gest de proy. incl tema sema, time diar reco de learn, simu de exam en sema seis y revi fina conc en conc que suel caus more erro segú exám ante.",
+      "glossary_sample": [
+        "diseña→dise",
+        "estudio→lem",
+        "semanas→sema",
+        "para→por",
+        "preparar→prep",
+        "examen→exam"
+      ]
+    },
+    {
+      "id": "instr-4",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 51,
+      "tokens_after": 53,
+      "saving_pct": -3.92,
+      "reversible": false,
+      "original": "Design an eight-week study plan to prepare for a project management certification exam. Include weekly topics, recommended daily study time, a practice exam in week six, and a final review focused on the concepts that tend to cause the most errors according to previous exams.",
+      "encoded": "desi eigh - week lem plan to prep por proj mana cert exam. imp week topi, reco dail lem tem, prac exam in week six, and fina revi focu on conc tend to caus most erro acco to pas exam.",
+      "decoded": "desi eigh - week learn plan to prep for proj mana cert exam. import week topi, reco dail learn time, prac exam in week six, and fina revi focu on conc tend to caus most erro acco to past exam.",
+      "glossary_sample": [
+        "design→desi",
+        "eight→eigh",
+        "study→lem",
+        "prepare→prep",
+        "for→por",
+        "project→proj"
+      ]
+    },
+    {
+      "id": "instr-5",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 78,
+      "tokens_after": 62,
+      "saving_pct": 20.51,
+      "reversible": false,
+      "original": "Crea una receta detallada para un plato vegetariano que pueda prepararse en menos de cuarenta minutos, usando ingredientes comunes de temporada. Especifica las cantidades exactas, el orden de los pasos, el tiempo de cocción de cada componente y una sugerencia de acompañamiento que combine bien con el sabor principal del plato.",
+      "encoded": "crea rece deta por plat vege que pued prep en men de cuar minu, usan ingr comu de temp. espe cant exac, orde de paso, tem de cocc de tot comp y suge de acom que comb bon con sabo prin del plat.",
+      "decoded": "crea rece deta for plat vege que pued prep en less de cuar minu, usan ingr comu de temp. espe cant exac, orde de paso, time de cocc de all comp y suge de acom que comb good con sabo prin delete plat.",
+      "glossary_sample": [
+        "receta→rece",
+        "detallada→deta",
+        "para→por",
+        "plato→plat",
+        "vegetariano→vege",
+        "pueda→pued"
+      ]
+    },
+    {
+      "id": "instr-5",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 55,
+      "tokens_after": 54,
+      "saving_pct": 1.82,
+      "reversible": false,
+      "original": "Create a detailed recipe for a vegetarian dish that can be prepared in under forty minutes, using common seasonal ingredients. Specify exact quantities, the order of the steps, the cooking time for each component, and a side dish suggestion that pairs well with the main flavor of the dish.",
+      "encoded": "gen deta reci por vege dish kan est prep in unde fort minu, usin comm seas ingr. spec exac quan, orde of step, cook tem por each comp, and side dish sugg pair well with main flav of dish.",
+      "decoded": "generate deta reci for vege dish can is prep in unde fort minu, usin comm seas ingr. spec exac quan, orde of step, cook time for each comp, and side dish sugg pair well with main flav of dish.",
+      "glossary_sample": [
+        "create→gen",
+        "detailed→deta",
+        "recipe→reci",
+        "for→por",
+        "vegetarian→vege",
+        "can→kan"
+      ]
+    },
+    {
+      "id": "qa-1",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 77,
+      "tokens_after": 59,
+      "saving_pct": 23.38,
+      "reversible": false,
+      "original": "¿Por qué el cielo se ve azul durante el día pero se torna rojo o naranja al atardecer? Explica el fenómeno físico detrás de este cambio de color, menciona el nombre del proceso involucrado y describe cómo la posición del sol en el horizonte afecta la longitud del recorrido de la luz.",
+      "encoded": "por qué ciel se ve azul dura día pero se torn rojo o nara al atar? expl fenó físi detr de camb de colo, menc nomb del proc invo y desc cómo lok del sol en hori afec num del reco de luz.",
+      "decoded": "for qué ciel se ve azul dura día pero se torn rojo o nara al atar? expl fenó físi detr de camb de colo, menc nomb delete proc invo y desc cómo location delete sol en hori afec number delete reco de luz.",
+      "glossary_sample": [
+        "cielo→ciel",
+        "durante→dura",
+        "torna→torn",
+        "naranja→nara",
+        "atardecer→atar",
+        "explica→expl"
+      ]
+    },
+    {
+      "id": "qa-1",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 53,
+      "tokens_after": 52,
+      "saving_pct": 1.89,
+      "reversible": false,
+      "original": "Why does the sky look blue during the day but turn red or orange at sunset? Explain the physical phenomenon behind this color change, mention the name of the process involved, and describe how the sun's position on the horizon affects the length of the light's path.",
+      "encoded": "why fak sky vid blue duri day but turn red or oran at suns? exp phys phen behi colo chan, ment name of kal invo, and exp how sun s lok on hori affe num of ligh s path.",
+      "decoded": "why make sky see blue duri day but turn red or oran at suns? explain phys phen behi colo chan, ment name of process invo, and explain how sun s location on hori affe number of ligh s path.",
+      "glossary_sample": [
+        "does→fak",
+        "look→vid",
+        "during→duri",
+        "orange→oran",
+        "sunset→suns",
+        "explain→exp"
+      ]
+    },
+    {
+      "id": "qa-2",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 68,
+      "tokens_after": 53,
+      "saving_pct": 22.06,
+      "reversible": false,
+      "original": "¿Cuál es la diferencia entre una economía de mercado y una economía planificada? Da un ejemplo histórico de cada tipo, señala una ventaja y una desventaja de cada sistema, y explica brevemente por qué muchos países modernos combinan elementos de ambos modelos en su política económica actual.",
+      "encoded": "cuál est dife entr econ de merc y econ plan? da ejem hist de tot tipo, seña vent y desv de tot sys, y expl brev por qué mul país mode comb elem de ambo mode en su polí econ now.",
+      "decoded": "cuál is dife entr econ de merc y econ plan? da ejem hist de all tipo, seña vent y desv de all system, y expl brev for qué many país mode comb elem de ambo mode en he polí econ now.",
+      "glossary_sample": [
+        "es→est",
+        "diferencia→dife",
+        "entre→entr",
+        "economía→econ",
+        "mercado→merc",
+        "economía→econ"
+      ]
+    },
+    {
+      "id": "qa-2",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 50,
+      "tokens_after": 52,
+      "saving_pct": -4.0,
+      "reversible": false,
+      "original": "What is the difference between a market economy and a planned economy? Give a historical example of each type, point out one advantage and one disadvantage of each system, and briefly explain why many modern countries combine elements of both models in their current economic policy.",
+      "encoded": "est diff betw mark econ and plan econ? don hist exam of each skr, poin out one adva and one disa of each sys, and brie exp why mul nov coun comb elem of both mode in los now econ poli.",
+      "decoded": "is diff betw mark econ and plan econ? give hist exam of each write, poin output one adva and one disa of each system, and brie explain why many new coun comb elem of both mode in they now econ poli.",
+      "glossary_sample": [
+        "is→est",
+        "difference→diff",
+        "between→betw",
+        "market→mark",
+        "economy→econ",
+        "planned→plan"
+      ]
+    },
+    {
+      "id": "qa-3",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 81,
+      "tokens_after": 64,
+      "saving_pct": 20.99,
+      "reversible": false,
+      "original": "¿Cómo afecta la falta de sueño al rendimiento cognitivo a largo plazo? Describe al menos tres consecuencias documentadas por estudios científicos, indica cuántas horas de sueño se recomiendan generalmente para un adulto sano, y sugiere dos hábitos simples que ayudan a mejorar la calidad del descanso nocturno.",
+      "encoded": "cómo afec falt de sueñ al rend cogn a larg plaz? desc al men tres cons docu por estu cien, indi cuán hora de sueñ se reco gene por adul sano, y sugi dos hábi simp que ayud a bon2 cali del desc noct.",
+      "decoded": "cómo afec falt de sueñ al rend cogn a larg plaz? desc al less tres cons docu for estu cien, indi cuán hora de sueñ se reco gene for adul sano, y sugi dos hábi simp que ayud a better cali delete desc noct.",
+      "glossary_sample": [
+        "afecta→afec",
+        "falta→falt",
+        "sueño→sueñ",
+        "rendimiento→rend",
+        "cognitivo→cogn",
+        "largo→larg"
+      ]
+    },
+    {
+      "id": "qa-3",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 51,
+      "tokens_after": 58,
+      "saving_pct": -13.73,
+      "reversible": false,
+      "original": "How does lack of sleep affect cognitive performance in the long term? Describe at least three consequences documented by scientific studies, indicate how many hours of sleep are generally recommended for a healthy adult, and suggest two simple habits that help improve the quality of nighttime rest.",
+      "encoded": "how fak lack of slee affe cogn perf in long term? exp at leas thre cons docu by scie lem, indi how mul hour of slee est gene reco por heal adul, and sugg two simp habi help bon2 qual of nigh rest.",
+      "decoded": "how make lack of slee affe cogn perf in long term? explain at leas thre cons docu by scie learn, indi how many hour of slee is gene reco for heal adul, and sugg two simp habi help better qual of nigh rest.",
+      "glossary_sample": [
+        "does→fak",
+        "sleep→slee",
+        "affect→affe",
+        "cognitive→cogn",
+        "performance→perf",
+        "describe→exp"
+      ]
+    },
+    {
+      "id": "qa-4",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 75,
+      "tokens_after": 51,
+      "saving_pct": 32.0,
+      "reversible": false,
+      "original": "¿Qué papel jugaron las rutas comerciales de la seda en el intercambio cultural entre Asia y Europa? Menciona al menos dos productos que se transportaban regularmente, explica cómo estas rutas influyeron en la propagación de ideas religiosas y describe brevemente por qué su importancia disminuyó con el tiempo.",
+      "encoded": "qué pape juga ruta come de seda en inte cult entr asia y euro? menc al men dos prod que se tran regu, expl cómo ruta infl en prop de idea reli y desc brev por qué su impo dism con tem.",
+      "decoded": "qué pape juga ruta come de seda en inte cult entr asia y euro? menc al less dos prod que se tran regu, expl cómo ruta infl en prop de idea reli y desc brev for qué he impo dism con time.",
+      "glossary_sample": [
+        "papel→pape",
+        "jugaron→juga",
+        "rutas→ruta",
+        "comerciales→come",
+        "intercambio→inte",
+        "cultural→cult"
+      ]
+    },
+    {
+      "id": "qa-4",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 48,
+      "tokens_after": 50,
+      "saving_pct": -4.17,
+      "reversible": false,
+      "original": "What role did the Silk Road trade routes play in cultural exchange between Asia and Europe? Mention at least two products that were regularly transported, explain how these routes influenced the spread of religious ideas, and briefly describe why their importance declined over time.",
+      "encoded": "role fak silk road trad rout play in cult exch betw asia and euro? ment at leas two prod est regu tran, exp how rout infl spre of reli idea, and brie exp why los impo decl over tem.",
+      "decoded": "role make silk road trad rout play in cult exch betw asia and euro? ment at leas two prod is regu tran, explain how rout infl spre of reli idea, and brie explain why they impo decl over time.",
+      "glossary_sample": [
+        "did→fak",
+        "trade→trad",
+        "routes→rout",
+        "cultural→cult",
+        "exchange→exch",
+        "between→betw"
+      ]
+    },
+    {
+      "id": "qa-5",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 73,
+      "tokens_after": 56,
+      "saving_pct": 23.29,
+      "reversible": false,
+      "original": "¿Por qué algunas especies de animales migran miles de kilómetros cada año en lugar de quedarse en un mismo lugar? Explica los factores ambientales que impulsan este comportamiento, da dos ejemplos de especies migratorias conocidas y describe cómo los animales logran orientarse durante trayectos tan largos.",
+      "encoded": "por qué algu espe de anim migr mile de kiló tot año en lok de qued en mism lok? expl fact ambi que impu comp, da dos ejem de espe migr cono y desc cómo anim logr orie dura tray tan larg.",
+      "decoded": "for qué algu espe de anim migr mile de kiló all año en location de qued en mism location? expl fact ambi que impu comp, da dos ejem de espe migr cono y desc cómo anim logr orie dura tray tan larg.",
+      "glossary_sample": [
+        "algunas→algu",
+        "especies→espe",
+        "animales→anim",
+        "migran→migr",
+        "miles→mile",
+        "kilómetros→kiló"
+      ]
+    },
+    {
+      "id": "qa-5",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 50,
+      "tokens_after": 52,
+      "saving_pct": -4.0,
+      "reversible": false,
+      "original": "Why do some animal species migrate thousands of kilometers every year instead of staying in one place? Explain the environmental factors that drive this behavior, give two examples of well-known migratory species, and describe how animals manage to orient themselves during such long journeys.",
+      "encoded": "why fak par anim spec migr thou of kilo tot year inst of stay in one lok? exp envi fact driv beha, don two exam of well - know migr spec, and exp how anim mana to orie them duri such long jour.",
+      "decoded": "why make some anim spec migr thou of kilo all year inst of stay in one location? explain envi fact driv beha, give two exam of well - know migr spec, and explain how anim mana to orie them duri such long jour.",
+      "glossary_sample": [
+        "do→fak",
+        "some→par",
+        "animal→anim",
+        "species→spec",
+        "migrate→migr",
+        "thousands→thou"
+      ]
+    },
+    {
+      "id": "tech-1",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 71,
+      "tokens_after": 52,
+      "saving_pct": 26.76,
+      "reversible": false,
+      "original": "Explica la diferencia entre una base de datos relacional y una base de datos no relacional. Menciona un ejemplo concreto de cada categoría, describe una situación donde convendría usar cada tipo, y comenta brevemente cómo afecta la elección del modelo de datos al rendimiento de las consultas complejas.",
+      "encoded": "expl dife entr base de dat rela y base de dat no rela. menc ejem conc de tot cate, desc situ lok conv use tot tipo, y come brev cómo afec elec del mod de dat al rend de cons comp.",
+      "decoded": "expl dife entr base de data rela y base de data no rela. menc ejem conc de all cate, desc situ location conv use all tipo, y come brev cómo afec elec delete model de data al rend de cons comp.",
+      "glossary_sample": [
+        "explica→expl",
+        "diferencia→dife",
+        "entre→entr",
+        "datos→dat",
+        "relacional→rela",
+        "datos→dat"
+      ]
+    },
+    {
+      "id": "tech-1",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 50,
+      "tokens_after": 50,
+      "saving_pct": 0.0,
+      "reversible": false,
+      "original": "Explain the difference between a relational database and a non-relational database. Mention a concrete example of each category, describe a situation where each type would be preferable, and briefly comment on how the choice of data model affects the performance of complex queries.",
+      "encoded": "exp diff betw rela db and non - rela db. ment conc exam of each cate, exp situ lok each skr woul est pref, and brie comm on how choi of dat mod affe perf of comp quer.",
+      "decoded": "explain diff betw rela database and non - rela database. ment conc exam of each cate, explain situ location each write woul is pref, and brie comm on how choi of data model affe perf of comp quer.",
+      "glossary_sample": [
+        "explain→exp",
+        "difference→diff",
+        "between→betw",
+        "relational→rela",
+        "database→db",
+        "relational→rela"
+      ]
+    },
+    {
+      "id": "tech-2",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 70,
+      "tokens_after": 55,
+      "saving_pct": 21.43,
+      "reversible": false,
+      "original": "Describe el proceso completo de una solicitud HTTP desde que el navegador la envía hasta que recibe la respuesta del servidor. Incluye la resolución DNS, el establecimiento de la conexión TCP, el intercambio TLS si aplica, y explica qué diferencia hay entre los códigos de estado 4xx y 5xx.",
+      "encoded": "desc proc tot de inp http desd que cli enví hast que reci out del srv. incl reso dns, esta de net tcp, inte tls kon apli, y expl qué dife hay entr códi de esta 4 xx y 5 xx.",
+      "decoded": "desc proc all de input http desd que client enví hast que reci output delete server. incl reso dns, esta de network tcp, inte tls if apli, y expl qué dife hay entr códi de esta 4 xx y 5 xx.",
+      "glossary_sample": [
+        "describe→desc",
+        "proceso→proc",
+        "completo→tot",
+        "solicitud→inp",
+        "desde→desd",
+        "navegador→cli"
+      ]
+    },
+    {
+      "id": "tech-2",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 51,
+      "tokens_after": 46,
+      "saving_pct": 9.8,
+      "reversible": false,
+      "original": "Describe the complete process of an HTTP request from when the browser sends it until it receives the server's response. Include DNS resolution, TCP connection establishment, the TLS handshake if applicable, and explain the difference between 4xx and 5xx status codes.",
+      "encoded": "exp ful kal of http inp from kon cli sen unti rece srv s out. imp dns reso, tcp net esta, tls hand kon appl, and exp diff betw 4 xx and 5 xx stat code.",
+      "decoded": "explain full process of http input from if client send unti rece server s output. import dns reso, tcp network esta, tls hand if appl, and explain diff betw 4 xx and 5 xx stat code.",
+      "glossary_sample": [
+        "describe→exp",
+        "complete→ful",
+        "process→kal",
+        "request→inp",
+        "when→kon",
+        "browser→cli"
+      ]
+    },
+    {
+      "id": "tech-3",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 77,
+      "tokens_after": 55,
+      "saving_pct": 28.57,
+      "reversible": false,
+      "original": "Explica qué es la complejidad algorítmica y por qué es importante al diseñar software que procesa grandes volúmenes de datos. Compara la notación O(n) con O(n al cuadrado) usando un ejemplo simple de ordenamiento, y menciona una estructura de datos que ayudaría a mejorar el rendimiento en ese caso.",
+      "encoded": "expl qué est comp algo y por qué est impo al dise kod que proc gran volú de dat. comp nota o n con o n al cuad usan ejem simp de orde, y menc estr de dat que ayud a bon2 rend en caso.",
+      "decoded": "expl qué is comp algo y for qué is impo al dise code que proc gran volú de data. comp nota o n con o n al cuad usan ejem simp de orde, y menc estr de data que ayud a better rend en caso.",
+      "glossary_sample": [
+        "explica→expl",
+        "es→est",
+        "complejidad→comp",
+        "algorítmica→algo",
+        "es→est",
+        "importante→impo"
+      ]
+    },
+    {
+      "id": "tech-3",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 51,
+      "tokens_after": 46,
+      "saving_pct": 9.8,
+      "reversible": false,
+      "original": "Explain what algorithmic complexity is and why it matters when designing software that processes large volumes of data. Compare O(n) notation with O(n squared) using a simple sorting example, and mention a data structure that would help improve performance in that case.",
+      "encoded": "exp algo comp est and why matt kon desi kod proc gra volu of dat. comp o n nota with o n squa usin simp sort exam, and ment dat stru woul help bon2 perf in case.",
+      "decoded": "explain algo comp is and why matt if desi code proc big volu of data. comp o n nota with o n squa usin simp sort exam, and ment data stru woul help better perf in case.",
+      "glossary_sample": [
+        "explain→exp",
+        "algorithmic→algo",
+        "complexity→comp",
+        "is→est",
+        "matters→matt",
+        "when→kon"
+      ]
+    },
+    {
+      "id": "tech-4",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 65,
+      "tokens_after": 50,
+      "saving_pct": 23.08,
+      "reversible": false,
+      "original": "Describe cómo funciona la autenticación mediante tokens JWT en una aplicación web moderna. Explica las tres partes que componen un token, indica dónde se almacena habitualmente en el cliente, y menciona un riesgo de seguridad común asociado con su uso incorrecto en aplicaciones de producción.",
+      "encoded": "desc cómo func aute medi toke jwt en cli web mode. expl tres part que comp tok, indi dónd se alma habi en cli, y menc ries de segu comú asoc con su use mal en apli de prod.",
+      "decoded": "desc cómo func aute medi toke jwt en client web mode. expl tres part que comp token, indi dónd se alma habi en client, y menc ries de segu comú asoc con he use bad en apli de prod.",
+      "glossary_sample": [
+        "describe→desc",
+        "funciona→func",
+        "autenticación→aute",
+        "mediante→medi",
+        "tokens→toke",
+        "aplicación→cli"
+      ]
+    },
+    {
+      "id": "tech-4",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 48,
+      "tokens_after": 47,
+      "saving_pct": 2.08,
+      "reversible": false,
+      "original": "Describe how JWT token-based authentication works in a modern web application. Explain the three parts that make up a token, indicate where it is typically stored on the client, and mention a common security risk associated with its incorrect use in production applications.",
+      "encoded": "exp how jwt tok - base auth work in nov net cli. exp thre part fak up tok, indi lok est typi stor on cli, and ment comm secu risk asso with mal use in prod appl.",
+      "decoded": "explain how jwt token - base auth work in new network client. explain thre part make up token, indi location is typi stor on client, and ment comm secu risk asso with bad use in prod appl.",
+      "glossary_sample": [
+        "describe→exp",
+        "token→tok",
+        "based→base",
+        "authentication→auth",
+        "works→work",
+        "modern→nov"
+      ]
+    },
+    {
+      "id": "tech-5",
+      "lang": "es",
+      "detected_lang": "es",
+      "tokens_before": 73,
+      "tokens_after": 56,
+      "saving_pct": 23.29,
+      "reversible": false,
+      "original": "Explica la diferencia entre contenedores y máquinas virtuales en términos de arquitectura y consumo de recursos. Da un ejemplo de herramienta representativa de cada tecnología, describe un caso de uso donde los contenedores serían más apropiados, y otro caso donde una máquina virtual seguiría siendo la mejor opción.",
+      "encoded": "expl dife entr cont y máqu virt en térm de arqu y cons de recu. da ejem de herr repr de tot tecn, desc caso de use lok cont serí mas apro, y otro caso lok rob virt segu sien bon2 opci.",
+      "decoded": "expl dife entr cont y máqu virt en térm de arqu y cons de recu. da ejem de herr repr de all tecn, desc caso de use location cont serí more apro, y otro caso location machine virt segu sien better opci.",
+      "glossary_sample": [
+        "explica→expl",
+        "diferencia→dife",
+        "entre→entr",
+        "contenedores→cont",
+        "máquinas→máqu",
+        "virtuales→virt"
+      ]
+    },
+    {
+      "id": "tech-5",
+      "lang": "en",
+      "detected_lang": "en",
+      "tokens_before": 53,
+      "tokens_after": 53,
+      "saving_pct": 0.0,
+      "reversible": false,
+      "original": "Explain the difference between containers and virtual machines in terms of architecture and resource consumption. Give an example of a representative tool for each technology, describe a use case where containers would be more appropriate, and another case where a virtual machine would still be the best choice.",
+      "encoded": "exp diff betw cont and virt mach in term of arch and reso cons. don exam of repr tool por each tech, exp use case lok cont woul est mas appr, and anot case lok virt rob woul stil est best choi.",
+      "decoded": "explain diff betw cont and virt mach in term of arch and reso cons. give exam of repr tool for each tech, explain use case location cont woul is more appr, and anot case location virt machine woul stil is best choi.",
+      "glossary_sample": [
+        "explain→exp",
+        "difference→diff",
+        "between→betw",
+        "containers→cont",
+        "virtual→virt",
+        "machines→mach"
+      ]
+    }
+  ]
+}

@@ -1,19 +1,48 @@
-\begin{thebibliography}{2}
+\begin{thebibliography}{7}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
+\bibitem[Ahia et~al.(2023)Ahia, Kumar, Gonen, Kasai, Mortensen, Smith, and
+  Tsvetkov]{ahia2023cost}
+Orevaoghene Ahia, Sachin Kumar, Hila Gonen, Jungo Kasai, David~R. Mortensen,
+  Noah~A. Smith, and Yulia Tsvetkov.
+\newblock Do all languages cost the same? tokenization in the era of commercial
+  language models.
+\newblock In \emph{Proceedings of EMNLP}, 2023.
+
 \bibitem[{hibrid project}(2026)]{hibrid2026}
 {hibrid project}.
 \newblock hibrid: A local-first, hardware-aware llm router.
 \newblock \url{https://github.com/vfalbor/hibrid}, 2026.
+
+\bibitem[{OpenAI}(2023)]{tiktoken}
+{OpenAI}.
+\newblock tiktoken: a fast bpe tokeniser for use with openai's models.
+\newblock \url{https://github.com/openai/tiktoken}, 2023.
 
 \bibitem[{PaMaBAI editors}(2026)]{pamabai2026}
 {PaMaBAI editors}.
 \newblock Papersmadebyai: a document manager and open journal for ai-authored
   papers.
 \newblock \url{https://papersmadebyai.tokenstree.eu}, 2026.
+
+\bibitem[Pan et~al.(2024)Pan, Wu, Jiang, et~al.]{pan2024llmlingua2}
+Zhuoshi Pan, Qianhui Wu, Huiqiang Jiang, et~al.
+\newblock Llmlingua-2: Data distillation for efficient and faithful
+  task-agnostic prompt compression.
+\newblock \emph{Findings of ACL}, 2024.
+
+\bibitem[Petrov et~al.(2023)Petrov, La~Malfa, Torr, and Bibi]{petrov2023unfair}
+Aleksandar Petrov, Emanuele La~Malfa, Philip H.~S. Torr, and Adel Bibi.
+\newblock Language model tokenizers introduce unfairness between languages.
+\newblock In \emph{NeurIPS}, 2023.
+
+\bibitem[Sennrich et~al.(2016)Sennrich, Haddow, and Birch]{sennrich2016bpe}
+Rico Sennrich, Barry Haddow, and Alexandra Birch.
+\newblock Neural machine translation of rare words with subword units.
+\newblock In \emph{Proceedings of ACL}, 2016.
 
 \end{thebibliography}

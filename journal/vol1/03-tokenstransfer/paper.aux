@@ -2,20 +2,51 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
 \citation{jiang2023llmlingua}
 \citation{pan2024llmlingua2}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2}Design}{1}{section.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Service shape.}{1}{section*.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Lazy loading and fallback.}{1}{section*.2}\protected@file@percent }
+\citation{litellm2024}
+\citation{bang2023gptcache}
+\citation{portkey2026}
+\citation{hibrid2026}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Deployed API surface, mapped from the route sources. The authenticated \texttt  {/compress} path carries no rate limit; the public demo is capped at 10 requests/IP/hour.}}{2}{table.1}\protected@file@percent }
+\newlabel{tab:api}{{1}{2}{Deployed API surface, mapped from the route sources. The authenticated \texttt {/compress} path carries no rate limit; the public demo is capped at 10 requests/IP/hour}{table.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{Contributions.}{2}{section*.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related work}{2}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}The TokensTransfer service}{2}{section.3}\protected@file@percent }
+\newlabel{sec:system}{{3}{2}{The TokensTransfer service}{section.3}{}}
+\@writefile{toc}{\contentsline {paragraph}{Shape.}{2}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Lazy loading and the fallback path.}{2}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Experimental setup}{2}{section.4}\protected@file@percent }
+\newlabel{sec:setup}{{4}{2}{Experimental setup}{section.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Fallback-mode \texttt  {/compress} benchmark: 10 samples per payload size at $\leq $2\,req/s, default \texttt  {target\_token}=300. Latency is client-observed; ratio and method are as reported by the service. All 40 requests returned HTTP\,200.}}{3}{table.2}\protected@file@percent }
+\newlabel{tab:bench}{{2}{3}{Fallback-mode \texttt {/compress} benchmark: 10 samples per payload size at $\leq $2\,req/s, default \texttt {target\_token}=300. Latency is client-observed; ratio and method are as reported by the service. All 40 requests returned HTTP\,200}{table.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Results}{3}{section.5}\protected@file@percent }
+\newlabel{sec:results}{{5}{3}{Results}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}RQ1 --- Root cause: a dependency regression between two boots}{3}{subsection.5.1}\protected@file@percent }
+\newlabel{sec:rq1}{{5.1}{3}{RQ1 --- Root cause: a dependency regression between two boots}{subsection.5.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}RQ2 --- What the fallback serves: flat latency, truncated content}{3}{subsection.5.2}\protected@file@percent }
+\newlabel{sec:rq2}{{5.2}{3}{RQ2 --- What the fallback serves: flat latency, truncated content}{subsection.5.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Fallback-mode latency by payload size (n=10 per size, log scale; horizontal bar = median). Flat $\sim $6\,ms: no model runs. The 43\,ms point is the first, cold request.}}{4}{figure.1}\protected@file@percent }
+\newlabel{fig:latency}{{1}{4}{Fallback-mode latency by payload size (n=10 per size, log scale; horizontal bar = median). Flat $\sim $6\,ms: no model runs. The 43\,ms point is the first, cold request}{figure.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Tokens in vs.\ tokens returned per payload size (representative sample per size). Above the \texttt  {target\_token}=300 budget the fallback discards trailing sentences --- content loss, not compression.}}{4}{figure.2}\protected@file@percent }
+\newlabel{fig:tokens}{{2}{4}{Tokens in vs.\ tokens returned per payload size (representative sample per size). Above the \texttt {target\_token}=300 budget the fallback discards trailing sentences --- content loss, not compression}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}RQ3 --- Footprint and observability}{4}{subsection.5.3}\protected@file@percent }
+\newlabel{sec:rq3}{{5.3}{4}{RQ3 --- Footprint and observability}{subsection.5.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion: benefit-losing vs.\ content-losing degradation}{4}{section.6}\protected@file@percent }
+\newlabel{sec:discussion}{{6}{4}{Discussion: benefit-losing vs.\ content-losing degradation}{section.6}{}}
 \citation{hibrid2026}
 \citation{pamabai2026}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Limitations}{5}{section.7}\protected@file@percent }
+\newlabel{sec:limitations}{{7}{5}{Limitations}{section.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{5}{section.8}\protected@file@percent }
+\newlabel{sec:conclusion}{{8}{5}{Conclusion}{section.8}{}}
+\newlabel{sec:revision}{{8}{5}{Revision note}{section*.4}{}}
 \bibdata{ecosystem}
 \bibcite{hibrid2026}{{1}{2026}{{hibrid project}}{{}}}
 \bibcite{jiang2023llmlingua}{{2}{2023}{{Jiang et~al.}}{{Jiang, Wu, Lin, Yang, and Qiu}}}
 \bibcite{pamabai2026}{{3}{2026}{{PaMaBAI editors}}{{}}}
 \bibcite{pan2024llmlingua2}{{4}{2024}{{Pan et~al.}}{{Pan, Wu, Jiang, et~al.}}}
 \bibstyle{tmlr}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Operational result: the fallback is the finding}{2}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Limitations}{2}{section.4}\protected@file@percent }
-\gdef \@abspage@last{2}
+\gdef \@abspage@last{6}

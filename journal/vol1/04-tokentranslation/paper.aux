@@ -2,17 +2,53 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
-\citation{hibrid2026}
+\citation{petrov2023unfair}
+\citation{ahia2023cost}
+\citation{sennrich2016bpe,petrov2023unfair}
+\citation{ahia2023cost}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2}Architecture}{1}{section.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Service shape.}{1}{section*.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Translation router.}{1}{section*.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{tokinensis: a reversible dialect.}{1}{section*.3}\protected@file@percent }
+\newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
+\citation{petrov2023unfair}
+\citation{ahia2023cost}
+\citation{pan2024llmlingua2}
+\citation{hibrid2026}
+\citation{tiktoken}
+\citation{petrov2023unfair}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Spanish$\to $English token savings by prompt category (cl100k\_base; n=5 per category). Full per-prompt rows in the artifact.}}{2}{table.1}\protected@file@percent }
+\newlabel{tab:arb}{{1}{2}{Spanish$\to $English token savings by prompt category (cl100k\_base; n=5 per category). Full per-prompt rows in the artifact}{table.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related work}{2}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}System}{2}{section.3}\protected@file@percent }
+\newlabel{sec:system}{{3}{2}{System}{section.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Experimental setup}{2}{section.4}\protected@file@percent }
+\newlabel{sec:setup}{{4}{2}{Experimental setup}{section.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Per-prompt Spanish$\to $English token saving (n=15, cl100k\_base). All positive; dashed line = mean 30.2\%.}}{3}{figure.1}\protected@file@percent }
+\newlabel{fig:arb}{{1}{3}{Per-prompt Spanish$\to $English token saving (n=15, cl100k\_base). All positive; dashed line = mean 30.2\%}{figure.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Results}{3}{section.5}\protected@file@percent }
+\newlabel{sec:results}{{5}{3}{Results}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}RQ1 --- The arbitrage is real: 30.2\% mean saving}{3}{subsection.5.1}\protected@file@percent }
+\newlabel{sec:arbitrage}{{5.1}{3}{RQ1 --- The arbitrage is real: 30.2\% mean saving}{subsection.5.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}RQ2 --- The deployed path delivers it}{3}{subsection.5.2}\protected@file@percent }
+\newlabel{sec:live}{{5.2}{3}{RQ2 --- The deployed path delivers it}{subsection.5.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}RQ3 --- Audit: tokinensis is not reversible (0/30)}{3}{subsection.5.3}\protected@file@percent }
+\newlabel{sec:tokinensis}{{5.3}{3}{RQ3 --- Audit: tokinensis is not reversible (0/30)}{subsection.5.3}{}}
+\citation{ahia2023cost}
+\citation{petrov2023unfair}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Mean token saving by method. Translation arbitrage: 30.2\%, meaning-preserving. tokinensis: 10.0\%, and its claimed reversibility failed on 30/30 inputs.}}{4}{figure.2}\protected@file@percent }
+\newlabel{fig:methods}{{2}{4}{Mean token saving by method. Translation arbitrage: 30.2\%, meaning-preserving. tokinensis: 10.0\%, and its claimed reversibility failed on 30/30 inputs}{figure.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion}{4}{section.6}\protected@file@percent }
+\newlabel{sec:discussion}{{6}{4}{Discussion}{section.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Limitations}{4}{section.7}\protected@file@percent }
+\newlabel{sec:limitations}{{7}{4}{Limitations}{section.7}{}}
 \citation{pamabai2026}
 \bibdata{ecosystem}
-\bibcite{hibrid2026}{{1}{2026}{{hibrid project}}{{}}}
-\bibcite{pamabai2026}{{2}{2026}{{PaMaBAI editors}}{{}}}
+\bibcite{ahia2023cost}{{1}{2023}{{Ahia et~al.}}{{Ahia, Kumar, Gonen, Kasai, Mortensen, Smith, and Tsvetkov}}}
+\bibcite{hibrid2026}{{2}{2026}{{hibrid project}}{{}}}
+\bibcite{tiktoken}{{3}{2023}{{OpenAI}}{{}}}
+\bibcite{pamabai2026}{{4}{2026}{{PaMaBAI editors}}{{}}}
+\bibcite{pan2024llmlingua2}{{5}{2024}{{Pan et~al.}}{{Pan, Wu, Jiang, et~al.}}}
+\bibcite{petrov2023unfair}{{6}{2023}{{Petrov et~al.}}{{Petrov, La~Malfa, Torr, and Bibi}}}
+\bibcite{sennrich2016bpe}{{7}{2016}{{Sennrich et~al.}}{{Sennrich, Haddow, and Birch}}}
 \bibstyle{tmlr}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Discussion: when arbitrage pays}{2}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Limitations}{2}{section.4}\protected@file@percent }
-\gdef \@abspage@last{2}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{5}{section.8}\protected@file@percent }
+\newlabel{sec:conclusion}{{8}{5}{Conclusion}{section.8}{}}
+\gdef \@abspage@last{5}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{5}
+\begin{thebibliography}{7}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -10,6 +10,11 @@ Tim Bollerslev.
 \newblock Generalized autoregressive conditional heteroskedasticity.
 \newblock \emph{Journal of Econometrics}, 31\penalty0 (3), 1986.
 
+\bibitem[Brier(1950)]{brier1950}
+Glenn~W. Brier.
+\newblock Verification of forecasts expressed in terms of probability.
+\newblock \emph{Monthly Weather Review}, 78\penalty0 (1), 1950.
+
 \bibitem[Kalman(1960)]{kalman1960}
 Rudolf~E. Kalman.
 \newblock A new approach to linear filtering and prediction problems.
@@ -19,6 +24,11 @@ Rudolf~E. Kalman.
 John~L. Kelly.
 \newblock A new interpretation of information rate.
 \newblock \emph{Bell System Technical Journal}, 35, 1956.
+
+\bibitem[Murphy(1973)]{murphy1973reliability}
+Allan~H. Murphy.
+\newblock A new vector partition of the probability score.
+\newblock \emph{Journal of Applied Meteorology}, 12\penalty0 (4), 1973.
 
 \bibitem[{PaMaBAI editors}(2026)]{pamabai2026}
 {PaMaBAI editors}.

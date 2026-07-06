@@ -2,24 +2,49 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{kelly1956}
+\citation{brier1950}
 \citation{bollerslev1986garch}
 \citation{kalman1960}
 \citation{zadrozny2002isotonic}
-\citation{kelly1956}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2}Pipeline}{1}{section.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Models.}{1}{section*.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Calibration and sizing.}{1}{section*.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Walk-forward evaluation and error tracking.}{1}{section*.3}\protected@file@percent }
+\newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
+\citation{murphy1973reliability}
+\citation{murphy1973reliability}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Brier scores over the evaluated sample (lower is better). The decomposition \citep  {murphy1973reliability} of the failure: no resolution (RQ1) plus miscalibrated magnitudes.}}{2}{table.1}\protected@file@percent }
+\newlabel{tab:brier}{{1}{2}{Brier scores over the evaluated sample (lower is better). The decomposition \citep {murphy1973reliability} of the failure: no resolution (RQ1) plus miscalibrated magnitudes}{table.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}The pipeline, briefly}{2}{section.2}\protected@file@percent }
+\newlabel{sec:pipeline}{{2}{2}{The pipeline, briefly}{section.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Audit setup}{2}{section.3}\protected@file@percent }
+\newlabel{sec:setup}{{3}{2}{Audit setup}{section.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Results}{2}{section.4}\protected@file@percent }
+\newlabel{sec:results}{{4}{2}{Results}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}RQ1 --- The reliability diagram is flat}{2}{subsection.4.1}\protected@file@percent }
+\newlabel{sec:reliability}{{4.1}{2}{RQ1 --- The reliability diagram is flat}{subsection.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}RQ2 --- The calibration layer subtracts value}{2}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:brier}{{4.2}{2}{RQ2 --- The calibration layer subtracts value}{subsection.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}RQ3 --- Three concrete causes}{2}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:causes}{{4.3}{2}{RQ3 --- Three concrete causes}{subsection.4.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Reliability diagram over 645{,}620 evaluated ensemble predictions (true deciles, 64{,}562 each). Observed frequency is flat at the base rate across all confidence levels.}}{3}{figure.1}\protected@file@percent }
+\newlabel{fig:reliability}{{1}{3}{Reliability diagram over 645{,}620 evaluated ensemble predictions (true deciles, 64{,}562 each). Observed frequency is flat at the base rate across all confidence levels}{figure.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Brier scores: both confidence signals lose to the do-nothing baseline, and the shipped isotonic layer makes the raw signal worse.}}{3}{figure.2}\protected@file@percent }
+\newlabel{fig:brier}{{2}{3}{Brier scores: both confidence signals lose to the do-nothing baseline, and the shipped isotonic layer makes the raw signal worse}{figure.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Direction hit rate per model over the evaluated store ($n$ per model shown). All within $\pm $0.03 of the coin flip.}}{4}{figure.3}\protected@file@percent }
+\newlabel{fig:hitrates}{{3}{4}{Direction hit rate per model over the evaluated store ($n$ per model shown). All within $\pm $0.03 of the coin flip}{figure.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{4}{section.5}\protected@file@percent }
+\newlabel{sec:discussion}{{5}{4}{Discussion}{section.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Limitations}{4}{section.6}\protected@file@percent }
+\newlabel{sec:limitations}{{6}{4}{Limitations}{section.6}{}}
 \citation{pamabai2026}
 \bibdata{ecosystem}
 \bibcite{bollerslev1986garch}{{1}{1986}{{Bollerslev}}{{}}}
-\bibcite{kalman1960}{{2}{1960}{{Kalman}}{{}}}
-\bibcite{kelly1956}{{3}{1956}{{Kelly}}{{}}}
-\bibcite{pamabai2026}{{4}{2026}{{PaMaBAI editors}}{{}}}
-\bibcite{zadrozny2002isotonic}{{5}{2002}{{Zadrozny \& Elkan}}{{Zadrozny and Elkan}}}
+\bibcite{brier1950}{{2}{1950}{{Brier}}{{}}}
+\bibcite{kalman1960}{{3}{1960}{{Kalman}}{{}}}
+\bibcite{kelly1956}{{4}{1956}{{Kelly}}{{}}}
+\bibcite{murphy1973reliability}{{5}{1973}{{Murphy}}{{}}}
+\bibcite{pamabai2026}{{6}{2026}{{PaMaBAI editors}}{{}}}
+\bibcite{zadrozny2002isotonic}{{7}{2002}{{Zadrozny \& Elkan}}{{Zadrozny and Elkan}}}
 \bibstyle{tmlr}
-\@writefile{toc}{\contentsline {paragraph}{Report generation.}{2}{section*.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3}What we explicitly do not claim}{2}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Limitations and future work}{2}{section.4}\protected@file@percent }
-\gdef \@abspage@last{2}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{5}{section.7}\protected@file@percent }
+\newlabel{sec:conclusion}{{7}{5}{Conclusion}{section.7}{}}
+\gdef \@abspage@last{5}

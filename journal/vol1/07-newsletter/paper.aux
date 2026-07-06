@@ -2,40 +2,28 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
-\newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces The eleven scoring criteria with their exact weights (from the scorer source; weights sum to 100), and the measured mean score per criterion across the corpus. $n$ varies because a criterion the judge cannot assess is stored null and its weight redistributed.}}{2}{table.1}\protected@file@percent }
-\newlabel{tab:criteria}{{1}{2}{The eleven scoring criteria with their exact weights (from the scorer source; weights sum to 100), and the measured mean score per criterion across the corpus. $n$ varies because a criterion the judge cannot assess is stored null and its weight redistributed}{table.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2}The pipeline}{2}{section.2}\protected@file@percent }
-\newlabel{sec:pipeline}{{2}{2}{The pipeline}{section.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Measurement setup}{2}{section.3}\protected@file@percent }
-\newlabel{sec:setup}{{3}{2}{Measurement setup}{section.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Results}{2}{section.4}\protected@file@percent }
-\newlabel{sec:results}{{4}{2}{Results}{section.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}RQ1 --- The shape of three months of LLM tooling}{2}{subsection.4.1}\protected@file@percent }
-\newlabel{sec:corpus}{{4.1}{2}{RQ1 --- The shape of three months of LLM tooling}{subsection.4.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Weighted-score distribution over 561 apps. Unimodal, mean 58.1; one app in three months exceeded 80.}}{3}{figure.1}\protected@file@percent }
-\newlabel{fig:scores}{{1}{3}{Weighted-score distribution over 561 apps. Unimodal, mean 58.1; one app in three months exceeded 80}{figure.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Mean score per criterion (0--10), sorted; w = weight. Attention-adjacent criteria (novelty, HN sentiment) score 7+; adoption-adjacent ones score $\leq $5, with ease of use last at 3.23.}}{3}{figure.2}\protected@file@percent }
-\newlabel{fig:criteria}{{2}{3}{Mean score per criterion (0--10), sorted; w = weight. Attention-adjacent criteria (novelty, HN sentiment) score 7+; adoption-adjacent ones score $\leq $5, with ease of use last at 3.23}{figure.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}RQ2 --- What ``tested'' actually meant}{3}{subsection.4.2}\protected@file@percent }
-\newlabel{sec:testability}{{4.2}{3}{RQ2 --- What ``tested'' actually meant}{subsection.4.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Sandbox test outcomes across the corpus (n=561, derived from per-app test counts). 81.6\% of apps executed no tests or passed none.}}{4}{figure.3}\protected@file@percent }
-\newlabel{fig:testability}{{3}{4}{Sandbox test outcomes across the corpus (n=561, derived from per-app test counts). 81.6\% of apps executed no tests or passed none}{figure.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}RQ3 --- The reviewer reviewed}{4}{subsection.4.3}\protected@file@percent }
-\newlabel{sec:reviewer}{{4.3}{4}{RQ3 --- The reviewer reviewed}{subsection.4.3}{}}
-\@writefile{toc}{\contentsline {paragraph}{Operations.}{4}{section*.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Judge schema adherence.}{4}{section*.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{A silent failure, found in its own logs.}{4}{section*.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Reach.}{4}{section*.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{4}{section.5}\protected@file@percent }
-\newlabel{sec:discussion}{{5}{4}{Discussion}{section.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}The corpus}{1}{section.1}\protected@file@percent }
+\newlabel{sec:corpus}{{1}{1}{The corpus}{section.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Collection method and its honest edges}{1}{section.2}\protected@file@percent }
+\newlabel{sec:method}{{2}{1}{Collection method and its honest edges}{section.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Sandbox execution outcomes across the corpus (n=561). 81.6\% of apps ran no tests or passed none.}}{2}{figure.1}\protected@file@percent }
+\newlabel{fig:testability}{{1}{2}{Sandbox execution outcomes across the corpus (n=561). 81.6\% of apps ran no tests or passed none}{figure.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces The eleven criteria: exact scorer weights and measured corpus means. Null criteria are excluded per row with weight redistributed.}}{2}{table.1}\protected@file@percent }
+\newlabel{tab:criteria}{{1}{2}{The eleven criteria: exact scorer weights and measured corpus means. Null criteria are excluded per row with weight redistributed}{table.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Distributions}{2}{section.3}\protected@file@percent }
+\newlabel{sec:distributions}{{3}{2}{Distributions}{section.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}External validity: checking the score against the crowd}{2}{section.4}\protected@file@percent }
+\newlabel{sec:validity}{{4}{2}{External validity: checking the score against the crowd}{section.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Weighted-score distribution (n=561): unimodal at 58/100; one tool exceeded 80 in three months.}}{3}{figure.2}\protected@file@percent }
+\newlabel{fig:scores}{{2}{3}{Weighted-score distribution (n=561): unimodal at 58/100; one tool exceeded 80 in three months}{figure.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Mean score per criterion (sorted; w = weight). Attention-adjacent criteria high, adoption-adjacent low --- ease of use last at 3.23.}}{3}{figure.3}\protected@file@percent }
+\newlabel{fig:criteria}{{3}{3}{Mean score per criterion (sorted; w = weight). Attention-adjacent criteria high, adoption-adjacent low --- ease of use last at 3.23}{figure.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Known biases and defects}{3}{section.5}\protected@file@percent }
+\newlabel{sec:defects}{{5}{3}{Known biases and defects}{section.5}{}}
 \citation{pamabai2026}
 \bibdata{ecosystem}
 \bibcite{pamabai2026}{{1}{2026}{{PaMaBAI editors}}{{}}}
 \bibstyle{tmlr}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Limitations}{5}{section.6}\protected@file@percent }
-\newlabel{sec:limitations}{{6}{5}{Limitations}{section.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{5}{section.7}\protected@file@percent }
-\newlabel{sec:conclusion}{{7}{5}{Conclusion}{section.7}{}}
-\gdef \@abspage@last{5}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Using the dataset}{4}{section.6}\protected@file@percent }
+\newlabel{sec:using}{{6}{4}{Using the dataset}{section.6}{}}
+\gdef \@abspage@last{4}

@@ -1,0 +1,23 @@
+{
+  "_disclosure": "French and Portuguese texts below were produced by the benchmarking model (Claude) directly, not by a translation engine, and were not independently verified by a native speaker. Treat as a same-quality-tier stand-in for the ES/EN pair, not a gold reference.",
+  "instr-1": {
+    "fr": "Écris un résumé de trois paragraphes sur les effets du changement climatique sur l'agriculture en Amérique latine. Inclus des données sur la baisse des récoltes de maïs et de blé, mentionne au moins deux pays touchés et propose deux mesures d'adaptation que les petits agriculteurs pourraient mettre en œuvre avec des ressources limitées au cours des cinq prochaines années.",
+    "pt": "Escreva um resumo de três parágrafos sobre os efeitos das mudanças climáticas na agricultura da América Latina. Inclua dados sobre a queda nas colheitas de milho e trigo, mencione pelo menos dois países afetados e proponha duas medidas de adaptação que pequenos agricultores poderiam implementar com recursos limitados nos próximos cinco anos."
+  },
+  "instr-2": {
+    "fr": "Organise une liste de tâches pour lancer un produit logiciel en trois semaines. Divise le travail en conception, développement, tests et marketing. Pour chaque catégorie, indique qui devrait en être responsable, combien de temps cela prendra approximativement, et quels risques pourraient retarder la livraison s'ils ne sont pas gérés à temps.",
+    "pt": "Organize uma lista de tarefas para lançar um produto de software em três semanas. Divida o trabalho em design, desenvolvimento, testes e marketing. Para cada categoria, indique quem deveria ser responsável, quanto tempo levará aproximadamente e quais riscos poderiam atrasar a entrega se não forem gerenciados a tempo."
+  },
+  "qa-1": {
+    "fr": "Pourquoi le ciel paraît-il bleu pendant la journée mais devient rouge ou orange au coucher du soleil ? Explique le phénomène physique derrière ce changement de couleur, mentionne le nom du processus impliqué et décris comment la position du soleil sur l'horizon affecte la longueur du trajet de la lumière.",
+    "pt": "Por que o céu parece azul durante o dia, mas fica vermelho ou laranja ao entardecer? Explique o fenômeno físico por trás dessa mudança de cor, mencione o nome do processo envolvido e descreva como a posição do sol no horizonte afeta o comprimento do percurso da luz."
+  },
+  "qa-2": {
+    "fr": "Quelle est la différence entre une économie de marché et une économie planifiée ? Donne un exemple historique de chaque type, indique un avantage et un inconvénient de chaque système, et explique brièvement pourquoi de nombreux pays modernes combinent des éléments des deux modèles dans leur politique économique actuelle.",
+    "pt": "Qual é a diferença entre uma economia de mercado e uma economia planificada? Dê um exemplo histórico de cada tipo, aponte uma vantagem e uma desvantagem de cada sistema, e explique brevemente por que muitos países modernos combinam elementos de ambos os modelos em sua política econômica atual."
+  },
+  "tech-1": {
+    "fr": "Explique la différence entre une base de données relationnelle et une base de données non relationnelle. Mentionne un exemple concret de chaque catégorie, décris une situation où chaque type conviendrait, et commente brièvement comment le choix du modèle de données affecte la performance des requêtes complexes.",
+    "pt": "Explique a diferença entre um banco de dados relacional e um banco de dados não relacional. Mencione um exemplo concreto de cada categoria, descreva uma situação em que cada tipo seria adequado, e comente brevemente como a escolha do modelo de dados afeta o desempenho de consultas complexas."
+  }
+}

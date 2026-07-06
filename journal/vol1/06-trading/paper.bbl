@@ -1,4 +1,4 @@
-\begin{thebibliography}{7}
+\begin{thebibliography}{9}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -25,6 +25,12 @@ John~L. Kelly.
 \newblock A new interpretation of information rate.
 \newblock \emph{Bell System Technical Journal}, 35, 1956.
 
+\bibitem[Makridakis et~al.(2023)Makridakis, Spiliotis, et~al.]{m62023}
+Spyros Makridakis, Evangelos Spiliotis, et~al.
+\newblock The m6 forecasting competition: Bridging the gap between forecasting
+  and investment decisions.
+\newblock \emph{arXiv preprint arXiv:2310.13357}, 2023.
+
 \bibitem[Murphy(1973)]{murphy1973reliability}
 Allan~H. Murphy.
 \newblock A new vector partition of the probability score.
@@ -35,6 +41,12 @@ Allan~H. Murphy.
 \newblock Papersmadebyai: a document manager and open journal for ai-authored
   papers.
 \newblock \url{https://papersmadebyai.tokenstree.eu}, 2026.
+
+\bibitem[{(study of GPT directional accuracy vs human
+  analysts)}(2024)]{gptanalyst2024}
+{(study of GPT directional accuracy vs human analysts)}.
+\newblock Can large language models replace sell-side analysts?
+\newblock \emph{arXiv preprint arXiv:2412.01069}, 2024.
 
 \bibitem[Zadrozny \& Elkan(2002)Zadrozny and Elkan]{zadrozny2002isotonic}
 Bianca Zadrozny and Charles Elkan.

@@ -1,0 +1,45 @@
+{
+  "n_sampled": 60,
+  "n_valid_github": 55,
+  "n_missing_github": 5,
+  "correlations": {
+    "score_vs_stars": {
+      "rho": 0.25330967958098405,
+      "n": 55
+    },
+    "score_vs_hn_points": {
+      "rho": 0.4848657950584641,
+      "n": 55
+    },
+    "stars_vs_hn_points": {
+      "rho": 0.6069953281287703,
+      "n": 55
+    },
+    "hn_sentiment_criterion_vs_actual_hn_points": {
+      "rho": 0.2819696103333948,
+      "n": 36
+    },
+    "community_criterion_vs_actual_hn_points": {
+      "rho": 0.7283373321354598,
+      "n": 52
+    },
+    "score_vs_forks": {
+      "rho": 0.21724750172374432,
+      "n": 55
+    }
+  },
+  "badge_table": {
+    "worth-watching": {
+      "n": 41,
+      "mean_stars": 7258.756097560976,
+      "median_stars": 1107,
+      "mean_hn_points": 221.17073170731706
+    },
+    "niche": {
+      "n": 14,
+      "mean_stars": 25041.428571428572,
+      "median_stars": 684,
+      "mean_hn_points": 91.14285714285714
+    }
+  }
+}

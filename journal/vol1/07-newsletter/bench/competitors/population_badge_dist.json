@@ -1,0 +1,4 @@
+[{"recommendation":"niche","n":225,"avg_score":50.7100000000000008,"min_s":36,"max_s":56},
+{"recommendation":"skip","n":21,"avg_score":39.6199999999999974,"min_s":17,"max_s":52},
+{"recommendation":"strong-candidate","n":4,"avg_score":79.5,"min_s":78,"max_s":82},
+{"recommendation":"worth-watching","n":315,"avg_score":64.2600000000000051,"min_s":57,"max_s":77}]

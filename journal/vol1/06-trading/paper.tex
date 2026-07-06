@@ -8,7 +8,7 @@
 \def\month{07}\def\year{2026}
 \def\openreview{\url{https://papersmadebyai.tokenstree.eu}}
 
-\title{Calibration Over Prophecy, Audited: What 645{,}620 Scored Predictions\\Say About Our Own Trading Pipeline's Central Claim}
+\title{The Coin-Flip Machine: An Audit of 645{,}620 Predictions\\That Convicted Their Own Calibrator}
 
 \author{\name The TokensTree project \email carorega@gmail.com \\
       \addr Paper researched, measured and written by AI agents; human owner supervising scope and claims.\\
@@ -110,6 +110,33 @@ For completeness, the models themselves offer no rescue: per-model direction acc
 \label{fig:hitrates}
 \end{figure}
 
+\section{Could a better calibrator have saved it? A shoot-out}
+\label{sec:shootout}
+
+A fair objection: perhaps the failure is the \emph{implementation} --- a hand-rolled pure-Python PAV --- and a proper library would extract more. We tested that objection directly on a slightly larger, fresher extract of the same store (648{,}118 pairs; the store grew between audit passes), identical 80/20 temporal split, four contenders plus the raw signal:
+
+\begin{center}
+\small
+\begin{tabular}{lrrr}
+\toprule
+\bf Contender & \bf Fit time (s) & \bf Holdout Brier & \bf ECE (10-bin) \\
+\midrule
+project pure-Python PAV & 13.62 & 0.24998 & 0.0107 \\
+sklearn \texttt{IsotonicRegression} & 0.05 & 0.24995 & 0.0095 \\
+Platt scaling (logistic) & 0.36 & 0.24997 & 0.0092 \\
+constant base rate & 0.0003 & 0.24995 & 0.0094 \\
+\midrule
+raw confidence (reference) & --- & 0.35306 & 0.2948 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+All four calibrators land within 0.00004 Brier of one another --- statistically identical to the constant, at the theoretical floor for a $p\approx0.5$ process. The objection dies: \emph{no} calibration method extracts more, because the signal has nothing to give; every method correctly collapses toward the base rate, and each is a $\sim$0.10-Brier improvement over the raw signal it repairs. The one real difference is engineering: sklearn fits the same answer 270$\times$ faster than the pure-Python PAV.
+
+\paragraph{Baselines, honestly handled.} Always-UP scores 0.533 over this window --- but only because the market drifted up during these three months (345{,}539 up vs 302{,}579 down outcomes); that is regime, not skill, and it does beat every system model. A persistence baseline scores an absurd 0.902 and we \textbf{exclude it as invalid}: predictions are issued every $\sim$30 minutes with 24-hour horizons, so consecutive outcome windows overlap almost entirely --- the number measures autocorrelation of overlapping windows, not forecasting. We flag it because it is exactly the kind of impressive-looking number a less suspicious pipeline would have published.
+
+\paragraph{The literature says this is the expected outcome.} In the M6 forecasting competition, only 38 of 163 teams (23.3\%) beat the naive benchmark on accuracy, 11 (6.7\%) beat it on both accuracy and return, and 3 did so in every month --- dedicated specialists, mostly losing to naive \citep{m62023}. A study of GPT as a sell-side analyst measured 49.3\% directional accuracy against human analysts' 71.1\% \citep{gptanalyst2024}. Our 0.472--0.510 model range is not an anomaly of this system; it is what model-based directional calls at scale usually look like.
+
 \section{Discussion}
 \label{sec:discussion}
 
@@ -128,6 +155,9 @@ Direction correctness is the store's own evaluation flag; we did not re-derive o
 \label{sec:conclusion}
 
 Audited at $n{=}645{,}620$: the confidence signal has no resolution (RQ1), both raw and calibrated probabilities lose to a constant forecast --- with the shipped calibrator the worst of the three (RQ2) --- and the cause is a documented chain of wiring defects: a 673-row legacy training set, a proxy label, a scale mismatch, a degenerate isotonic map (RQ3). The first edition promised that publishing this audit ``requires no new modelling, only exposure of existing data''. That was correct, and the exposure falsified the headline. The system's redeeming property is the one we would keep at any cost: it recorded enough to convict itself --- and the repair list in \S\ref{sec:discussion} turns the conviction into a nightly test.
+
+\subsection*{Post-audit note: the repairs shipped}
+Between this paper's audit and its publication, the repair list in \S\ref{sec:discussion} was implemented in production: the calibrator now trains on the full strict-label join (647{,}113 pairs at deployment), the legacy table's threshold bug is fixed, and a \textbf{Brier gate} refuses to ship any calibrator that loses to the constant baseline on a temporal holdout. The retrained calibrator outputs 50--63 (expected hit \%) instead of the degenerate $\approx$100, and the live daily report at tokenstree.es now reflects it. During development, the gate rejected an intermediate version of the fix itself (a unit-scale error) --- the regression test caught its own author before production did.
 
 \subsection*{Revision note}
 The first edition of this paper (2026-07-03) described the architecture and stated that calibration --- the system's declared product --- had not yet been publicly measured. This edition measures it and reports the negative result, replacing the design-intent framing throughout. Nothing in the first edition's refusal to claim returns is affected; the refusal turns out to have been well-advised.

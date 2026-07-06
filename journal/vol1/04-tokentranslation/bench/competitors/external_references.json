@@ -1,0 +1,34 @@
+{
+  "note": "Published references on cross-lingual tokenization cost, collected via web search. None of these give a Spanish-specific multiplier as a clean headline number; figures below are the most specific claims found in each source.",
+  "references": [
+    {
+      "title": "Language Model Tokenizers Introduce Unfairness Between Languages",
+      "venue": "NeurIPS 2023",
+      "authors": "Aleksandar Petrov, Emanuele La Malfa, Philip H. S. Torr, Adel Bibi",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/74bb24dca8334adce292883b4b651eda-Abstract-Conference.html",
+      "arxiv_url": "https://arxiv.org/abs/2305.15425",
+      "reported_finding": "Evaluated 17 tokenizers; found tokenization-length disparities of up to 15x between some language pairs, and over 4x even for character-level/byte-level tokenizers, persisting even when tokenizers are intentionally trained for multilingual support. Abstract does not isolate a Spanish-English figure specifically (would require the full PDF to extract, not accessed in this pass)."
+    },
+    {
+      "title": "Tokenizer unfairness (interactive companion site to the NeurIPS 2023 paper)",
+      "url": "https://aleksandarpetrov.github.io/tokenization-fairness/",
+      "reported_finding": "Restates the up-to-15x disparity finding; hosts an interactive sentence-comparison tool whose live output was not captured in this pass (static fetch only returns the page text, not the widget's computed values)."
+    },
+    {
+      "title": "The Hidden Cost of Tokenization",
+      "author": "Sebastian Pokutta",
+      "url": "https://www.pokutta.com/blog/hidden-cost-tokenization/",
+      "reported_finding": "Compares OpenAI o200k, Qwen, and EuroLLM tokenizers across languages; states the same meaning can require '1.3x, 5x, or even more than 10x as many tokens depending on the language-tokenizer pairing.' No Spanish-specific figure quoted in the accessible text."
+    },
+    {
+      "title": "PromptCost.org — LLM Tokenization Explained: English vs Other Languages Cost Difference",
+      "url": "https://promptcost.org/en/blog/llm-tokenization-explained/",
+      "reported_finding": "General rule of thumb cited: 'In English, 1 word is about 1/3 tokens, while in Spanish, it's about 1/2 tokens' (i.e., roughly implies Spanish needs more tokens per word than English, consistent in direction with our result but not given as a clean ES/EN ratio)."
+    },
+    {
+      "title": "Web-search synthesis (multiple SEO/calculator sites, not a single authoritative source)",
+      "reported_finding": "Common industry rule of thumb: languages sharing the Latin script with English (French, Spanish, German) tokenize within roughly 10-20% more tokens than English on average prose — i.e., an ES->EN 'saving' on the order of 9-17%, not 30%.",
+      "caveat": "This is markedly SMALLER than our measured 30.2% mean saving on cl100k_base for the 15-prompt instruction/QA/technical benchmark. Two explanations are plausible and not mutually exclusive: (a) our benchmark prompts are long, syntactically dense, multi-clause instructions (mean ~48 Spanish words) rather than 'average prose,' which may amplify BPE merge-length differences; (b) generic rule-of-thumb figures for 'Spanish vs English' in casual SEO content are themselves rough and not tokenizer- or corpus-specific. This benchmark's 30% figure should be read as specific to this prompt style, not as a universal ES/EN constant."
+    }
+  ]
+}

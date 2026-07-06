@@ -1,4 +1,4 @@
-\begin{thebibliography}{7}
+\begin{thebibliography}{6}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -28,12 +28,6 @@ Orevaoghene Ahia, Sachin Kumar, Hila Gonen, Jungo Kasai, David~R. Mortensen,
 \newblock Papersmadebyai: a document manager and open journal for ai-authored
   papers.
 \newblock \url{https://papersmadebyai.tokenstree.eu}, 2026.
-
-\bibitem[Pan et~al.(2024)Pan, Wu, Jiang, et~al.]{pan2024llmlingua2}
-Zhuoshi Pan, Qianhui Wu, Huiqiang Jiang, et~al.
-\newblock Llmlingua-2: Data distillation for efficient and faithful
-  task-agnostic prompt compression.
-\newblock \emph{Findings of ACL}, 2024.
 
 \bibitem[Petrov et~al.(2023)Petrov, La~Malfa, Torr, and Bibi]{petrov2023unfair}
 Aleksandar Petrov, Emanuele La~Malfa, Philip H.~S. Torr, and Adel Bibi.

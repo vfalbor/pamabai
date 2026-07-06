@@ -1,0 +1,138 @@
+[
+  {
+    "doc_id": "meeting_1_roadmap",
+    "category": "meeting_transcript",
+    "method": "textrank",
+    "tokens_in": 548,
+    "tokens_out": 200,
+    "target_tokens": 219,
+    "latency_ms": 116.18,
+    "compression_ratio_pct": 36.5,
+    "facts_total": 6,
+    "facts_retained": 2,
+    "facts_retained_list": [
+      "Q3 roadmap",
+      "Okta"
+    ],
+    "compressed_preview": "Today is March 14th and we need to finalize the Q3 roadmap before the board meeting on March 21st. Given that, I think we can realistically ship two of the four proposed features: the SSO integration and the bulk export tool. The real-time collaboration feature and the mobile offline mode will need to slip to Q4. Marcus: We got a quote from Okta for the enterprise tier at $42,000 annually, plus ro"
+  },
+  {
+    "doc_id": "meeting_2_postmortem",
+    "category": "meeting_transcript",
+    "method": "textrank",
+    "tokens_in": 543,
+    "tokens_out": 206,
+    "target_tokens": 217,
+    "latency_ms": 38.87,
+    "compression_ratio_pct": 37.9,
+    "facts_total": 6,
+    "facts_retained": 1,
+    "facts_retained_list": [
+      "47-minute"
+    ],
+    "compressed_preview": "To summarize, we had a 47-minute complete API outage starting at 2:14 PM UTC and ending at 3:01 PM UTC, affecting all customers on the shared cluster, which is roughly 62% of our total user base. Lin: Our connection pool alert threshold was set at 95% utilization, but the exhaustion happened so fast \u2014 from 40% to 100% in under three minutes \u2014 that the alert fired but the on-call engineer, Raj, was"
+  },
+  {
+    "doc_id": "tech_1_rate_limiting",
+    "category": "technical_doc",
+    "method": "textrank",
+    "tokens_in": 631,
+    "tokens_out": 218,
+    "target_tokens": 252,
+    "latency_ms": 44.43,
+    "compression_ratio_pct": 34.5,
+    "facts_total": 6,
+    "facts_retained": 2,
+    "facts_retained_list": [
+      "token bucket",
+      "HTTP 429"
+    ],
+    "compressed_preview": "Sliding window logs were rejected due to memory overhead \u2014 storing a timestamp per request for high-volume keys would require roughly 800 MB per million active keys, which exceeds our Redis budget. We selected the token bucket algorithm implemented via a Redis Lua script for atomicity, which requires only 24 bytes of state per key. Each tier's bucket refills continuously at rate/60 tokens per seco"
+  },
+  {
+    "doc_id": "tech_2_db_migration",
+    "category": "technical_doc",
+    "method": "textrank",
+    "tokens_in": 646,
+    "tokens_out": 247,
+    "target_tokens": 258,
+    "latency_ms": 44.67,
+    "compression_ratio_pct": 38.2,
+    "facts_total": 6,
+    "facts_retained": 1,
+    "facts_retained_list": [
+      "PgBouncer"
+    ],
+    "compressed_preview": "Why Version 16 PostgreSQL 16 introduces significant improvements to parallel query execution and adds native support for logical replication of tables with generated columns, which we need for our upcoming analytics pipeline. Migration Strategy We will use logical replication rather than pg_upgrade, because pg_upgrade requires downtime proportional to catalog size, and our estimated downtime with "
+  },
+  {
+    "doc_id": "news_1_earnings",
+    "category": "news_style",
+    "method": "textrank",
+    "tokens_in": 548,
+    "tokens_out": 215,
+    "target_tokens": 219,
+    "latency_ms": 33.52,
+    "compression_ratio_pct": 39.2,
+    "facts_total": 6,
+    "facts_retained": 3,
+    "facts_retained_list": [
+      "Argon-9",
+      "2.1 million units",
+      "Ohio"
+    ],
+    "compressed_preview": "CEO Diane Wexler told analysts on the earnings call that Argon-9 shipments reached 2.1 million units in the quarter, up from 340,000 units in the same period last year \u2014 a sixfold increase that she attributed to a manufacturing partnership signed in January with TSMC's Arizona facility. Meridian's automotive chip division, which supplies sensors for advanced driver-assistance systems, saw revenue "
+  },
+  {
+    "doc_id": "news_2_climate_policy",
+    "category": "news_style",
+    "method": "textrank",
+    "tokens_in": 462,
+    "tokens_out": 148,
+    "target_tokens": 184,
+    "latency_ms": 26.29,
+    "compression_ratio_pct": 32.0,
+    "facts_total": 6,
+    "facts_retained": 3,
+    "facts_retained_list": [
+      "82 euros per tonne",
+      "\u20ac9 billion",
+      "2030"
+    ],
+    "compressed_preview": "Negotiators from the European Parliament and member states reached a final agreement early Thursday morning on the Carbon Border Adjustment Mechanism, a policy that will impose tariffs on imported steel, cement, aluminum, fertilizer, and electricity based on the carbon emissions associated with their production. Under the agreement, importers will be required to purchase certificates corresponding"
+  },
+  {
+    "doc_id": "codereview_1_auth",
+    "category": "code_review",
+    "method": "textrank",
+    "tokens_in": 715,
+    "tokens_out": 255,
+    "target_tokens": 286,
+    "latency_ms": 48.85,
+    "compression_ratio_pct": 35.7,
+    "facts_total": 6,
+    "facts_retained": 3,
+    "facts_retained_list": [
+      "30 days",
+      "GETDEL",
+      "401"
+    ],
+    "compressed_preview": "Every time a refresh token is used to obtain a new access token, the old refresh token is invalidated and a new one is issued. I've set the refresh token TTL to 30 days and access token TTL to 15 minutes, matching what we agreed on in the design doc. One concern: in `auth_service.py` line 142, you're storing the refresh token hash in Redis with no explicit expiration set on the key itself, only re"
+  },
+  {
+    "doc_id": "codereview_2_perf",
+    "category": "code_review",
+    "method": "textrank",
+    "tokens_in": 658,
+    "tokens_out": 258,
+    "target_tokens": 263,
+    "latency_ms": 38.64,
+    "compression_ratio_pct": 39.2,
+    "facts_total": 6,
+    "facts_retained": 1,
+    "facts_retained_list": [
+      "LIMIT 2000"
+    ],
+    "compressed_preview": "jhan-perf commented: This PR replaces the N+1 query pattern in `ProductSearchService.get_results()` with a single batched query using `WHERE id = ANY(:ids)` instead of looping over product IDs and issuing one SELECT per ID. I added a hard cap: the batched query includes `LIMIT 2000` before ranking, since our product catalog analysis showed 99.7% of search queries match fewer than 2,000 products an"
+  }
+]

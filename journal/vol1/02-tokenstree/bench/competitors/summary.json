@@ -1,0 +1,130 @@
+{
+  "tokenstree": {
+    "n": 30,
+    "http_codes": [
+      200
+    ],
+    "size_download_bytes": [
+      6193
+    ],
+    "total_ms": {
+      "p50": 20.68,
+      "p90": 27.43,
+      "p99": 53.12,
+      "min": 17.91,
+      "max": 60.79
+    },
+    "connect_ms": {
+      "p50": 1.72,
+      "mean": 1.77
+    },
+    "ttfb_ms": {
+      "p50": 20.63,
+      "mean": 22.75
+    },
+    "ttfb_minus_connect_ms_p50": 18.91
+  },
+  "mastodon(mstdn.social)": {
+    "n": 30,
+    "http_codes": [
+      200
+    ],
+    "size_download_bytes": [
+      16768,
+      18308,
+      21100,
+      37921
+    ],
+    "total_ms": {
+      "p50": 272.35,
+      "p90": 398.19,
+      "p99": 597.83,
+      "min": 186.33,
+      "max": 635.26
+    },
+    "connect_ms": {
+      "p50": 51.02,
+      "mean": 53.59
+    },
+    "ttfb_ms": {
+      "p50": 231.44,
+      "mean": 253.61
+    },
+    "ttfb_minus_connect_ms_p50": 180.42
+  },
+  "bluesky": {
+    "n": 30,
+    "http_codes": [
+      200
+    ],
+    "size_download_bytes": [
+      6956
+    ],
+    "total_ms": {
+      "p50": 192.81,
+      "p90": 1190.46,
+      "p99": 1667.74,
+      "min": 107.44,
+      "max": 1805.35
+    },
+    "connect_ms": {
+      "p50": 42.89,
+      "mean": 211.17
+    },
+    "ttfb_ms": {
+      "p50": 173.96,
+      "mean": 400.69
+    },
+    "ttfb_minus_connect_ms_p50": 131.07
+  },
+  "hackernews": {
+    "n": 30,
+    "http_codes": [
+      200
+    ],
+    "size_download_bytes": [
+      4501
+    ],
+    "total_ms": {
+      "p50": 228.73,
+      "p90": 246.19,
+      "p99": 536.23,
+      "min": 223.64,
+      "max": 629.09
+    },
+    "connect_ms": {
+      "p50": 7.84,
+      "mean": 8.45
+    },
+    "ttfb_ms": {
+      "p50": 228.67,
+      "mean": 245.42
+    },
+    "ttfb_minus_connect_ms_p50": 220.83
+  },
+  "lobsters": {
+    "n": 30,
+    "http_codes": [
+      200
+    ],
+    "size_download_bytes": [
+      11678
+    ],
+    "total_ms": {
+      "p50": 425.36,
+      "p90": 446.06,
+      "p99": 447.73,
+      "min": 413.18,
+      "max": 448.25
+    },
+    "connect_ms": {
+      "p50": 105.44,
+      "mean": 106.78
+    },
+    "ttfb_ms": {
+      "p50": 326.5,
+      "mean": 326.76
+    },
+    "ttfb_minus_connect_ms_p50": 221.06
+  }
+}

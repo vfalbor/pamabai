@@ -1,0 +1,25 @@
+{
+  "note": "Collected via WebSearch, 2026-07-06. Numbers as reported by secondary summaries of the cited sources; not independently re-derived from raw competition/study data.",
+  "m6_forecasting_competition": {
+    "source": "Spiliotis et al., 'The M6 forecasting competition: Bridging the gap between forecasting and investment decisions' (arXiv:2310.13357 / ResearchGate)",
+    "url": "https://arxiv.org/pdf/2310.13357",
+    "finding": "Of 163 teams on the global leaderboard, only 38 (23.3%) produced more accurate forecasts than the naive benchmark; 47 (28.8%) built better-performing portfolios; only 11 (6.7%) beat the benchmark on both accuracy and investment return; only 3 teams beat the benchmark in all 12 competition months.",
+    "relevance": "Large, well-resourced, professionally-run forecasting competition on real equities; even the best specialist teams mostly failed to beat a naive benchmark, and consistent monthly outperformance was almost nonexistent. Contextualizes why ~50% direction accuracy at scale is the expected regime, not a sign of a broken system."
+  },
+  "llm_forecast_vs_analysts": {
+    "source": "'The Promise and Peril of Generative AI: Evidence from GPT as Sell-Side Analysts' (arXiv:2412.01069)",
+    "url": "https://arxiv.org/pdf/2412.01069",
+    "finding": "Inferring earnings direction from GPT's numerical forecasts yielded 49.3% accuracy; explicit directional prompting yielded 47.7% accuracy; human sell-side analysts achieved 71.1% on the same task.",
+    "relevance": "Directly comparable to tokenstree.es's ensemble at 0.472-0.510 hit rate: an LLM/model-based directional call landing at ~48-49%, indistinguishable from or below coin-flip, is a documented outcome in the literature for financial direction prediction, not unique to this system."
+  },
+  "other_studies_noted": [
+    {
+      "finding": "Directional accuracy of 45.0%, statistically indistinguishable from 50%, reported in a stock direction prediction study",
+      "source": "Cited in secondary aggregation of stock-direction-prediction literature (exact primary source not isolated in this search pass)"
+    }
+  ],
+  "caveats": [
+    "A broader web query on 'day trader win rate' surfaced mostly low-quality SEO/marketing content (prop-firm blogs, trading-education sites) rather than peer-reviewed studies; those numbers (e.g. '1-4% of day traders profitable') are NOT included as literature evidence here because they are not verifiable academic sources. Only the M6 competition paper and the GPT-sell-side-analyst paper are treated as citable literature.",
+    "The 'high-performance' deep-learning papers surfaced in search (66-95% directional accuracy) are typically small-sample, single-asset, or in-sample/backtested results without walk-forward validation disclosed in the abstract; they are not used as counter-evidence, just noted as existing in the literature landscape."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "computed_on": "2026-07-06",
+  "assumption": "LLM agent takes 3.0s to think per move (typical single-call latency for a frontier or mid-tier model with a few hundred tokens of reasoning + tool call)",
+  "method": "overhead_fraction = env_overhead / (thinking_time + env_overhead); env_overhead varies by scenario per environment",
+  "scenarios": [
+    {
+      "environment": "gymnasium CartPole-v1 (in-process)",
+      "env_overhead_used": "p50 step latency, 5.45 microseconds",
+      "overhead_fraction_pct": 0.00018,
+      "note": "irrelevant in practice: no LLM would use CartPole as an agent benchmark; included as an in-process reference point"
+    },
+    {
+      "environment": "pettingzoo tictactoe_v3 (in-process)",
+      "env_overhead_used": "p50 step latency, 4.22 microseconds",
+      "overhead_fraction_pct": 0.00014,
+      "note": "turn-based multi-agent in-process env; no network hop, no tick"
+    },
+    {
+      "environment": "pettingzoo connect_four_v3 (in-process)",
+      "env_overhead_used": "p50 step latency, 15.13 microseconds",
+      "overhead_fraction_pct": 0.0005
+    },
+    {
+      "environment": "AndroidWars REST, request latency only",
+      "env_overhead_used": "measured p50 order/state request, 21.0ms (from bench/findings.md, 2026-07-06 live match)",
+      "overhead_fraction_pct": 0.69,
+      "formula": "21ms / (3000ms + 21ms)"
+    },
+    {
+      "environment": "AndroidWars REST + tick-alignment wait, worst case",
+      "env_overhead_used": "21ms request + full 2.0s tick wait (agent action submitted just after a tick boundary, must wait a full period before its effect is visible)",
+      "overhead_fraction_pct": 40.3,
+      "formula": "(21ms + 2000ms) / (3000ms + 21ms + 2000ms)",
+      "caveat": "this is the pessimistic bound; it is not request overhead, it is game-loop cadence shared by any tick-based simulation (real-time strategy games are not request-driven)"
+    },
+    {
+      "environment": "AndroidWars REST + tick-alignment wait, average case",
+      "env_overhead_used": "21ms request + mean 1.0s tick wait (uniform arrival over the 2.0s tick window)",
+      "overhead_fraction_pct": 25.4,
+      "formula": "(21ms + 1000ms) / (3000ms + 21ms + 1000ms)"
+    },
+    {
+      "environment": "webDiplomacy-style turn deadline (Cicero's environment, reported)",
+      "env_overhead_used": "reported turn deadlines range 5 minutes to 10 days; even the fastest live games use 5-30 minute phases",
+      "overhead_fraction_pct": "not comparable — deadline is a fairness/coordination window shared by all 7 players, not per-request overhead; a 3s-thinking agent uses <0.01% of even a 5-minute deadline",
+      "source": "https://webdiplomacy.net/faq.php"
+    }
+  ],
+  "takeaway": "Environment overhead is never the bottleneck for an LLM agent that spends seconds thinking per move. In-process gym-style envs add a few microseconds (negligible, matters only for RL training loops with millions of steps and no 'thinking' cost). AndroidWars' 21ms REST call is also negligible (0.7% of wall time). The only overhead worth naming is the 2.0s tick cadence itself, which behaves like a shared coordination window (same category as Diplomacy's turn deadlines, just far shorter) rather than a per-call cost -- and even in the worst-case alignment it adds at most 2s to a move, comparable to or smaller than the agent's own thinking time."
+}

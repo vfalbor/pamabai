@@ -58,3 +58,32 @@ def fig_methods():
 
 fig_arbitrage()
 fig_methods()
+
+
+def fig_tokenizers():
+    """E1: the arbitrage across tokenizer generations."""
+    import json as j
+    comp = j.load(open(os.path.join(HERE, "bench", "competitors",
+                                    "tokenizer_comparison_results.json")))
+    import statistics as st
+    rows = comp["es_en_full15"]
+    tks = [("cl100k_base\n(GPT-4, 2023)", "cl100k_base", C["green"]),
+           ("qwen2.5\n(2024)", "qwen2.5", C["slate"]),
+           ("o200k_base\n(GPT-4o, 2024)", "o200k_base", C["rust"]),
+           ("xlm-roberta\n(multiling., 2020)", "xlm-roberta-base", C["blue"])]
+    fig, ax = plt.subplots(figsize=(5.9, 3.2))
+    xs = range(len(tks))
+    vals = [st.mean([r[f"{key}_saving_pct"] for r in rows]) for _, key, _ in tks]
+    bars = ax.bar(list(xs), vals, color=[c for _, _, c in tks], width=0.6)
+    for b, v in zip(bars, vals):
+        ax.text(b.get_x() + b.get_width() / 2, v + 0.5, f"{v:.1f}%", ha="center", fontsize=10)
+    ax.set_xticks(list(xs))
+    ax.set_xticklabels([t for t, _, _ in tks], fontsize=8.6)
+    ax.set_ylabel("mean es→en token saving (%)")
+    ax.set_ylim(0, 36)
+    ax.set_title("The arbitrage depends on the tokenizer's generation (same 15 prompts)")
+    ax.grid(True, axis="y")
+    save(fig, os.path.join(HERE, "fig_tokenizers.png"))
+
+
+fig_tokenizers()

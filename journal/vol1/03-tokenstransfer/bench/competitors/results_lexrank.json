@@ -1,0 +1,142 @@
+[
+  {
+    "doc_id": "meeting_1_roadmap",
+    "category": "meeting_transcript",
+    "method": "lexrank",
+    "tokens_in": 548,
+    "tokens_out": 219,
+    "target_tokens": 219,
+    "latency_ms": 90.65,
+    "compression_ratio_pct": 40.0,
+    "facts_total": 6,
+    "facts_retained": 4,
+    "facts_retained_list": [
+      "Q3 roadmap",
+      "$1.2 million",
+      "Okta",
+      "Vantage Corp"
+    ],
+    "compressed_preview": "Today is March 14th and we need to finalize the Q3 roadmap before the board meeting on March 21st. Given that, I think we can realistically ship two of the four proposed features: the SSO integration and the bulk export tool. What's the estimated cost for the SSO integration specifically? Marcus: We got a quote from Okta for the enterprise tier at $42,000 annually, plus roughly six weeks of engine"
+  },
+  {
+    "doc_id": "meeting_2_postmortem",
+    "category": "meeting_transcript",
+    "method": "lexrank",
+    "tokens_in": 543,
+    "tokens_out": 185,
+    "target_tokens": 217,
+    "latency_ms": 55.53,
+    "compression_ratio_pct": 34.1,
+    "facts_total": 6,
+    "facts_retained": 0,
+    "facts_retained_list": [],
+    "compressed_preview": "We deployed a new caching layer at 2:10 PM that had a bug where it opened a new connection per request instead of reusing pooled connections. Lin: Our connection pool alert threshold was set at 95% utilization, but the exhaustion happened so fast \u2014 from 40% to 100% in under three minutes \u2014 that the alert fired but the on-call engineer, Raj, was in a different Slack channel and didn't see the page "
+  },
+  {
+    "doc_id": "tech_1_rate_limiting",
+    "category": "technical_doc",
+    "method": "lexrank",
+    "tokens_in": 631,
+    "tokens_out": 241,
+    "target_tokens": 252,
+    "latency_ms": 68.68,
+    "compression_ratio_pct": 38.2,
+    "facts_total": 6,
+    "facts_retained": 3,
+    "facts_retained_list": [
+      "token bucket",
+      "50,000 requests per second",
+      "HTTP 429"
+    ],
+    "compressed_preview": "Overview This document describes the rate limiting system for the public API gateway. The system must handle at least 50,000 requests per second at the edge with p99 latency overhead under 2 milliseconds. Fixed window counters were rejected because they allow burst traffic of up to 2x the intended limit at window boundaries. We selected the token bucket algorithm implemented via a Redis Lua script"
+  },
+  {
+    "doc_id": "tech_2_db_migration",
+    "category": "technical_doc",
+    "method": "lexrank",
+    "tokens_in": 646,
+    "tokens_out": 240,
+    "target_tokens": 258,
+    "latency_ms": 68.46,
+    "compression_ratio_pct": 37.2,
+    "facts_total": 6,
+    "facts_retained": 3,
+    "facts_retained_list": [
+      "34% improvement",
+      "PgBouncer",
+      "3.2 TB"
+    ],
+    "compressed_preview": "Migration Plan: PostgreSQL 12 to PostgreSQL 16 Upgrade Background Our primary production database has been running PostgreSQL 12.11 since 2021. Benchmarks run on a staging clone showed a 34% improvement in query latency for our top 20 slowest queries, largely due to improved query planning around our composite indexes. Cutover Steps 1. Provision new PostgreSQL 16 instance with matching hardware: 6"
+  },
+  {
+    "doc_id": "news_1_earnings",
+    "category": "news_style",
+    "method": "lexrank",
+    "tokens_in": 548,
+    "tokens_out": 186,
+    "target_tokens": 219,
+    "latency_ms": 40.43,
+    "compression_ratio_pct": 33.9,
+    "facts_total": 6,
+    "facts_retained": 3,
+    "facts_retained_list": [
+      "$4.7 billion",
+      "Argon-9",
+      "61.3%"
+    ],
+    "compressed_preview": "Meridian Semiconductor Inc. reported third-quarter revenue of $4.7 billion on Tuesday, beating analyst expectations of $4.3 billion and marking the company's strongest quarter since its founding in 1998. Shares rose 11% in after-hours trading following the announcement, extending a rally that has seen the stock climb 68% year-to-date. The results were driven primarily by demand for the company's n"
+  },
+  {
+    "doc_id": "news_2_climate_policy",
+    "category": "news_style",
+    "method": "lexrank",
+    "tokens_in": 462,
+    "tokens_out": 178,
+    "target_tokens": 184,
+    "latency_ms": 31.06,
+    "compression_ratio_pct": 38.5,
+    "facts_total": 6,
+    "facts_retained": 3,
+    "facts_retained_list": [
+      "Wopke Hoekstra",
+      "\u20ac9 billion",
+      "2030"
+    ],
+    "compressed_preview": "Negotiators from the European Parliament and member states reached a final agreement early Thursday morning on the Carbon Border Adjustment Mechanism, a policy that will impose tariffs on imported steel, cement, aluminum, fertilizer, and electricity based on the carbon emissions associated with their production. \"This closes a loophole that has allowed carbon-intensive production to simply relocat"
+  },
+  {
+    "doc_id": "codereview_1_auth",
+    "category": "code_review",
+    "method": "lexrank",
+    "tokens_in": 715,
+    "tokens_out": 266,
+    "target_tokens": 286,
+    "latency_ms": 71.98,
+    "compression_ratio_pct": 37.2,
+    "facts_total": 6,
+    "facts_retained": 3,
+    "facts_retained_list": [
+      "30 days",
+      "GETDEL",
+      "401"
+    ],
+    "compressed_preview": "alice-dev commented: This PR implements refresh token rotation as discussed in the security review. I've set the refresh token TTL to 30 days and access token TTL to 15 minutes, matching what we agreed on in the design doc. alice-dev commented: Good catch, that's a real gap. carlos-sec commented: Looking at the rotation logic itself now. In `rotate_refresh_token()`, there's a race condition: if a "
+  },
+  {
+    "doc_id": "codereview_2_perf",
+    "category": "code_review",
+    "method": "lexrank",
+    "tokens_in": 658,
+    "tokens_out": 187,
+    "target_tokens": 263,
+    "latency_ms": 51.29,
+    "compression_ratio_pct": 28.4,
+    "facts_total": 6,
+    "facts_retained": 2,
+    "facts_retained_list": [
+      "search_results_capped_total",
+      "test_empty_category_search_no_500"
+    ],
+    "compressed_preview": "jhan-perf commented: This PR replaces the N+1 query pattern in `ProductSearchService.get_results()` with a single batched query using `WHERE id = ANY(:ids)` instead of looping over product IDs and issuing one SELECT per ID. miguel-backend commented: Makes sense, though can we log a metric when that 2000 cap actually gets hit, so we know if that assumption drifts as the catalog grows? jhan-perf com"
+  }
+]

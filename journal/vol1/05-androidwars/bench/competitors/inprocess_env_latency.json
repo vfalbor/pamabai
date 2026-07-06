@@ -1,0 +1,33 @@
+{
+  "measured_on": "2026-07-06",
+  "method": "1000 steps per env, perf_counter wrapped tightly around env.step() only (excludes action selection logic)",
+  "results": [
+    {
+      "env": "gymnasium CartPole-v1 (in-process step)",
+      "n": 1000,
+      "p50_us": 5.45,
+      "p90_us": 5.57,
+      "mean_us": 8.66,
+      "min_us": 5.23,
+      "max_us": 3018.9
+    },
+    {
+      "env": "pettingzoo tictactoe_v3 (in-process step)",
+      "n": 1000,
+      "p50_us": 4.22,
+      "p90_us": 5.04,
+      "mean_us": 4.34,
+      "min_us": 1.8,
+      "max_us": 135.02
+    },
+    {
+      "env": "pettingzoo connect_four_v3 (in-process step)",
+      "n": 1000,
+      "p50_us": 15.13,
+      "p90_us": 17.5,
+      "mean_us": 14.89,
+      "min_us": 2.11,
+      "max_us": 59.24
+    }
+  ]
+}

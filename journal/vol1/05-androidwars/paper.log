@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.7.3)  6 JUL 2026 11:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.7.3)  6 JUL 2026 22:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -400,72 +400,66 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--19
 
  []
 
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
+1.
+(/usr/share/texmf/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 21.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 21.
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
-2.
-(/usr/share/texmf/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/
-enc/dvips/lm/lm-ec.enc}
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/e
+nc/dvips/lm/lm-ec.enc}
 
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/
-dvips/lm/lm-ts1.enc}]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 52.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 1.66672pt
-(hyperref)                removed on input line 52.
-
-<fig_latency.png, id=69, 434.5836pt x 208.1376pt>
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvi
+ps/lm/lm-mathsy.enc}]
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 57.
+<fig_latency.png, id=53, 434.5836pt x 208.1376pt>
 File: fig_latency.png Graphic file (type png)
 <use fig_latency.png>
-Package pdftex.def Info: fig_latency.png  used on input line 76.
+Package pdftex.def Info: fig_latency.png  used on input line 61.
 (pdftex.def)             Requested size: 366.40831pt x 175.49179pt.
-
-Underfull \vbox (badness 1953) has occurred while \output is active []
-
- [2{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}]
-<fig_ticks.png, id=79, 474.573pt x 208.1376pt>
+<fig_ticks.png, id=55, 474.573pt x 208.1376pt>
 File: fig_ticks.png Graphic file (type png)
 <use fig_ticks.png>
-Package pdftex.def Info: fig_ticks.png  used on input line 91.
+Package pdftex.def Info: fig_ticks.png  used on input line 69.
 (pdftex.def)             Requested size: 328.82706pt x 144.21852pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [3 <./fig_latency.png> <./fig_ticks.png>] [4] (./paper.bbl) [5] (./paper.aux)
+ [2{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc} <./fig_latency.png>] [3 
+<./fig_ticks.png>] (./paper.bbl) [4] (./paper.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 6428C244AB0B32DEEAF1F2FDF4706230;1650.
+(rerunfilecheck)             Checksum: 6D467C5D4DE52D6C7F6F0A26FF94A9BF;890.
  ) 
 Here is how much of TeX's memory you used:
- 10079 strings out of 476182
- 154208 string characters out of 5795596
- 1938975 words of memory out of 5000000
- 31898 multiletter control sequences out of 15000+600000
- 618860 words of font info for 69 fonts, out of 8000000 for 9000
+ 10076 strings out of 476182
+ 154106 string characters out of 5795596
+ 1940975 words of memory out of 5000000
+ 31894 multiletter control sequences out of 15000+600000
+ 625538 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,11n,79p,2088b,504s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,11n,79p,1849b,445s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/ty
-pe1/public/lm/lmbx9.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></us
-r/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/pub
-lic/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri9.pfb></usr/share
-/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/
-lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/te
-xmf/fonts/type1/public/lm/lmtti10.pfb>
-Output written on paper.pdf (5 pages, 320133 bytes).
+pe1/public/lm/lmbx7.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx9.pfb></usr
+/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/pub
+lic/lm/lmmi5.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/
+texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lm
+ri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri9.pfb></usr/share/texmf/fo
+nts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10
+.pfb></usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts
+/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtti10.pfb
+>
+Output written on paper.pdf (4 pages, 403805 bytes).
 PDF statistics:
- 169 PDF objects out of 1000 (max. 8388607)
- 135 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
- 91 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 176 PDF objects out of 1000 (max. 8388607)
+ 134 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 500000)
+ 59 words of extra memory for PDF output out of 10000 (max. 10000000)
 

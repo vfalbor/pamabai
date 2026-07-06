@@ -1,0 +1,61 @@
+{
+  "always_up": {
+    "hit_rate": 0.5331421130102851,
+    "n": 648118,
+    "dist": {
+      "down": 302579,
+      "up": 345539
+    }
+  },
+  "always_down": {
+    "hit_rate": 0.4668578869897148,
+    "n": 648118,
+    "dist": {
+      "down": 302579,
+      "up": 345539
+    }
+  },
+  "persistence": {
+    "hit_rate": 0.9023883921665687,
+    "n_evaluated": 646460,
+    "n_symbols": 1658,
+    "method": "previous prediction's realized direction (per symbol, chronological), not a strict calendar-day lag since horizon_min=1440 predictions are issued multiple times per day"
+  },
+  "system_models": [
+    {
+      "model": "ensemble",
+      "hit_rate": 0.5041890519936184,
+      "n": 648118
+    },
+    {
+      "model": "gbm",
+      "hit_rate": 0.5073545427543645,
+      "n": 606020
+    },
+    {
+      "model": "hmm_signal",
+      "hit_rate": 0.4851663852125306,
+      "n": 611112
+    },
+    {
+      "model": "kalman",
+      "hit_rate": 0.49084482264861107,
+      "n": 611075
+    },
+    {
+      "model": "kalman_signal",
+      "hit_rate": 0.4726122216549503,
+      "n": 611112
+    },
+    {
+      "model": "merton",
+      "hit_rate": 0.5035312675908835,
+      "n": 611112
+    },
+    {
+      "model": "ml",
+      "hit_rate": 0.5100072487461745,
+      "n": 578031
+    }
+  ]
+}

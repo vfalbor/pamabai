@@ -1,0 +1,173 @@
+[
+  {
+    "doc_id": "meeting_1_roadmap",
+    "category": "meeting_transcript",
+    "method": "llmlingua2",
+    "tokens_in": 548,
+    "tokens_out": 217,
+    "target_tokens": 219,
+    "latency_ms": 8314.4,
+    "compression_ratio_pct": 39.6,
+    "facts_total": 6,
+    "facts_retained": 6,
+    "facts_retained_list": [
+      "Q3 roadmap",
+      "$1.2 million",
+      "Okta",
+      "June 15th",
+      "Vantage Corp",
+      "$96,000"
+    ],
+    "compressed_preview": "Sarah March 14th finalize Q3 roadmap before board meeting March 21st Marcus engineering capacity numbers 14 engineers available Q3 down from 17 three rotating infrastructure migration project ship two four features SSO integration bulk export tool real-time collaboration mobile offline mode Q4 estimated cost SSO integration? quote Okta enterprise $42,000 annually six weeks engineering time $54,000",
+    "backend_method_field": "llmlingua2"
+  },
+  {
+    "doc_id": "meeting_2_postmortem",
+    "category": "meeting_transcript",
+    "method": "llmlingua2",
+    "tokens_in": 543,
+    "tokens_out": 218,
+    "target_tokens": 217,
+    "latency_ms": 7565.6,
+    "compression_ratio_pct": 40.1,
+    "facts_total": 6,
+    "facts_retained": 6,
+    "facts_retained_list": [
+      "April 3rd",
+      "47-minute",
+      "500 connections",
+      "PagerDuty",
+      "April 7th",
+      "340 tickets"
+    ],
+    "compressed_preview": "postmortem outage April 3rd 47-minute API outage 2:14 PM 3:01 PM UTC shared cluster 62% user base root cause database connection pool exhaustion deployed new caching layer 2:10 PM bug new connection per request instead four minutes hit limit 500 connections primary Postgres instance alerting faster 2:28 PM 14 minutes after outage connection pool alert threshold 95% utilization exhaustion fast 40% ",
+    "backend_method_field": "llmlingua2"
+  },
+  {
+    "doc_id": "tech_1_rate_limiting",
+    "category": "technical_doc",
+    "method": "llmlingua2",
+    "tokens_in": 631,
+    "tokens_out": 257,
+    "target_tokens": 252,
+    "latency_ms": 9569.1,
+    "compression_ratio_pct": 40.7,
+    "facts_total": 6,
+    "facts_retained": 5,
+    "facts_retained_list": [
+      "token bucket",
+      "50,000 requests per second",
+      "HTTP 429",
+      "January 9th",
+      "May 6th"
+    ],
+    "compressed_preview": "API Rate Limiting Architecture rate limiting system public API gateway services abusive traffic high-volume customers fair quota 50,000 requests per second latency under 2 milliseconds evaluated fixed window counters sliding window logs token bucket algorithm counters rejected burst traffic 2x limit logs memory overhead 800 MB exceeds Redis budget selected token bucket algorithm 24 bytes state per",
+    "backend_method_field": "llmlingua2"
+  },
+  {
+    "doc_id": "tech_2_db_migration",
+    "category": "technical_doc",
+    "method": "llmlingua2",
+    "tokens_in": 646,
+    "tokens_out": 269,
+    "target_tokens": 258,
+    "latency_ms": 8790.2,
+    "compression_ratio_pct": 41.6,
+    "facts_total": 6,
+    "facts_retained": 3,
+    "facts_retained_list": [
+      "34% improvement",
+      "PgBouncer",
+      "3.2 TB"
+    ],
+    "compressed_preview": "Migration Plan PostgreSQL 12 to 16 Upgrade database 12.11 since 2021 12 end-of-life November 14 2024 security patches 3.2 TB data 340 tables largest table event_logs 1.8 billion parallel query execution support logical replication pipeline 34% improvement query latency 20 slowest queries improved planning Strategy logical replication pg_upgrade downtime proportional catalog size 90 minutes exceeds",
+    "backend_method_field": "llmlingua2"
+  },
+  {
+    "doc_id": "news_1_earnings",
+    "category": "news_style",
+    "method": "llmlingua2",
+    "tokens_in": 548,
+    "tokens_out": 234,
+    "target_tokens": 219,
+    "latency_ms": 10728.8,
+    "compression_ratio_pct": 42.7,
+    "facts_total": 6,
+    "facts_retained": 5,
+    "facts_retained_list": [
+      "$4.7 billion",
+      "Argon-9",
+      "2.1 million units",
+      "$2 billion share buyback",
+      "61.3%"
+    ],
+    "compressed_preview": "Meridian Semiconductor Revenue Shares Jump 11% Semiconductor reported third-quarter revenue $4.7 billion beating expectations $4.3 billion strongest quarter since 1998. Shares rose 11% 68% year-to driven demand Argon-9 chip line data accelerators machine learning CEO Diane Wexler Argon-9 shipments reached 2.1 million units 340,000 last year sixfold increase partnership TSMC Arizona sustained deman",
+    "backend_method_field": "llmlingua2"
+  },
+  {
+    "doc_id": "news_2_climate_policy",
+    "category": "news_style",
+    "method": "llmlingua2",
+    "tokens_in": 462,
+    "tokens_out": 177,
+    "target_tokens": 184,
+    "latency_ms": 9396.1,
+    "compression_ratio_pct": 38.3,
+    "facts_total": 6,
+    "facts_retained": 6,
+    "facts_retained_list": [
+      "January 1, 2027",
+      "82 euros per tonne",
+      "65 million tonnes",
+      "Wopke Hoekstra",
+      "\u20ac9 billion",
+      "2030"
+    ],
+    "compressed_preview": "European Union Agrees Carbon Border Tax Effective 2027 Negotiators European Parliament states agreement Thursday Carbon Border Adjustment Mechanism tariffs imported steel cement aluminum fertilizer electricity carbon emissions effect January 1, 2027 three-year transitional October 2023 importers purchase certificates carbon emissions internal carbon market 82 euros per tonne CO2 mechanism 3% EU im",
+    "backend_method_field": "llmlingua2"
+  },
+  {
+    "doc_id": "codereview_1_auth",
+    "category": "code_review",
+    "method": "llmlingua2",
+    "tokens_in": 715,
+    "tokens_out": 289,
+    "target_tokens": 286,
+    "latency_ms": 6526.4,
+    "compression_ratio_pct": 40.4,
+    "facts_total": 6,
+    "facts_retained": 6,
+    "facts_retained_list": [
+      "PR #2841",
+      "30 days",
+      "GETDEL",
+      "auth_redis_key_count",
+      "401",
+      "test_concurrent_refresh_rotation"
+    ],
+    "compressed_preview": "PR #2841 Add refresh token rotation auth service implements refresh token rotation security review refresh token new access token old invalidated new issued closes vulnerability leaked refresh token replayed indefinitely set refresh token TTL 30 days access token TTL 15 minutes design doc bkumar-reviews `auth_service.py line 142 storing refresh token hash Redis no expiration key JWT exp claim Redi",
+    "backend_method_field": "llmlingua2"
+  },
+  {
+    "doc_id": "codereview_2_perf",
+    "category": "code_review",
+    "method": "llmlingua2",
+    "tokens_in": 658,
+    "tokens_out": 275,
+    "target_tokens": 263,
+    "latency_ms": 8622.2,
+    "compression_ratio_pct": 41.8,
+    "facts_total": 6,
+    "facts_retained": 6,
+    "facts_retained_list": [
+      "p95 latency",
+      "LIMIT 2000",
+      "search_results_capped_total",
+      "1.4 million products",
+      "test_empty_category_search_no_500",
+      "PR #5109"
+    ],
+    "compressed_preview": "PR #5109 Optimize product search query reduce p95 latency replaces N+1 query pattern.get_results single batched query `WHERE id = ANY() looping product IDs SELECT per 10,000 p95 latency dropped 890ms to 145ms database CPU utilization 78% to 31% `search_service.py line 88 loading matched products memory before relevance ranking query 50,000 products risk memory spike batched query includes `LIMIT 2",
+    "backend_method_field": "llmlingua2"
+  }
+]

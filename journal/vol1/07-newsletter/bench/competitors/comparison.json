@@ -1,0 +1,38 @@
+{
+  "note": "All entries below are REPORTED from the respective sites' own public pages/marketing copy as of July 2026, not independently verified by execution.",
+  "projects": [
+    {
+      "name": "LLM Daily Review (tokenstree.eu)",
+      "executes_the_tool": true,
+      "scoring_method": "11 weighted criteria (novelty, system_requirements, current_relevance, differentiation, community, ease_of_use, ease_of_integration, documentation, maturity, performance, hn_sentiment) via LLM judge + actual install/run + benchmark timing",
+      "scale": "0-100 total_score, mapped to 4 badges: skip / niche / worth-watching / strong-candidate",
+      "frequency": "continuous, ~565 apps reviewed to date, several per day sourced from Show HN",
+      "source": "internal review.db inspected directly for this study"
+    },
+    {
+      "name": "Futurepedia.io",
+      "executes_the_tool": false,
+      "scoring_method": "Editorial team evaluates features/pricing/use-cases; no stated hands-on testing protocol. Paid ($497) 'verified' badge for tool owners on request.",
+      "scale": "No public numeric score exposed; curated categories, pros/cons, and an optional verification badge",
+      "frequency": "Continuously maintained directory of 5,000+ listed tools",
+      "source": "futurepedia.io site pages, futurepedia.io/verified"
+    },
+    {
+      "name": "There's An AI For That (theresanaiforthat.com)",
+      "executes_the_tool": false,
+      "scoring_method": "User-submitted star ratings/reviews, filtered by automated spam/abuse detection; no independent testing of the tools themselves",
+      "scale": "5-star community rating per tool; no automated quality score",
+      "frequency": "Continuously updated directory, 27,700+ tools listed",
+      "source": "theresanaiforthat.com reviews pages, trustpilot.com listing"
+    },
+    {
+      "name": "bestofshowhn.com",
+      "executes_the_tool": false,
+      "scoring_method": "Re-curates/re-ranks Show HN submissions using Hacker News' own point/vote signal (with HN's built-in decay, flag, and anti-abuse weighting); no independent scoring criteria of its own",
+      "scale": "Ranked lists (weekly/yearly 'best of'), no proprietary numeric score",
+      "frequency": "Weekly and yearly roundups",
+      "source": "bestofshowhn.com pages"
+    }
+  ],
+  "key_differentiator": "None of the three comparables install or execute the reviewed software. LLM Daily Review appears to be the only one in this set that clones/runs the app and derives a score partly from that execution, rather than purely from editorial judgment or community voting signal."
+}

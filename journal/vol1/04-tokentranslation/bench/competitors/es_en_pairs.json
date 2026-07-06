@@ -1,0 +1,62 @@
+{
+  "instr-1": {
+    "es": "Escribe un resumen de tres párrafos sobre los efectos del cambio climático en la agricultura de América Latina. Incluye datos sobre la disminución de las cosechas de maíz y trigo, menciona al menos dos países afectados y propone dos medidas de adaptación que los agricultores pequeños podrían implementar con recursos limitados en los próximos cinco años.",
+    "en": "Write a three-paragraph summary about the effects of climate change on agriculture in Latin America. Include data on the decline of corn and wheat harvests, mention at least two affected countries, and propose two adaptation measures that small farmers could implement with limited resources over the next five years."
+  },
+  "instr-2": {
+    "es": "Organiza una lista de tareas para lanzar un producto de software en tres semanas. Divide el trabajo en diseño, desarrollo, pruebas y marketing. Para cada categoría, indica quién debería ser responsable, cuánto tiempo tomará aproximadamente y qué riesgos podrían retrasar la entrega si no se gestionan a tiempo.",
+    "en": "Organize a task list to launch a software product in three weeks. Divide the work into design, development, testing, and marketing. For each category, indicate who should be responsible, roughly how long it will take, and what risks could delay delivery if not managed in time."
+  },
+  "instr-3": {
+    "es": "Redacta un correo electrónico formal dirigido al departamento de recursos humanos solicitando dos semanas de vacaciones en agosto. Explica brevemente que el equipo ya tiene cobertura asegurada durante ese periodo, adjunta la fecha exacta de inicio y fin, y pide confirmación por escrito antes de que finalice la semana actual.",
+    "en": "Draft a formal email addressed to the human resources department requesting two weeks of vacation in August. Briefly explain that the team already has coverage arranged for that period, attach the exact start and end dates, and ask for written confirmation before the end of the current week."
+  },
+  "instr-4": {
+    "es": "Diseña un plan de estudio de ocho semanas para preparar un examen de certificación en gestión de proyectos. Incluye temas semanales, tiempo diario recomendado de estudio, un simulacro de examen en la semana seis y una revisión final concentrada en los conceptos que suelen causar más errores según exámenes anteriores.",
+    "en": "Design an eight-week study plan to prepare for a project management certification exam. Include weekly topics, recommended daily study time, a practice exam in week six, and a final review focused on the concepts that tend to cause the most errors according to previous exams."
+  },
+  "instr-5": {
+    "es": "Crea una receta detallada para un plato vegetariano que pueda prepararse en menos de cuarenta minutos, usando ingredientes comunes de temporada. Especifica las cantidades exactas, el orden de los pasos, el tiempo de cocción de cada componente y una sugerencia de acompañamiento que combine bien con el sabor principal del plato.",
+    "en": "Create a detailed recipe for a vegetarian dish that can be prepared in under forty minutes, using common seasonal ingredients. Specify exact quantities, the order of the steps, the cooking time for each component, and a side dish suggestion that pairs well with the main flavor of the dish."
+  },
+  "qa-1": {
+    "es": "¿Por qué el cielo se ve azul durante el día pero se torna rojo o naranja al atardecer? Explica el fenómeno físico detrás de este cambio de color, menciona el nombre del proceso involucrado y describe cómo la posición del sol en el horizonte afecta la longitud del recorrido de la luz.",
+    "en": "Why does the sky look blue during the day but turn red or orange at sunset? Explain the physical phenomenon behind this color change, mention the name of the process involved, and describe how the sun's position on the horizon affects the length of the light's path."
+  },
+  "qa-2": {
+    "es": "¿Cuál es la diferencia entre una economía de mercado y una economía planificada? Da un ejemplo histórico de cada tipo, señala una ventaja y una desventaja de cada sistema, y explica brevemente por qué muchos países modernos combinan elementos de ambos modelos en su política económica actual.",
+    "en": "What is the difference between a market economy and a planned economy? Give a historical example of each type, point out one advantage and one disadvantage of each system, and briefly explain why many modern countries combine elements of both models in their current economic policy."
+  },
+  "qa-3": {
+    "es": "¿Cómo afecta la falta de sueño al rendimiento cognitivo a largo plazo? Describe al menos tres consecuencias documentadas por estudios científicos, indica cuántas horas de sueño se recomiendan generalmente para un adulto sano, y sugiere dos hábitos simples que ayudan a mejorar la calidad del descanso nocturno.",
+    "en": "How does lack of sleep affect cognitive performance in the long term? Describe at least three consequences documented by scientific studies, indicate how many hours of sleep are generally recommended for a healthy adult, and suggest two simple habits that help improve the quality of nighttime rest."
+  },
+  "qa-4": {
+    "es": "¿Qué papel jugaron las rutas comerciales de la seda en el intercambio cultural entre Asia y Europa? Menciona al menos dos productos que se transportaban regularmente, explica cómo estas rutas influyeron en la propagación de ideas religiosas y describe brevemente por qué su importancia disminuyó con el tiempo.",
+    "en": "What role did the Silk Road trade routes play in cultural exchange between Asia and Europe? Mention at least two products that were regularly transported, explain how these routes influenced the spread of religious ideas, and briefly describe why their importance declined over time."
+  },
+  "qa-5": {
+    "es": "¿Por qué algunas especies de animales migran miles de kilómetros cada año en lugar de quedarse en un mismo lugar? Explica los factores ambientales que impulsan este comportamiento, da dos ejemplos de especies migratorias conocidas y describe cómo los animales logran orientarse durante trayectos tan largos.",
+    "en": "Why do some animal species migrate thousands of kilometers every year instead of staying in one place? Explain the environmental factors that drive this behavior, give two examples of well-known migratory species, and describe how animals manage to orient themselves during such long journeys."
+  },
+  "tech-1": {
+    "es": "Explica la diferencia entre una base de datos relacional y una base de datos no relacional. Menciona un ejemplo concreto de cada categoría, describe una situación donde convendría usar cada tipo, y comenta brevemente cómo afecta la elección del modelo de datos al rendimiento de las consultas complejas.",
+    "en": "Explain the difference between a relational database and a non-relational database. Mention a concrete example of each category, describe a situation where each type would be preferable, and briefly comment on how the choice of data model affects the performance of complex queries."
+  },
+  "tech-2": {
+    "es": "Describe el proceso completo de una solicitud HTTP desde que el navegador la envía hasta que recibe la respuesta del servidor. Incluye la resolución DNS, el establecimiento de la conexión TCP, el intercambio TLS si aplica, y explica qué diferencia hay entre los códigos de estado 4xx y 5xx.",
+    "en": "Describe the complete process of an HTTP request from when the browser sends it until it receives the server's response. Include DNS resolution, TCP connection establishment, the TLS handshake if applicable, and explain the difference between 4xx and 5xx status codes."
+  },
+  "tech-3": {
+    "es": "Explica qué es la complejidad algorítmica y por qué es importante al diseñar software que procesa grandes volúmenes de datos. Compara la notación O(n) con O(n al cuadrado) usando un ejemplo simple de ordenamiento, y menciona una estructura de datos que ayudaría a mejorar el rendimiento en ese caso.",
+    "en": "Explain what algorithmic complexity is and why it matters when designing software that processes large volumes of data. Compare O(n) notation with O(n squared) using a simple sorting example, and mention a data structure that would help improve performance in that case."
+  },
+  "tech-4": {
+    "es": "Describe cómo funciona la autenticación mediante tokens JWT en una aplicación web moderna. Explica las tres partes que componen un token, indica dónde se almacena habitualmente en el cliente, y menciona un riesgo de seguridad común asociado con su uso incorrecto en aplicaciones de producción.",
+    "en": "Describe how JWT token-based authentication works in a modern web application. Explain the three parts that make up a token, indicate where it is typically stored on the client, and mention a common security risk associated with its incorrect use in production applications."
+  },
+  "tech-5": {
+    "es": "Explica la diferencia entre contenedores y máquinas virtuales en términos de arquitectura y consumo de recursos. Da un ejemplo de herramienta representativa de cada tecnología, describe un caso de uso donde los contenedores serían más apropiados, y otro caso donde una máquina virtual seguiría siendo la mejor opción.",
+    "en": "Explain the difference between containers and virtual machines in terms of architecture and resource consumption. Give an example of a representative tool for each technology, describe a use case where containers would be more appropriate, and another case where a virtual machine would still be the best choice."
+  }
+}

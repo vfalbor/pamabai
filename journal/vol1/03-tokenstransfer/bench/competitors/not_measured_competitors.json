@@ -1,0 +1,34 @@
+{
+  "note": "These tools were identified via web search as open-source prompt/context compression methods but were NOT run in this benchmark. Reasons and reported (not measured) numbers are below, each with a source.",
+  "environment_constraint": "Box has 8GB RAM total, ~3-4GB free at benchmark time; LLMLingua-2 (microsoft/llmlingua-2-xlm-roberta-large-meetingbank, ~2GB in memory) was already loaded by the running service. Guardrail: never load an additional model >500MB.",
+  "candidates": [
+    {
+      "name": "Selective Context",
+      "repo": "https://github.com/liyucheng09/Selective_Context",
+      "paper": "Li et al. 2023, \"Compressing Context to Enhance Inference Efficiency of Large Language Models\", https://arxiv.org/abs/2304.12102",
+      "why_not_measured": "Default backbone is GPT-2 (124M params, ~496MB in fp32) -- right at our 500MB single-model RAM guardrail, and would be loaded in addition to (not instead of) the already-resident LLMLingua-2 process. Given the box's documented history of OOM-killing system services (networkd/resolved) under memory pressure, we chose not to risk it for a marginal addition.",
+      "reported_numbers_not_measured": "Paper reports Selective Context lets LLMs process ~2x more content while saving 36% memory and 32% inference time using vicuna-13b on a summary generation task (self-information/perplexity-based token pruning)."
+    },
+    {
+      "name": "SCRL (Sentence Compression with Reinforcement Learning)",
+      "repo": "https://github.com/complementizer/rl-sentence-compression",
+      "paper": "Ghalandari et al. 2022, \"Efficient Unsupervised Sentence Compression by Fine-tuning Transformers with Reinforcement Learning\", ACL 2022, https://arxiv.org/abs/2205.08221",
+      "why_not_measured": "Genuinely lightweight (DistilRoBERTa backbone, 82M params, ~330MB) and would have fit the RAM guardrail, but two practical blockers: (1) pretrained checkpoints are distributed only via an unstructured Google Drive folder, not a pip-installable weights file, making a scripted/reproducible install unreliable in this sandbox; (2) the released checkpoints operate in fixed compression modes (gigaword-L8: fixed 8-token summaries; newsroom-L11: fixed 11 tokens; newsroom-P75: fixed 75% length) rather than an arbitrary token budget, so hitting our 40%-of-original target would have required bolting our own sentence-selection logic on top anyway, which would no longer be a clean test of SCRL itself.",
+      "reported_numbers_not_measured": "On Gigaword, SCRL-L8 reports ROUGE-1 29.14 / ROUGE-2 9.98 / ROUGE-L 26.57, state-of-the-art among unsupervised sentence compression methods at the time, with a reported inference time of 0.004s per sentence vs 11.733s for a hill-climbing search baseline. Not directly comparable to our facts-retained metric since the paper evaluates with ROUGE against reference summaries, not substring fact retention."
+    },
+    {
+      "name": "500xCompressor",
+      "repo": "https://github.com/ZongqianLi/500xCompressor",
+      "paper": "Li et al. 2024, \"500xCompressor: Generalized Prompt Compression for Large Language Models\", https://arxiv.org/abs/2408.03094",
+      "why_not_measured": "Requires an actual LLM backbone (e.g. LLaMA/Qwen-scale decoder, several GB) to both compress into KV-cache/soft-prompt tokens and decompress; this is a fundamentally different, much heavier design point (soft-prompt compression, not text-to-text) that cannot run within our RAM guardrail on CPU in reasonable time.",
+      "reported_numbers_not_measured": "Paper reports compression ratios up to ~480x FEWER tokens for the compressed representation with only ~0.3% extra trainable parameters added to the base LLM, evaluated via downstream QA accuracy retention rather than substring fact match."
+    },
+    {
+      "name": "PCToolkit (LongLLMLingua path)",
+      "repo": "https://github.com/3DAgentWorld/Toolkit-for-Prompt-Compression",
+      "paper": "Li et al. 2024, \"PCToolkit: A Unified Plug-and-Play Prompt Compression Toolkit of Large Language Models\", https://arxiv.org/abs/2403.17411",
+      "why_not_measured": "PCToolkit is a wrapper unifying five compressors (Selective Context, LLMLingua, LongLLMLingua, SCRL, Keep-it-Simple) rather than a new method; the LLMLingua/LongLLMLingua paths it wraps require a 7B-parameter LLaMA-2 backbone for perplexity-based token scoring, far above our RAM budget. We already cover the same underlying LLMLingua-2 lineage directly via the TokensTransfer service.",
+      "reported_numbers_not_measured": "PCToolkit's own paper reports comparative results across its five bundled compressors on LongBench/MeetingBank-style tasks but numbers are method- and dataset-specific; see paper Table 2-4 for exact figures, not reproduced here to avoid misquoting from a compressed PDF extraction."
+    }
+  ]
+}

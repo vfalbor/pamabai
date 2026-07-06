@@ -1,0 +1,26 @@
+{
+  "reported_by_llmlingua2_paper": {
+    "source": "Pan et al. 2024, \"LLMLingua-2: Data Distillation for Efficient and Faithful Task-Agnostic Prompt Compression\", ACL Findings 2024, https://arxiv.org/abs/2403.12968 ; project page https://llmlingua.com/llmlingua2.html",
+    "headline_claims": [
+      "3x-6x faster than prior prompt-compression methods (e.g. LLMLingua/LongLLMLingua, which score tokens via a 7B LLaMA-2 backbone)",
+      "1.6x-2.9x end-to-end latency speedup for the full LLM pipeline (compression + generation) due to the shorter compressed prompt",
+      "2x-5x compression ratios evaluated in-domain (MeetingBank) and out-of-domain (LongBench, ZeroScrolls, GSM8K, BBH)",
+      "On MeetingBank QA/Summary tasks, performance close to the uncompressed original prompt despite the compressor itself being far smaller than LLaMA-2-7B baselines used for comparison",
+      "Comparable or better performance than task-agnostic baselines on out-of-domain LongBench despite training only on MeetingBank data"
+    ],
+    "important_caveat": "The paper's speed and quality claims are measured against OTHER LLM-based compressors (LLMLingua v1, LongLLMLingua) and evaluated via downstream task accuracy (QA F1, ROUGE for summarization) on curated benchmark datasets (MeetingBank, LongBench, ZeroScrolls, GSM8K, BBH) using GPU inference. These are NOT directly comparable to our numbers below."
+  },
+  "measured_in_this_benchmark": {
+    "environment": "CPU-only (device_map='cpu'), model=microsoft/llmlingua-2-xlm-roberta-large-meetingbank, running inside the actual TokensTransfer backend service code (services/compressor.py), called directly in-process (not through the rate-limited demo API) to avoid the 10 req/hour cap",
+    "battery": "8 realistic documents (meeting transcripts, technical docs, news articles, code review threads), 300-540 words, compressed to a 40%-of-original token target",
+    "metric": "facts_retained: crude exact-substring match of 6 hand-picked key facts per document against the compressed output (see facts_retention_methodology_caveat in aggregate_results.json)",
+    "results_summary": {
+      "mean_facts_retained_pct": 89.6,
+      "mean_compression_ratio_pct_of_original": 40.6,
+      "mean_latency_ms_per_document_cpu": 8689.1,
+      "max_latency_ms_cpu": 10728.8,
+      "note_on_latency": "This 8.7s mean latency is CPU inference for a 560M-parameter XLM-RoBERTa-large model on documents of ~550-715 input tokens. It is NOT comparable to the paper's reported GPU-based speedups, which assume the model runs on a GPU. On CPU, LLMLingua-2 is roughly two orders of magnitude slower than the extractive baselines (TextRank ~49ms, LexRank ~60ms, truncation/random <1ms) measured in the same run -- the quality gain (89.6% vs 33-44% facts retained) comes at a real, measured latency cost on this hardware."
+    }
+  },
+  "honest_synthesis": "The paper's headline speedup claims are relative to OTHER neural compressors (LLMLingua v1, LongLLMLingua), not relative to non-neural extractive baselines like TextRank or truncation, which this benchmark shows are 100-1000x faster than LLMLingua-2 on CPU, at a steep cost in fact retention (33-44% vs 89.6%). The paper does not claim to beat simple extractive summarization on latency -- it claims to beat other LLM-based compressors, which is a different comparison than the one requested for this paper's competitor table. Both claims are true and non-contradictory once the comparison sets are made explicit."
+}

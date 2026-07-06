@@ -1,0 +1,143 @@
+[
+  {
+    "doc_id": "meeting_1_roadmap",
+    "category": "meeting_transcript",
+    "method": "random_sampling_seed42",
+    "tokens_in": 548,
+    "tokens_out": 216,
+    "target_tokens": 219,
+    "latency_ms": 0.35,
+    "compression_ratio_pct": 39.4,
+    "facts_total": 6,
+    "facts_retained": 4,
+    "facts_retained_list": [
+      "$1.2 million",
+      "Okta",
+      "June 15th",
+      "$96,000"
+    ],
+    "compressed_preview": "Given that, I think we can realistically ship two of the four proposed features: the SSO integration and the bulk export tool. The real-time collaboration feature and the mobile offline mode will need to slip to Q4. So total first-year cost lands around $96,000. Priya: From the sales side, I can tell you that SSO is the single most requested feature from our pipeline. We have four enterprise deals"
+  },
+  {
+    "doc_id": "meeting_2_postmortem",
+    "category": "meeting_transcript",
+    "method": "random_sampling_seed42",
+    "tokens_in": 543,
+    "tokens_out": 211,
+    "target_tokens": 217,
+    "latency_ms": 0.31,
+    "compression_ratio_pct": 38.9,
+    "facts_total": 6,
+    "facts_retained": 2,
+    "facts_retained_list": [
+      "April 7th",
+      "340 tickets"
+    ],
+    "compressed_preview": "Lin: The root cause was a database connection pool exhaustion. Devon: Why didn't the alerting catch this faster? I see we didn't page anyone until 2:28 PM, which is 14 minutes after the outage started. Right now there's no escalation at all. Devon: Agreed, that's action item one. Lin: We rolled back the caching layer deploy at 2:52 PM, and connections recovered by 3:01 PM. The actual code fix is a"
+  },
+  {
+    "doc_id": "tech_1_rate_limiting",
+    "category": "technical_doc",
+    "method": "random_sampling_seed42",
+    "tokens_in": 631,
+    "tokens_out": 238,
+    "target_tokens": 252,
+    "latency_ms": 0.38,
+    "compression_ratio_pct": 37.7,
+    "facts_total": 6,
+    "facts_retained": 4,
+    "facts_retained_list": [
+      "token bucket",
+      "50,000 requests per second",
+      "January 9th",
+      "May 6th"
+    ],
+    "compressed_preview": "The system must handle at least 50,000 requests per second at the edge with p99 latency overhead under 2 milliseconds. Sliding window logs were rejected due to memory overhead \u2014 storing a timestamp per request for high-volume keys would require roughly 800 MB per million active keys, which exceeds our Redis budget. Enterprise tier: negotiated per contract, typically 50,000 to 200,000 requests per "
+  },
+  {
+    "doc_id": "tech_2_db_migration",
+    "category": "technical_doc",
+    "method": "random_sampling_seed42",
+    "tokens_in": 646,
+    "tokens_out": 253,
+    "target_tokens": 258,
+    "latency_ms": 0.38,
+    "compression_ratio_pct": 39.2,
+    "facts_total": 6,
+    "facts_retained": 3,
+    "facts_retained_list": [
+      "34% improvement",
+      "December 7th, 2024",
+      "3.2 TB"
+    ],
+    "compressed_preview": "Benchmarks run on a staging clone showed a 34% improvement in query latency for our top 20 slowest queries, largely due to improved query planning around our composite indexes. Migration Strategy We will use logical replication rather than pg_upgrade, because pg_upgrade requires downtime proportional to catalog size, and our estimated downtime with pg_upgrade would be approximately 90 minutes, whi"
+  },
+  {
+    "doc_id": "news_1_earnings",
+    "category": "news_style",
+    "method": "random_sampling_seed42",
+    "tokens_in": 548,
+    "tokens_out": 206,
+    "target_tokens": 219,
+    "latency_ms": 0.31,
+    "compression_ratio_pct": 37.6,
+    "facts_total": 6,
+    "facts_retained": 2,
+    "facts_retained_list": [
+      "Argon-9",
+      "Ohio"
+    ],
+    "compressed_preview": "The results were driven primarily by demand for the company's new Argon-9 chip line, which powers data center accelerators used in large-scale machine learning training. Not all the news was positive. Meridian's automotive chip division, which supplies sensors for advanced driver-assistance systems, saw revenue decline 9% year-over-year to $610 million, which the company attributed to inventory de"
+  },
+  {
+    "doc_id": "news_2_climate_policy",
+    "category": "news_style",
+    "method": "random_sampling_seed42",
+    "tokens_in": 462,
+    "tokens_out": 183,
+    "target_tokens": 184,
+    "latency_ms": 0.27,
+    "compression_ratio_pct": 39.6,
+    "facts_total": 6,
+    "facts_retained": 2,
+    "facts_retained_list": [
+      "82 euros per tonne",
+      "Wopke Hoekstra"
+    ],
+    "compressed_preview": "Under the agreement, importers will be required to purchase certificates corresponding to the embedded carbon emissions of goods entering the EU, priced to match the EU's internal carbon market, which has averaged around 82 euros per tonne of CO2 over the past six months. Officials estimate the mechanism will affect roughly 3% of total EU imports by value, concentrated among steel and aluminum shi"
+  },
+  {
+    "doc_id": "codereview_1_auth",
+    "category": "code_review",
+    "method": "random_sampling_seed42",
+    "tokens_in": 715,
+    "tokens_out": 280,
+    "target_tokens": 286,
+    "latency_ms": 0.38,
+    "compression_ratio_pct": 39.2,
+    "facts_total": 6,
+    "facts_retained": 2,
+    "facts_retained_list": [
+      "GETDEL",
+      "401"
+    ],
+    "compressed_preview": "One concern: in `auth_service.py` line 142, you're storing the refresh token hash in Redis with no explicit expiration set on the key itself, only relying on the JWT's own exp claim. In `rotate_refresh_token()`, there's a race condition: if a client sends two concurrent requests with the same refresh token \u2014 say due to a retry after a network timeout \u2014 both could pass the validity check before eit"
+  },
+  {
+    "doc_id": "codereview_2_perf",
+    "category": "code_review",
+    "method": "random_sampling_seed42",
+    "tokens_in": 658,
+    "tokens_out": 262,
+    "target_tokens": 263,
+    "latency_ms": 0.34,
+    "compression_ratio_pct": 39.8,
+    "facts_total": 6,
+    "facts_retained": 2,
+    "facts_retained_list": [
+      "test_empty_category_search_no_500",
+      "PR #5109"
+    ],
+    "compressed_preview": "Also added an alert if that counter exceeds 500 occurrences per hour, which would suggest the assumption needs revisiting. fatima-qa commented: Ran the full regression suite against this branch, all 412 tests pass. I did find one edge case though: searching with an empty string plus a category filter returns a 500 error instead of an empty result set. Looks like `get_results()` doesn't guard again"
+  }
+]

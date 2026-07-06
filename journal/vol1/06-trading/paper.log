@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.7.3)  6 JUL 2026 11:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.7.3)  6 JUL 2026 22:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -414,12 +414,12 @@ enc/dvips/lm/lm-ec.enc}
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvip
 s/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/sha
 re/texmf/fonts/enc/dvips/lm/lm-ts1.enc}]
-<fig_reliability.png, id=75, 363.759pt x 309.3156pt>
+<fig_reliability.png, id=79, 363.759pt x 309.3156pt>
 File: fig_reliability.png Graphic file (type png)
 <use fig_reliability.png>
 Package pdftex.def Info: fig_reliability.png  used on input line 57.
 (pdftex.def)             Requested size: 281.85585pt x 239.67462pt.
-<fig_brier.png, id=82, 385.44pt x 208.1376pt>
+<fig_brier.png, id=86, 385.44pt x 208.1376pt>
 File: fig_brier.png Graphic file (type png)
 <use fig_brier.png>
 Package pdftex.def Info: fig_brier.png  used on input line 86.
@@ -428,40 +428,44 @@ Package pdftex.def Info: fig_brier.png  used on input line 86.
 Underfull \vbox (badness 1377) has occurred while \output is active []
 
  [3 <./fig_reliability.png> <./fig_brier.png>]
-<fig_hitrates.png, id=103, 414.8298pt x 208.1376pt>
+<fig_hitrates.png, id=107, 414.8298pt x 208.1376pt>
 File: fig_hitrates.png Graphic file (type png)
 <use fig_hitrates.png>
 Package pdftex.def Info: fig_hitrates.png  used on input line 107.
 (pdftex.def)             Requested size: 338.22415pt x 169.70528pt.
- [4 <./fig_hitrates.png>] (./paper.bbl)
-[5] (./paper.aux)
+ [4 <./fig_hitrates.png>]
+Underfull \vbox (badness 2547) has occurred while \output is active []
+
+ [5]
+(./paper.bbl) [6] (./paper.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: ACA266B23714D8A89585729D85CAC195;1484.
+(rerunfilecheck)             Checksum: 618BD20B7D718D601545FA33BC1FC4E6;1812.
  ) 
 Here is how much of TeX's memory you used:
- 10101 strings out of 476182
- 154791 string characters out of 5795596
+ 10118 strings out of 476182
+ 155020 string characters out of 5795596
  1939975 words of memory out of 5000000
- 31918 multiletter control sequences out of 15000+600000
- 618860 words of font info for 69 fonts, out of 8000000 for 9000
+ 31927 multiletter control sequences out of 15000+600000
+ 619179 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  75i,12n,79p,1815b,445s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/ty
 pe1/public/lm/lmbx9.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></us
 r/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/pub
-lic/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/
-texmf/fonts/type1/public/lm/lmri9.pfb></usr/share/texmf/fonts/type1/public/lm/l
-mssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texm
-f/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt
-i10.pfb>
-Output written on paper.pdf (5 pages, 368839 bytes).
+lic/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/te
+xmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lm
+ri9.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/
+fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10
+.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt9.pfb></usr/share/texmf/fonts/
+type1/public/lm/lmtti10.pfb>
+Output written on paper.pdf (6 pages, 428585 bytes).
 PDF statistics:
- 193 PDF objects out of 1000 (max. 8388607)
- 152 compressed objects within 2 object streams
- 31 named destinations out of 1000 (max. 500000)
- 96 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 225 PDF objects out of 1000 (max. 8388607)
+ 179 compressed objects within 2 object streams
+ 38 named destinations out of 1000 (max. 500000)
+ 104 words of extra memory for PDF output out of 10000 (max. 10000000)
 

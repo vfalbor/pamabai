@@ -1,0 +1,79 @@
+{
+  "compiled_on": "2026-07-06",
+  "note": "All competitor fields are REPORTED (from docs/papers/repos, not independently measured by us). AndroidWars fields marked MEASURED are from live match bench (findings.md); others REPORTED from project docs.",
+  "environments": [
+    {
+      "name": "AndroidWars",
+      "persistent_world": "MEASURED - yes, live server, agents joined an ongoing match, tier progressed poblado->villa mid-session, ~100 pre-existing agents on leaderboard",
+      "multi_agent_adversarial": "MEASURED - yes, 2 agents observed in direct conflict, objective includes eliminate_rivals",
+      "partial_observability_enforced_server_side": "MEASURED - yes, confirmed: each agent's enemy_androids payload == exactly the other agent's own roster, zero overlap, opponent state never leaked",
+      "rest_api_first_no_sdk": "MEASURED - yes, plain HTTP/JSON, register/orders/state endpoints, no client SDK required",
+      "asynchronous_tolerant_of_slow_thinkers": "MEASURED - partially: 2.0s tick period, agents can submit orders any time within a tick window; no per-request timeout observed beyond the 20 req/10s rate limit",
+      "physics": "no (hex-grid tactical/economic RTS, no physics simulation)",
+      "leaderboard": "MEASURED - yes, tier-based leaderboard with ~100 pre-existing agents observed",
+      "open_source": "unknown / not disclosed in this bench",
+      "measured_latency": "p50 21.0ms REST (order/state), p50 46.9ms register, 2.0s tick period, 0 drift over 179s",
+      "source": "/home/vfalbor/pamabai/journal/vol1/05-androidwars/bench/findings.md"
+    },
+    {
+      "name": "TextArena",
+      "persistent_world": "REPORTED - no persistent world state; per-match sessions, but a persistent TrueSkill rating server (online matchmaking) links matches over time",
+      "multi_agent_adversarial": "REPORTED - yes, explicit focus: negotiation, deception, social deduction, competitive text games, 100+ environments including multiplayer",
+      "partial_observability_enforced_server_side": "REPORTED - varies by game; observation wrappers exist but full-hidden-state enforcement is not the headline feature (unlike AndroidWars' measured fog-of-war)",
+      "rest_api_first_no_sdk": "REPORTED - no, Python package with Gym-style interface is primary; textarena.ai offers an online play/leaderboard site but the core interaction model is Python-in-process, not a documented public REST API for programmatic play",
+      "asynchronous_tolerant_of_slow_thinkers": "REPORTED - likely yes for the online arena (turn-based text games have no hard real-time tick), but not documented as a design goal the way Diplomacy's deadlines are",
+      "physics": "no (text-only games)",
+      "leaderboard": "REPORTED - yes, TrueSkill-based, live online matchmaking",
+      "open_source": "REPORTED - yes, MIT license, github.com/LeonGuertler/TextArena, ~1000 commits",
+      "source": "https://github.com/LeonGuertler/TextArena ; https://api.emergentmind.com/topics/textarena"
+    },
+    {
+      "name": "BALROG",
+      "persistent_world": "REPORTED - no, episodic (each game/level resets); aggregates 6 existing RL environments (NetHack, Crafter, Baba Is AI, etc.)",
+      "multi_agent_adversarial": "REPORTED - no, single-agent evaluation of LLM/VLM reasoning against game environments, not agent-vs-agent",
+      "partial_observability_enforced_server_side": "REPORTED - yes in spirit (NetHack/Crafter are partially observable by design), managed via history-window parameters (max_image_history, max_text_history) rather than a server enforcing hidden state against another agent",
+      "rest_api_first_no_sdk": "REPORTED - no, Python library, in-process; integrates with OpenAI/Anthropic/Gemini APIs and local vLLM for the model side, not a REST game server",
+      "asynchronous_tolerant_of_slow_thinkers": "REPORTED - trivially yes: single-agent, turn advances only when the agent responds, no clock",
+      "physics": "no (grid-world / roguelike style)",
+      "leaderboard": "REPORTED - yes, public leaderboard at balrogai.com",
+      "open_source": "REPORTED - yes, MIT license, github.com/balrog-ai/BALROG",
+      "source": "https://github.com/balrog-ai/BALROG ; https://arxiv.org/abs/2411.13543 ; https://balrogai.com/"
+    },
+    {
+      "name": "Melting Pot (DeepMind)",
+      "persistent_world": "REPORTED - no, substrate-based episodic scenarios (50+ substrates, 256+ test scenarios), not a persistent shared world",
+      "multi_agent_adversarial": "REPORTED - yes, explicitly mixed-motive: cooperation, competition, deception, reciprocation, trust, stubbornness across many-agent social scenarios",
+      "partial_observability_enforced_server_side": "REPORTED - yes, substrates are designed with partial observability (grid-world visual observations per agent) as a research feature, though it's a research library not a server enforcing it against opponents in the AndroidWars sense",
+      "rest_api_first_no_sdk": "REPORTED - no, Python/DeepMind Lab2D-based library, in-process RL training environment, no REST API",
+      "asynchronous_tolerant_of_slow_thinkers": "REPORTED - no, built for RL training loops (fast synchronous step/reset), not designed around slow LLM-style thinkers",
+      "physics": "REPORTED - simplified 2D grid-world physics (movement, collision) via DeepMind Lab2D, not rigid-body/continuous physics",
+      "leaderboard": "REPORTED - contest leaderboard existed for the Melting Pot Contest (NeurIPS 2023/2024), not a persistent live leaderboard",
+      "open_source": "REPORTED - yes, Apache-2.0-style DeepMind open source, github.com/google-deepmind/meltingpot",
+      "source": "https://github.com/google-deepmind/meltingpot ; https://deepmind.google/blog/melting-pot-an-evaluation-suite-for-multi-agent-reinforcement-learning/"
+    },
+    {
+      "name": "OpenSpiel (DeepMind)",
+      "persistent_world": "REPORTED - no, stateless game-by-game episodes; a library of game implementations, not a live world",
+      "multi_agent_adversarial": "REPORTED - yes, core design goal: n-player zero-sum, cooperative, general-sum, sequential and simultaneous-move, perfect and imperfect information games",
+      "partial_observability_enforced_server_side": "REPORTED - yes for imperfect-information games (e.g. poker variants) at the API level (information sets), but again in-process, not a network boundary enforcing it",
+      "rest_api_first_no_sdk": "REPORTED - no, C++ core exposed to Python bindings, no REST/HTTP layer found in docs",
+      "asynchronous_tolerant_of_slow_thinkers": "REPORTED - no explicit design for this; built for algorithmic self-play (fast synchronous step calls), agent 'thinking time' is not a first-class concern",
+      "physics": "no (abstract game trees / grid worlds / card games)",
+      "leaderboard": "REPORTED - none documented",
+      "open_source": "REPORTED - yes, Apache-2.0, github.com/google-deepmind/open_spiel",
+      "source": "https://github.com/google-deepmind/open_spiel"
+    },
+    {
+      "name": "webDiplomacy / Cicero environment (Meta)",
+      "persistent_world": "REPORTED - yes in the sense that a 7-player game persists across many turns (phases) over real-world days to weeks; not a continuously-live tick-based world like AndroidWars, but long-lived per-match state",
+      "multi_agent_adversarial": "REPORTED - yes, 7-player game combining cooperation and competition (natural-language negotiation + simultaneous secret orders)",
+      "partial_observability_enforced_server_side": "REPORTED - partially: the board state is fully visible to all players (classic Diplomacy has no hidden units), but each player's private negotiations/press messages are hidden from others -- observability is about communication, not board state",
+      "rest_api_first_no_sdk": "REPORTED - webDiplomacy.net is a web platform; Cicero's own code (diplomacy_cicero repo) is built on the ParlAI framework, not documented as a public REST API for third-party agents; playing happens through the website Cicero itself connected to",
+      "asynchronous_tolerant_of_slow_thinkers": "REPORTED - yes, explicitly the headline feature: turn deadlines from 5 minutes up to 10 days per phase, built for human-paced (and by extension LLM-paced) asynchronous play",
+      "physics": "no",
+      "leaderboard": "REPORTED - webDiplomacy has player ratings/rankings; Cicero's result was reported as top-10% percentile in human games, not a persistent bot leaderboard",
+      "open_source": "REPORTED - yes, Cicero code released, github.com/facebookresearch/diplomacy_cicero",
+      "source": "https://github.com/facebookresearch/diplomacy_cicero ; https://www.science.org/doi/10.1126/science.ade9097 ; https://webdiplomacy.net/faq.php"
+    }
+  ]
+}

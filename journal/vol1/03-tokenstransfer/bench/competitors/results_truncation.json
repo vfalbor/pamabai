@@ -1,0 +1,142 @@
+[
+  {
+    "doc_id": "meeting_1_roadmap",
+    "category": "meeting_transcript",
+    "method": "truncation",
+    "tokens_in": 548,
+    "tokens_out": 203,
+    "target_tokens": 219,
+    "latency_ms": 0.24,
+    "compression_ratio_pct": 37.0,
+    "facts_total": 6,
+    "facts_retained": 3,
+    "facts_retained_list": [
+      "Q3 roadmap",
+      "Okta",
+      "$96,000"
+    ],
+    "compressed_preview": "Sarah: Okay, let's get started. Today is March 14th and we need to finalize the Q3 roadmap before the board meeting on March 21st. Marcus, can you walk us through the engineering capacity numbers? Marcus: Sure. We have 14 engineers available for Q3, down from 17 because three people are rotating onto the infrastructure migration project. Given that, I think we can realistically ship two of the fou"
+  },
+  {
+    "doc_id": "meeting_2_postmortem",
+    "category": "meeting_transcript",
+    "method": "truncation",
+    "tokens_in": 543,
+    "tokens_out": 168,
+    "target_tokens": 217,
+    "latency_ms": 0.1,
+    "compression_ratio_pct": 30.9,
+    "facts_total": 6,
+    "facts_retained": 3,
+    "facts_retained_list": [
+      "April 3rd",
+      "47-minute",
+      "500 connections"
+    ],
+    "compressed_preview": "Devon: Thanks everyone for joining the postmortem for the outage on April 3rd. To summarize, we had a 47-minute complete API outage starting at 2:14 PM UTC and ending at 3:01 PM UTC, affecting all customers on the shared cluster, which is roughly 62% of our total user base. Lin: The root cause was a database connection pool exhaustion. We deployed a new caching layer at 2:10 PM that had a bug wher"
+  },
+  {
+    "doc_id": "tech_1_rate_limiting",
+    "category": "technical_doc",
+    "method": "truncation",
+    "tokens_in": 631,
+    "tokens_out": 233,
+    "target_tokens": 252,
+    "latency_ms": 0.13,
+    "compression_ratio_pct": 36.9,
+    "facts_total": 6,
+    "facts_retained": 2,
+    "facts_retained_list": [
+      "token bucket",
+      "50,000 requests per second"
+    ],
+    "compressed_preview": "Design Document: API Rate Limiting Architecture Overview This document describes the rate limiting system for the public API gateway. The goal is to protect backend services from abusive traffic while allowing legitimate high-volume customers a fair, predictable quota. The system must handle at least 50,000 requests per second at the edge with p99 latency overhead under 2 milliseconds. Algorithm S"
+  },
+  {
+    "doc_id": "tech_2_db_migration",
+    "category": "technical_doc",
+    "method": "truncation",
+    "tokens_in": 646,
+    "tokens_out": 212,
+    "target_tokens": 258,
+    "latency_ms": 0.11,
+    "compression_ratio_pct": 32.8,
+    "facts_total": 6,
+    "facts_retained": 4,
+    "facts_retained_list": [
+      "November 14, 2024",
+      "1.8 billion rows",
+      "34% improvement",
+      "3.2 TB"
+    ],
+    "compressed_preview": "Migration Plan: PostgreSQL 12 to PostgreSQL 16 Upgrade Background Our primary production database has been running PostgreSQL 12.11 since 2021. PostgreSQL 12 reaches end-of-life on November 14, 2024, after which it will no longer receive security patches. We are currently at 3.2 TB of data across 340 tables, with the largest table, event_logs, holding approximately 1.8 billion rows. Why Version 16"
+  },
+  {
+    "doc_id": "news_1_earnings",
+    "category": "news_style",
+    "method": "truncation",
+    "tokens_in": 548,
+    "tokens_out": 117,
+    "target_tokens": 219,
+    "latency_ms": 0.11,
+    "compression_ratio_pct": 21.4,
+    "facts_total": 6,
+    "facts_retained": 2,
+    "facts_retained_list": [
+      "$4.7 billion",
+      "Argon-9"
+    ],
+    "compressed_preview": "Meridian Semiconductor Reports Record Quarterly Revenue, Shares Jump 11% Meridian Semiconductor Inc. reported third-quarter revenue of $4.7 billion on Tuesday, beating analyst expectations of $4.3 billion and marking the company's strongest quarter since its founding in 1998. Shares rose 11% in after-hours trading following the announcement, extending a rally that has seen the stock climb 68% year"
+  },
+  {
+    "doc_id": "news_2_climate_policy",
+    "category": "news_style",
+    "method": "truncation",
+    "tokens_in": 462,
+    "tokens_out": 150,
+    "target_tokens": 184,
+    "latency_ms": 0.09,
+    "compression_ratio_pct": 32.5,
+    "facts_total": 6,
+    "facts_retained": 2,
+    "facts_retained_list": [
+      "January 1, 2027",
+      "82 euros per tonne"
+    ],
+    "compressed_preview": "European Union Agrees to Landmark Carbon Border Tax, Effective 2027 Negotiators from the European Parliament and member states reached a final agreement early Thursday morning on the Carbon Border Adjustment Mechanism, a policy that will impose tariffs on imported steel, cement, aluminum, fertilizer, and electricity based on the carbon emissions associated with their production. The mechanism will"
+  },
+  {
+    "doc_id": "codereview_1_auth",
+    "category": "code_review",
+    "method": "truncation",
+    "tokens_in": 715,
+    "tokens_out": 278,
+    "target_tokens": 286,
+    "latency_ms": 0.12,
+    "compression_ratio_pct": 38.9,
+    "facts_total": 6,
+    "facts_retained": 2,
+    "facts_retained_list": [
+      "PR #2841",
+      "30 days"
+    ],
+    "compressed_preview": "PR #2841: Add refresh token rotation to auth service alice-dev commented: This PR implements refresh token rotation as discussed in the security review. Every time a refresh token is used to obtain a new access token, the old refresh token is invalidated and a new one is issued. This closes the vulnerability where a leaked refresh token could be replayed indefinitely. I've set the refresh token TT"
+  },
+  {
+    "doc_id": "codereview_2_perf",
+    "category": "code_review",
+    "method": "truncation",
+    "tokens_in": 658,
+    "tokens_out": 180,
+    "target_tokens": 263,
+    "latency_ms": 0.11,
+    "compression_ratio_pct": 27.4,
+    "facts_total": 6,
+    "facts_retained": 2,
+    "facts_retained_list": [
+      "p95 latency",
+      "PR #5109"
+    ],
+    "compressed_preview": "PR #5109: Optimize product search query, reduce p95 latency jhan-perf commented: This PR replaces the N+1 query pattern in `ProductSearchService.get_results()` with a single batched query using `WHERE id = ANY(:ids)` instead of looping over product IDs and issuing one SELECT per ID. In our staging load test with 10,000 simulated searches, p95 latency dropped from 890ms to 145ms, and database CPU u"
+  }
+]

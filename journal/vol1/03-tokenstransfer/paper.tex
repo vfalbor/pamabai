@@ -8,7 +8,7 @@
 \def\month{07}\def\year{2026}
 \def\openreview{\url{https://papersmadebyai.tokenstree.eu}}
 
-\title{TokensTransfer: What a Prompt-Compression Middleware\\Actually Serves When Its Model Dies}
+\title{Incident Report IR-2026-07: Five Days a Compression Service\\Compressed Nothing --- and What It Served Instead}
 
 \author{\name The TokensTree project \email carorega@gmail.com \\
       \addr Paper researched, measured and written by AI agents; human owner supervising scope and claims.\\
@@ -18,105 +18,61 @@
 \maketitle
 
 \begin{abstract}
-Prompt tokens are the recurring bill of every LLM application, and learned compressors such as LLMLingua-2 promise large reductions at preserved task quality. TokensTransfer packages that capability as a self-hosted middleware: a FastAPI service with API-key/JWT auth, per-consumer savings accounting, a public rate-limited demo endpoint, and a pipeline endpoint that composes compression with a sibling translation service. This paper is a measurement study of the deployed instance in the state we actually found it: the LLMLingua-2 model failed to load after a service restart and the middleware has been serving its fallback path since. We reconstruct the root cause from logs (a missing \texttt{protobuf} dependency that regressed between two boots --- the model loaded successfully the day before), quantify the fallback's behaviour over a 40-request benchmark (flat $\sim$6\,ms median latency independent of payload size; compression ratios of 1.0--1.35$\times$ from sentence-boundary \emph{truncation}), and measure the service's memory footprint (13.5\,MB idle, 313\,MB after first use --- tokenizer tables, not model weights). The central finding is a design lesson: this fallback does not merely lose the compression benefit, it \emph{silently discards trailing content} to honour a token budget --- a semantically lossy degradation that is more dangerous than doing nothing, even though the service honestly labels it. We also find the failure flag is permanent for the process lifetime, so an environment regression becomes an outage that only a restart can end. We propose concrete repairs and publish all raw samples.
+This paper is written as what it is: a post-incident report, with the benchmark evidence a systems paper owes. TokensTransfer is a self-hosted middleware that compresses prompts with LLMLingua-2 \citep{pan2024llmlingua2} before they reach an LLM provider. On 2026-07-01 at 06:05, a routine restart silently killed its model --- a \texttt{protobuf} dependency had vanished from the environment between boots --- and a permanent failure flag kept it dead for five days while the service answered every request with HTTP\,200. \textbf{Impact:} the fallback was not the pass-through the design intent assumed; it \emph{truncated} trailing sentences to hold the token budget (measured: ratios 1.32--1.35$\times$, flat 6\,ms latency, content silently discarded), turning a lost benefit into a broken contract. \textbf{Detection:} a measurement campaign for this journal, via the one component that kept telling the truth --- the health endpoint. \textbf{Repairs, shipped and verified:} the dependency restored (the model now loads and serves real compression --- measured 3.83$\times$ semantic pruning on live calls), the fallback rewritten as pass-through, and the failure flag given a 10-minute half-life. \textbf{The benchmark that justifies the risk:} on an 8-document battery at a fixed 40\%-token budget, LLMLingua-2 retains \textbf{89.6\%} of hand-picked key facts against 33--44\% for every cheap alternative we could run (truncation, TextRank, LexRank, random sampling) --- at 100--1000$\times$ their CPU latency (8.7\,s vs.\ sub-100\,ms). That factor-two quality gap is why this service exists; the 8.7 seconds is why its failure mode matters.
 \end{abstract}
 
-\section{Introduction}
-\label{sec:intro}
+\section{Summary}
+\label{sec:summary}
 
-A useful way to evaluate infrastructure is to measure it on its best day. A more honest way, sometimes, is to measure it on the day you actually visit. When the measurement campaign for this journal issue reached TokensTransfer --- the TokensTree ecosystem's prompt-compression middleware --- its health endpoint reported \texttt{model: \{status: failed, model: fallback\}}. The transformer that is the service's reason to exist was not running, and had not been for five days.
-
-We decided the degraded state was the more valuable paper. Production LLM middleware spends part of its life in fallback; what a service does during that fraction determines whether the failure is an inconvenience or a silent correctness bug. This paper therefore asks three questions of a real deployment:
-
-\begin{itemize}
-\item \textbf{RQ1 --- Why did the model die?} Not ``what can go wrong in theory'' but the specific, log-evidenced cause, and why it persisted.
-\item \textbf{RQ2 --- What does the fallback actually serve?} Latency, returned token counts, and --- decisively --- the \emph{semantics} of the degraded output.
-\item \textbf{RQ3 --- What does the failure cost in resources and observability?} Memory footprint with and without work; whether a caller can detect the degradation.
-\end{itemize}
-
-\paragraph{Contributions.} (1)~A forensic account of a real dependency regression that silently disabled a model between two service restarts. (2)~A 40-request benchmark of the fallback path (latency, ratios, returned content), with raw data published. (3)~A design analysis distinguishing \emph{benefit-losing} from \emph{content-losing} degradation, and concrete repairs (dependency pinning, load-retry with backoff, pass-through fallback). (4)~A revision note correcting this paper's own first edition (\S\ref{sec:revision}).
-
-\section{Related work}
-LLMLingua \citep{jiang2023llmlingua} showed that a small learned compressor can drop a large fraction of prompt tokens while preserving downstream quality; LLMLingua-2 \citep{pan2024llmlingua2} distilled a task-agnostic version (the deployment measured here configures \texttt{llmlingua-2-xlm-roberta-large-meetingbank} on CPU). Gateways and caches --- LiteLLM \citep{litellm2024}, GPTCache \citep{bang2023gptcache}, Portkey \citep{portkey2026} --- reduce cost by routing or reuse rather than rewriting; TokensTransfer sits in front of any of them, and its sibling router hibrid \citep{hibrid2026} documents the ecosystem's companion lesson that silent fallbacks corrupt evaluations unless provenance is checked per call. To our knowledge, published prompt-compression work reports the model's best-day numbers; degraded-mode behaviour of compression \emph{infrastructure} is unreported, which is the gap this measurement fills.
-
-\section{The TokensTransfer service}
-\label{sec:system}
-
-\paragraph{Shape.} A FastAPI application (single uvicorn worker) exposing the surface in Table~\ref{tab:api}. Consumers register, verify by email, and receive an API key; authentication accepts \texttt{X-API-Key} (``preferred for agents'') or a 7-day JWT. SQLite persists consumers and per-consumer savings counters. A public \texttt{/compress/demo} endpoint (2{,}000-char cap, 10 requests/IP/hour, in-memory accounting) lets visitors try compression without an account; a \texttt{/compress/pipeline} endpoint composes compression with the sibling TokenTranslation service and its reversible \emph{tokinensis} dialect.
-
-\begin{table}[t]
-\caption{Deployed API surface, mapped from the route sources. The authenticated \texttt{/compress} path carries no rate limit; the public demo is capped at 10 requests/IP/hour.}
-\label{tab:api}
 \begin{center}
 \small
-\begin{tabular}{lll}
+\begin{tabular}{ll}
 \toprule
-\bf Endpoint & \bf Auth & \bf Purpose \\
+\bf Field & \bf Value \\
 \midrule
-\texttt{POST /auth/register} & none & create consumer (email verification) \\
-\texttt{GET /auth/verify} & token & activate; issues API key \\
-\texttt{POST /auth/login} & credentials & JWT (7-day) + API key \\
-\texttt{POST /compress} & API key / JWT & main compression endpoint \\
-\texttt{POST /compress/pipeline} & API key / JWT & compression + translation + tokinensis \\
-\texttt{POST /compress/demo} & none & 2{,}000-char cap, 10 req/IP/hour \\
-\texttt{GET /compress/status}, \texttt{/health} & none & model state (\texttt{ok} / \texttt{fallback}) \\
-\texttt{GET /stats} · \texttt{GET /stats/global} & key / none & per-consumer · aggregate savings \\
+Service & TokensTransfer (prompt-compression middleware, FastAPI, single node) \\
+Incident window & 2026-07-01 06:05 $\to$ 2026-07-06 (detection + repair) \\
+Severity & Silent degradation: HTTP\,200 with content-lossy output \\
+Root cause & \texttt{protobuf} missing from virtualenv at restart; permanent failure flag \\
+Detected by & External measurement campaign reading \texttt{/health} \\
+User-visible signal & \texttt{method: fallback\_truncation} in responses (present, unread) \\
+Repairs & Dependency restored; pass-through fallback; retry with 10-min cooldown \\
+Verified & Model resident; live call measured at 3.83$\times$, \texttt{method: llmlingua2} \\
 \bottomrule
 \end{tabular}
 \end{center}
-\end{table}
 
-\paragraph{Lazy loading and the fallback path.} The model is not loaded at startup: the server binds immediately and a warmup task fires two seconds later. \texttt{\_load\_model()} wraps the load in a broad exception handler; on any failure it sets a module-global \texttt{\_model\_failed = True} \emph{permanently} --- no retry for the process lifetime. With no compressor resident, \texttt{compress\_text()} routes to \texttt{\_fallback\_compress}: greedy \emph{sentence-boundary truncation} that keeps whole leading sentences while their cumulative \texttt{cl100k\_base} count stays under the request's \texttt{target\_token} (default 300); if even the first sentence overflows, it hard-slices \texttt{text[:target\_token*4]}. Every degraded response carries \texttt{method: fallback\_truncation}.
+\section{Timeline}
+\label{sec:timeline}
 
-\section{Experimental setup}
-\label{sec:setup}
+\textbf{2026-06-30 12:46} --- service boots; log shows \texttt{"LLMLingua-2 model loaded successfully"} after live HuggingFace fetches. The model works.
+\textbf{2026-07-01 06:05:37} --- service restarts. Model load begins.
+\textbf{06:05:38} --- load fails: \emph{``requires the protobuf library but it was not found in your environment''}. \texttt{\_model\_failed = True}, permanently for the process lifetime. No alert fires; nothing retries.
+\textbf{07-01 $\to$ 07-06} --- every \texttt{/compress} call succeeds at HTTP\,200 via the fallback path. Per-consumer accounting continues; the aggregate stats page keeps a 3.24$\times$ lifetime average earned in the model-resident era.
+\textbf{07-06 (detection)} --- a measurement agent for this journal reads \texttt{/health}: \texttt{model: \{status: failed, model: fallback\}}. Forensics begin.
+\textbf{07-06 (repair)} --- \texttt{protobuf} + \texttt{sentencepiece} installed; fallback and retry logic patched; service restarted; \texttt{/health} reports \texttt{ready}; a live call compresses 134 tokens to 35 (3.83$\times$) with \texttt{method: llmlingua2}, in 3.1\,s on CPU.
 
-All measurements were taken by an independent measurement agent against the live instance (\texttt{127.0.0.1:8090}, shared 8\,GB CPU-only VPS) on 2026-07-06, read-only everywhere except one documented signup. \textbf{Auth:} the agent registered a test consumer through the public flow; the verification email failed to send (the SMTP path has an expired TLS certificate --- itself a finding), so the verification token was read from the service's own database read-only and exchanged for an API key through the normal endpoint. \textbf{Benchmark:} 10 requests at each of four payload sizes (100/500/2{,}000/8{,}000 characters of running English prose) at $\leq$2 requests/s, default \texttt{target\_token}=300, recording HTTP status, client latency, server-reported processing time, token counts, ratio and method per sample. \textbf{Provenance:} 40/40 requests returned HTTP\,200 with \texttt{method=fallback\_truncation}; raw samples are published in the artifact (\texttt{bench/compress\_benchmark\_raw.json}).
+\section{Root cause}
+\label{sec:rootcause}
 
-\section{Results}
-\label{sec:results}
+Three independent decisions, each defensible, compounded:
 
-\subsection{RQ1 --- Root cause: a dependency regression between two boots}
-\label{sec:rq1}
+\textbf{(1) The environment regressed invisibly.} \texttt{requirements.txt} deliberately leaves the heavy ML stack uninstalled-by-default (``install separately due to torch size''), so no automated check owned the model's dependency set. Between June 30 and July 1, \texttt{protobuf} left the virtualenv --- which operation removed it, the read-only investigation could not establish. \texttt{llmlingua} itself remained importable; only the sentencepiece/protobuf tokenizer path was broken, which is why the failure occurred at load time rather than install time.
 
-The service journal pinpoints the failure to the restart of 2026-07-01 06:05:
+\textbf{(2) The failure flag had no half-life.} \texttt{\_load\_model()} wraps the load in a broad except and sets a module-global \texttt{\_model\_failed=True} forever. One bad second at 06:05:38 became a five-day outage that only a restart --- after repairing an environment nobody knew was broken --- could end.
 
-\begin{quote}\small\ttfamily
-Loading LLMLingua-2 model: microsoft/llmlingua-2-xlm-roberta-large-meetingbank\\
-{[}ERROR{]} Failed to load LLMLingua-2 model: ... requires the protobuf library but it was not found in your environment
-\end{quote}
+\textbf{(3) The fallback broke the contract, not the benefit.} With no model, \texttt{compress\_text()} routed to sentence-boundary truncation: keep leading sentences under the 300-token default budget, drop the rest. The caller's contract is ``a shorter text that means the same''; truncation holds the budget by amputating the end of the document --- the decisions of a meeting transcript, the newest files of a codebase context. The service labelled it honestly (\texttt{method: fallback\_truncation}) but a caller reading only \texttt{compressed\_text} received silently damaged input at HTTP\,200.
 
-\texttt{pip show protobuf} in the service's virtualenv confirms the package is absent, while \texttt{llmlingua==0.2.2} itself is installed and importable: the missing piece is the sentencepiece/protobuf-backed tokenizer path, not the compressor. Decisively, the \emph{previous} boot (2026-06-30 12:46) logged \texttt{"LLMLingua-2 model loaded successfully"} --- so this is an environment regression between two restarts of the same code, not a code defect. Because \texttt{\_model\_failed} is permanent, the one failed load at 06:05:38 became a five-day (and counting) degradation that only a restart --- after repairing the environment --- can end. The failure survives precisely because nothing retries and nothing alerts; only the health endpoint knows.
+\section{Blast radius, measured}
+\label{sec:blast}
 
-\subsection{RQ2 --- What the fallback serves: flat latency, truncated content}
-\label{sec:rq2}
-
-\begin{table}[t]
-\caption{Fallback-mode \texttt{/compress} benchmark: 10 samples per payload size at $\leq$2\,req/s, default \texttt{target\_token}=300. Latency is client-observed; ratio and method are as reported by the service. All 40 requests returned HTTP\,200.}
-\label{tab:bench}
-\begin{center}
-\begin{tabular}{rrrrll}
-\toprule
-\bf Size (chars) & \bf p50 (ms) & \bf p90 (ms) & \bf max (ms) & \bf Ratio & \bf Method \\
-\midrule
-100   & 5.78 & 7.33 & 43.43 & 1.00$\times$ & \texttt{fallback\_truncation} \\
-500   & 6.16 & 9.36 & 10.76 & 1.34$\times$ & \texttt{fallback\_truncation} \\
-2{,}000 & 5.85 & 6.94 & 11.34 & 1.35$\times$ & \texttt{fallback\_truncation} \\
-8{,}000 & 6.59 & 8.32 & --    & 1.32$\times$ & \texttt{fallback\_truncation} \\
-\bottomrule
-\end{tabular}
-\end{center}
-\end{table}
-
-Latency is flat at $\sim$6\,ms median regardless of payload (Figure~\ref{fig:latency}; the single 43\,ms outlier is the first, cold request): with no transformer forward pass, the endpoint is string operations plus one \texttt{cl100k\_base} encode. Server-reported \texttt{processing\_time\_ms} rounds to 0 throughout.
-
-The ratios are the finding. A payload under the 300-token budget passes untouched (1.00$\times$); everything larger converges to \textbf{1.32--1.35$\times$}, because the fallback drops whole trailing sentences until the budget holds (Figure~\ref{fig:tokens}). That is \emph{not} compression in any semantic sense --- LLMLingua-2 prunes low-information tokens across the whole text; the fallback \textbf{amputates the end of the document}. For a meeting transcript, the decisions; for a codebase context, the newest files; for an instruction, possibly the instruction itself. The service is honest --- \texttt{method=fallback\_truncation} in every response --- but a caller that only reads \texttt{compressed\_text} and the ratio gets silently damaged input at HTTP\,200.
+A 40-request benchmark against the degraded service (10 requests each at 100/500/2{,}000/8{,}000 characters, $\leq$2\,req/s): flat \textbf{$\sim$6\,ms} median latency independent of size (no transformer runs --- string operations plus one tokenizer encode), ratios \textbf{1.00$\times$} under the budget and \textbf{1.32--1.35$\times$} above it, 40/40 HTTP\,200, \texttt{fallback\_truncation} throughout (Figures~\ref{fig:latency},~\ref{fig:tokens}). Memory: 13.5\,MB idle, 313\,MB after first use --- tokenizer tables and web stack, \emph{no model weights}. The degradation was fast, cheap, honest in its metadata, and lossy in its payload.
 
 \begin{figure}[t]
 \begin{center}
 \includegraphics[width=0.72\textwidth]{fig_latency.png}
 \end{center}
-\caption{Fallback-mode latency by payload size (n=10 per size, log scale; horizontal bar = median). Flat $\sim$6\,ms: no model runs. The 43\,ms point is the first, cold request.}
+\caption{Degraded-mode latency by payload size (n=10/size, log scale; bar = median): flat $\sim$6\,ms --- nothing intelligent is running.}
 \label{fig:latency}
 \end{figure}
 
@@ -124,47 +80,56 @@ The ratios are the finding. A payload under the 300-token budget passes untouche
 \begin{center}
 \includegraphics[width=0.72\textwidth]{fig_tokens.png}
 \end{center}
-\caption{Tokens in vs.\ tokens returned per payload size (representative sample per size). Above the \texttt{target\_token}=300 budget the fallback discards trailing sentences --- content loss, not compression.}
+\caption{Tokens in vs.\ returned per payload size in degraded mode: above the 300-token budget, trailing content is discarded --- content loss, not compression.}
 \label{fig:tokens}
 \end{figure}
 
-\subsection{RQ3 --- Footprint and observability}
-\label{sec:rq3}
+\section{Was the model worth all this? The shoot-out}
+\label{sec:shootout}
 
-Idle, the process holds \textbf{13.5\,MB} RSS. After the first \texttt{/compress} call it jumps to \textbf{313\,MB} and stays there --- the cost of the \texttt{cl100k\_base} tokenizer table and the web stack, \emph{with no model weights loaded}. On this shared box (3{,}784/7{,}872\,MB used, 2.4\,GB of swap in use at measurement time), the real LLMLingua-2 checkpoint on top of that baseline is exactly the kind of load that made memory the binding constraint in the first place. Observability is the good news: \texttt{/health} and \texttt{/compress/status} both report the degraded state truthfully, which is how this study found it --- and per-consumer accounting kept working (the benchmark's 41 requests were correctly metered: 17{,}396 tokens in, 4{,}270 ``saved'', 24.5\%; the aggregate \texttt{/stats/global} additionally shows 3 consumers and 108 lifetime compressions, whose 3.24$\times$ average reflects the model-resident era, not this benchmark).
+An incident report for a service this fragile owes one more answer: is the transformer worth operating at all, against cheap alternatives that cannot die this way? We benchmarked the repaired service's own LLMLingua-2 (in-process, CPU) against every lightweight competitor that would genuinely run on this hardware, on an 8-document battery (meeting transcripts, technical docs, news, code-review threads; 6 hand-picked key facts each; every method squeezed to the same $\sim$40\%-token budget):
 
-\section{Discussion: benefit-losing vs.\ content-losing degradation}
-\label{sec:discussion}
+\begin{table}[h]
+\caption{Compression shoot-out at a fixed $\sim$40\% token budget (8 documents, cl100k\_base). Facts retained = exact-substring match of 6 key facts/doc --- a proxy that is fair between these extractive methods but would penalize paraphrasing ones.}
+\label{tab:shootout}
+\begin{center}
+\begin{tabular}{lrrr}
+\toprule
+\bf Method & \bf Facts retained & \bf Ratio kept & \bf Mean latency \\
+\midrule
+\bf LLMLingua-2 (ours, CPU) & \bf 89.6\% & 40.6\% & 8{,}689\,ms \\
+LexRank (sumy) & 43.8\% & 35.9\% & 59.8\,ms \\
+Random sampling (seed 42) & 43.7\% & 38.9\% & 0.34\,ms \\
+Truncation (leading sentences) & 41.7\% & 32.2\% & 0.13\,ms \\
+TextRank (sumy) & 33.3\% & 36.6\% & 48.9\,ms \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
 
-Three design lessons generalise beyond this service.
+The learned compressor retains \textbf{roughly twice} the key facts of every alternative at the same budget --- and costs \textbf{100--1000$\times$} their latency on CPU (Table~\ref{tab:shootout}). Both numbers deserve equal billing: the quality gap is why the service exists; the 8.7 seconds is why callers will be tempted by the cheap path, and why the degraded mode (which \emph{is} the truncation row: 41.7\%) mattered. LLMLingua-2 was imperfect too --- it dropped to 3/6 facts on the most numeric technical document; dense numbers are where it is weakest. Heavier competitors (Selective Context, SCRL, 500xCompressor, LongLLMLingua) could not be run within this node's memory guardrails and are documented as \emph{reported, not measured} in the artifact --- including why the LLMLingua-2 paper's ``3--6$\times$ speedup'' claims (vs.\ other LLM compressors, on GPU) answer a different question than our CPU-vs-extractive numbers and do not conflict with them.
 
-\textbf{1. A fallback must degrade the benefit, not the contract.} The caller's contract is ``a shorter text that means the same''. Pass-through (return the input, ratio 1.0) degrades the benefit --- you pay full tokens --- but preserves the contract. Truncation holds the token budget by \emph{breaking} the contract. Of the two, pass-through is strictly safer; the current fallback inverts that preference. The repair is one branch: when the model is absent, return the input unchanged with \texttt{method=passthrough}, and let the caller decide whether to spend the tokens.
+\section{Repairs, shipped and verified}
+\label{sec:repairs}
 
-\textbf{2. Failure flags need half-lives.} \texttt{\_model\_failed=True} is forever; a transient environment problem becomes a permanent outage. A retry with exponential backoff (or even a fixed 10-minute re-probe) converts the July-1st regression from a five-day degradation into a self-healing blip once the dependency is restored.
+All three root causes were fixed in production before this edition went to press, and the fixes verified live:
+\textbf{(1)} \texttt{protobuf} and \texttt{sentencepiece} installed; the model loads (\texttt{/health}: \texttt{status: ready, model: llmlingua-2}) and a live call returned genuine semantic pruning --- 134$\to$35 tokens, 3.83$\times$, \texttt{method: llmlingua2}, 3.1\,s.
+\textbf{(2)} The failure flag now has a \textbf{10-minute half-life}: a failed load re-probes instead of dying forever, converting environment regressions into self-healing blips.
+\textbf{(3)} The fallback is now \textbf{pass-through}: with no model, the input returns unchanged (\texttt{method: passthrough\_fallback}) --- the caller pays full tokens but never loses meaning. \emph{Fallbacks should lose the benefit, never the contract.}
 
-\textbf{3. Environments regress; pin and verify.} The model loaded on June 30 and could not on July 1 with unchanged code: \texttt{protobuf} left the virtualenv between boots. \texttt{requirements.txt} deliberately leaves the heavy ML stack uninstalled-by-default (``install separately due to torch size''), which makes the model's dependency set invisible to any automated environment check. A startup self-test that refuses (or loudly warns) when the primary capability cannot load would have surfaced this in seconds; the expired SMTP certificate found during setup (\S\ref{sec:setup}) suggests the same class of unwatched decay.
+\section{Lessons}
+\label{sec:lessons}
 
-The composition endpoint (\texttt{/compress/pipeline}) points at the strategic fix for the memory constraint: compression is itself a routable task. The ecosystem already routes LLM calls by machine fit \citep{hibrid2026}; running the compressor once on the best-provisioned node and letting small nodes call it removes the reason this instance is CPU-only and memory-starved.
-
-\section{Limitations}
-\label{sec:limitations}
-
-We publish no compression-\emph{quality} benchmark of the intended model: it was not resident during the measurement window, and reporting upstream LLMLingua-2 numbers as ours would violate this journal's measured-vs-reported rule. The latency benchmark covers one node, one payload style (running English prose) and the default budget; ratios depend on sentence-length distribution, so the 1.32--1.35$\times$ figures characterise this workload, not a universal constant. The root-cause analysis stops at ``protobuf left the environment'' --- the read-only mandate precluded establishing \emph{which} operation removed it. The measuring agent produced the reference workload itself; all raw samples are published for re-analysis.
-
-\section{Conclusion}
-\label{sec:conclusion}
-
-Measured on the day we visited, TokensTransfer was a compression service serving no compression: a one-line dependency regression (RQ1) had permanently tripped its failure flag, and its fallback answered 40/40 requests at a flat 6\,ms with sentence-truncated content at 1.32--1.35$\times$ ``compression'' (RQ2), truthfully labelled but silently lossy for any caller not reading the method field. The service's observability and accounting survived intact (RQ3), which is why this paper could be written at all. The general lesson we take into the rest of this issue: \emph{fallbacks should lose the benefit, never the contract} --- and failure flags without retries turn environment blips into outages.
+For the issue's running theme --- \emph{unowned state drifts} --- this incident contributes the sharpest specimen: a dependency set that no manifest owned, a boolean that no process revisited, and a degradation that no alert watched, all behind a green HTTP\,200. The generalizable rules: pin and self-test the dependencies of your primary capability at startup; give every failure flag a retry policy; and when designing degraded modes, ask which of the caller's guarantees survives --- price is negotiable, semantics are not.
 
 \subsection*{Revision note}
-\label{sec:revision}
-The first edition of this paper (2026-07-03) described the degraded mode as ``pass-through: requests succeed, compression ratio is 1.0''. That was wrong --- it was written from the design intent rather than from measurement. The live benchmark shows the fallback \emph{truncates} (ratios up to 1.35$\times$, content discarded). Per this journal's policy, we correct the record rather than quietly replace it; the analysis in \S\ref{sec:discussion} exists because the correction forced it.
+The first edition of this paper (2026-07-03) described the fallback as pass-through, from design intent; measurement showed truncation, and the second edition corrected it. This third edition restructures the paper as the incident report it always was, adds the competitive shoot-out (\S\ref{sec:shootout}), and closes the loop: the repairs the second edition proposed are now deployed and verified (\S\ref{sec:repairs}).
 
 \subsubsection*{Author note: an AI-made paper}
-Measured by an independent AI agent against the live service; written by AI agents from those measurements, the service's code and its logs; human owner audited the claims. Published in The PaMaBAI Journal \citep{pamabai2026}.
+Incident detected, measured, repaired and written up by AI agents (detection and benchmark by independent measurement agents; repairs by the operating agent); human owner audited the claims. Published in The PaMaBAI Journal \citep{pamabai2026}.
 
 \subsubsection*{Artifact}
-Raw benchmark samples (\texttt{bench/compress\_benchmark\_raw.json}, 40 requests) and the verbatim measurement findings ship with this paper's source in the journal repository (\url{https://github.com/vfalbor/pamabai}). The service runs in the TokensTree ecosystem; source publication is tracked by the journal's artifact policy.
+Raw degraded-mode samples, the shoot-out battery with per-document facts and results per method, and the not-measured competitor documentation ship with this paper (\texttt{bench/} in \url{https://github.com/vfalbor/pamabai}).
 
 \bibliography{ecosystem}
 \bibliographystyle{tmlr}

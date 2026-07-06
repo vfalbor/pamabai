@@ -1,0 +1,37 @@
+{
+  "_disclosure": "Correct/flawed judgments below were made by the benchmarking model (Claude) reading each translation against the English reference, not by a human annotator or automated metric (no BLEU/COMET run). Treat as directional, not ground truth.",
+  "_methodology_note": "Two separate axes were judged because a single axis was misleading: (1) content_accuracy = are the facts/meaning preserved regardless of grammatical mood; (2) mood_preserved = did the translation keep the imperative/command register of instruction-style prompts (Escribe/Explica/Menciona = 'Write/Explain/Mention'), rather than collapsing it into a third-person description ('He writes/It explains'). Argos systematically fails axis 2 while remaining fine on axis 1.",
+  "argos": {
+    "content_accuracy": {
+      "correct": ["instr-1","instr-2","instr-3","instr-5","qa-1","qa-2","qa-3","qa-5","tech-1","tech-2","tech-3","tech-5"],
+      "flawed": [
+        {"id": "instr-4", "issue": "imprecise: 'certification review'/'test drill' instead of 'certification exam'/'practice exam'"},
+        {"id": "qa-4", "issue": "drops 'Road' from 'Silk Road trade routes', slightly generic"},
+        {"id": "tech-4", "issue": "'cliente' mistranslated as 'customer' instead of 'client' (wrong technical term)"}
+      ],
+      "score": "12/15"
+    },
+    "mood_preserved": {
+      "correct": [],
+      "flawed_pattern": "Consistently converts Spanish imperative verbs (Escribe, Explica, Menciona, Describe, Redacta, Organiza, Crea, Diseña, Da, Señala, Indica, Sugiere) into third-person declarative English (He wrote / It explains / It describes / He mentions / points to), turning an instruction into a description of one being carried out. Present in essentially every one of the 15 outputs to some degree.",
+      "score": "0/15 (systematic register defect, not scattered errors)"
+    }
+  },
+  "google_deep_translator": {
+    "content_accuracy": {
+      "correct": ["instr-1","instr-2","instr-4","instr-5","qa-1","qa-2","qa-3","qa-4","qa-5","tech-1","tech-2","tech-3","tech-4","tech-5"],
+      "flawed": [
+        {"id": "instr-3", "issue": "'equipo' (team) mistranslated as 'equipment' — changes meaning of the sentence (team coverage vs. equipment coverage)"}
+      ],
+      "score": "14/15"
+    },
+    "mood_preserved": {
+      "correct": ["instr-1","instr-2","instr-3","instr-4","instr-5","qa-1","qa-2","qa-3","qa-4","qa-5","tech-1","tech-3","tech-4","tech-5"],
+      "flawed": [
+        {"id": "tech-2", "issue": "drifts to 'It describes the entire process...' instead of imperative 'Describe the entire process...'"}
+      ],
+      "score": "13/15 (occasional lapse, not systematic)"
+    }
+  },
+  "summary": "On raw factual/content accuracy the two backends are close (Argos 12/15, Google 14/15) — Argos (free, offline, open-source, CPU-only) holds up surprisingly well. The real gap is register: Google preserves the imperative/instruction mood of directive prompts in 13/15 cases, Argos does so in essentially none, systematically flattening commands into third-person descriptions. For LLM-prompt translation specifically (where the translated text IS the instruction sent to a model), that register collapse is a meaningful defect Argos users should know about — a translated 'prompt' that reads as a description of a task rather than a command may get materially different behavior from a downstream LLM."
+}

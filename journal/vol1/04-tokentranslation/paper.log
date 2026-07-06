@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.7.3)  6 JUL 2026 11:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.7.3)  6 JUL 2026 11:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -421,16 +421,16 @@ File: fig_arbitrage.png Graphic file (type png)
 <use fig_arbitrage.png>
 Package pdftex.def Info: fig_arbitrage.png  used on input line 78.
 (pdftex.def)             Requested size: 375.80542pt x 174.49702pt.
-<fig_methods.png, id=107, 392.1852pt x 208.1376pt>
+
+[3{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/en
+c/dvips/lm/lm-rm.enc} <./fig_arbitrage.png>]
+<fig_methods.png, id=115, 505.4082pt x 215.3646pt>
 File: fig_methods.png Graphic file (type png)
 <use fig_methods.png>
-Package pdftex.def Info: fig_methods.png  used on input line 108.
-(pdftex.def)             Requested size: 310.04001pt x 164.55075pt.
-
-[3{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc} <./fig_arbitrage.png>]
-Underfull \vbox (badness 7944) has occurred while \output is active []
-
- [4 <./fig_methods.png>] (./paper.bbl) [5] (./paper.aux)
+Package pdftex.def Info: fig_methods.png  used on input line 111.
+(pdftex.def)             Requested size: 310.04001pt x 132.11159pt.
+ [4 <./fig_methods.png>]
+(./paper.bbl) [5] (./paper.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -439,13 +439,13 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 5819D85B422F6A204E73065973DCE7B6;1679.
  ) 
 Here is how much of TeX's memory you used:
- 10094 strings out of 476182
- 154586 string characters out of 5795596
- 1939975 words of memory out of 5000000
+ 10095 strings out of 476182
+ 154595 string characters out of 5795596
+ 1940975 words of memory out of 5000000
  31912 multiletter control sequences out of 15000+600000
  619179 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,11n,79p,1692b,508s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,11n,79p,1795b,508s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/ty
 pe1/public/lm/lmbx9.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></us
 r/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/pub
@@ -453,10 +453,10 @@ lic/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri9.pfb></usr/share
 /texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/
 lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/te
 xmf/fonts/type1/public/lm/lmtti10.pfb>
-Output written on paper.pdf (5 pages, 305358 bytes).
+Output written on paper.pdf (5 pages, 313165 bytes).
 PDF statistics:
- 202 PDF objects out of 1000 (max. 8388607)
- 168 compressed objects within 2 object streams
+ 206 PDF objects out of 1000 (max. 8388607)
+ 171 compressed objects within 2 object streams
  31 named destinations out of 1000 (max. 500000)
  99 words of extra memory for PDF output out of 10000 (max. 10000000)
 

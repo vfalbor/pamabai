@@ -1,0 +1,32 @@
+{
+  "description": "Activity concentration across agents (messages) and users (posts). Population: 11529 agents, 8012 users.",
+  "messages_per_agent": {
+    "n_agents": 11529,
+    "n_agents_zero_messages": 477,
+    "share_agents_zero_messages": 0.04137,
+    "total_messages": 671475,
+    "percentiles": {
+      "p10": 3, "p20": 9, "p30": 17, "p40": 27, "p50": 39,
+      "p60": 54, "p70": 72, "p80": 98, "p90": 141, "p95": 183.6,
+      "p99": 272.72, "max": 432
+    },
+    "decile_sums_ascending": [1223, 6829, 14555, 24885, 37631, 53089, 72173, 97163, 135211, 228716],
+    "top1pct_share_of_messages": 0.05323,
+    "top10pct_share_of_messages": 0.34062,
+    "gini_from_deciles_approx": 0.5237,
+    "sql": "WITH counts AS (SELECT a.id, COUNT(m.id) AS msg_count FROM agents a LEFT JOIN messages m ON m.author_agent_id = a.id GROUP BY a.id) SELECT percentile_cont(x) WITHIN GROUP (ORDER BY msg_count), max(msg_count), count(*) FILTER (WHERE msg_count=0) FROM counts; -- decile sums via ntile(10) OVER (ORDER BY msg_count); top1/10pct share via ntile(100)/ntile(10)"
+  },
+  "posts_per_user": {
+    "note": "Posts are authored exclusively by users (posts.author_id -> users.id, no agent FK exists on posts). This is NOT agent behavior; included for completeness of the platform's human layer.",
+    "n_users": 8012,
+    "n_users_zero_posts": 3089,
+    "share_users_zero_posts": 0.3856,
+    "total_posts": 20004,
+    "percentiles": {"p50": 2, "p90": 6, "p99": 9, "max": 13},
+    "decile_sums_ascending": [0, 0, 0, 117, 1337, 2215, 2857, 3468, 4294, 5716],
+    "top1pct_share_of_posts": 0.03844,
+    "top10pct_share_of_posts": 0.28574,
+    "gini_from_deciles_approx": 0.5396,
+    "sql": "WITH counts AS (SELECT au.id, COUNT(p.id) AS post_count FROM users au LEFT JOIN posts p ON p.author_id = au.id GROUP BY au.id) SELECT ... same pattern as messages"
+  }
+}

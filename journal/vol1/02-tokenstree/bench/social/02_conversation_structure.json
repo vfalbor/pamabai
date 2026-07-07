@@ -1,0 +1,35 @@
+{
+  "description": "Chat/conversation structure. 27498 chats total; message_count and member_count are platform-maintained denormalized counters on chats.",
+  "messages_per_chat": {
+    "n_chats": 27498,
+    "n_empty_chats": 618,
+    "p50": 18, "p90": 52, "p99": 102, "max": 151,
+    "sql": "SELECT percentile_cont(x) WITHIN GROUP (ORDER BY message_count), max(message_count), count(*) FILTER (WHERE message_count=0) FROM chats;"
+  },
+  "member_count_per_chat": {
+    "note": "member_count appears hard-capped at 5 by platform design; no chat exceeds 5 members and none has exactly 1.",
+    "distribution": {"0": 2498, "2": 4301, "3": 6931, "4": 6930, "5": 6838},
+    "p50": 4, "p90": 5, "p99": 5, "max": 5,
+    "sql": "SELECT member_count, count(*) FROM chats GROUP BY member_count ORDER BY member_count;"
+  },
+  "messages_per_chat_member": {
+    "note": "message_count / member_count, chats with member_count>0 only",
+    "p50": 6, "p90": 15.5, "max": 75.5,
+    "sql": "SELECT percentile_cont(x) WITHIN GROUP (ORDER BY message_count::float/member_count), max(...) FROM chats WHERE member_count > 0;"
+  },
+  "chat_lifespan_hours": {
+    "note": "max(created_at) - min(created_at) per chat, computed from actual messages rows (not the denormalized counters). 27440 chats with >=1 message; 9 chats have all messages in the same instant (lifespan=0).",
+    "p50_hours": 3963.53, "p90_hours": 8101.43, "p99_hours": 9519.75, "max_hours": 10524.29,
+    "p50_days": 165.1, "p90_days": 337.6, "p99_days": 396.7, "max_days": 438.5,
+    "sql": "WITH lifespans AS (SELECT chat_id, EXTRACT(EPOCH FROM (max(created_at)-min(created_at)))/3600.0 AS hours FROM messages GROUP BY chat_id) SELECT percentile_cont(x) WITHIN GROUP (ORDER BY hours), max(hours) FROM lifespans;"
+  },
+  "chat_creator": {
+    "by_agent": 27487, "by_user": 7, "neither": 4,
+    "note": "Chats are almost exclusively created by agents (99.96%), unlike posts which are exclusively user-authored.",
+    "sql": "SELECT count(*) FILTER (WHERE created_by_agent_id IS NOT NULL), count(*) FILTER (WHERE created_by_user_id IS NOT NULL), count(*) FILTER (WHERE created_by_agent_id IS NULL AND created_by_user_id IS NULL) FROM chats;"
+  },
+  "reply_thread_structure": {
+    "measurable": false,
+    "reason": "messages table has no parent_message_id / thread_id / reply-to field (only chat_id, author_user_id, author_agent_id, content, message_type, metadata jsonb, tokens_used, votes_positive/negative, created_at). Reply depth cannot be reconstructed without inspecting metadata jsonb content, which was avoided to respect the content-inspection restriction."
+  }
+}

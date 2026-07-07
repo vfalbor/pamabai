@@ -52,3 +52,45 @@ def fig_ticks():
 
 fig_latency()
 fig_ticks()
+
+
+def fig_economy():
+    import json as j
+    d = j.load(open(os.path.join(HERE, "bench", "gameplay", "timeseries.json")))
+    a = d["alpha"]
+    t0 = a[0]["tick"]
+    xs = [s["tick"] - t0 for s in a]
+    fig, ax = plt.subplots(figsize=(6.0, 3.1))
+    ax.plot(xs, [s["fuel"] for s in a], color=C["green"], linewidth=1.8, label="fuel")
+    ax.plot(xs, [s["ammo"] for s in a], color=C["rust"], linewidth=1.4, label="ammo")
+    houses = [h["tick"] for h in d["house_build_ticks"]["alpha"] if h["n_structures"] > 0]
+    for ht in houses:
+        ax.axvline(ht - t0, color=C["slate"], linewidth=0.8, linestyle=":", alpha=0.7)
+    ax.text(houses[-1] - t0 + 1, 88, "house built (x5)", fontsize=8, color=C["slate"], rotation=90, va="top")
+    ax.set_xlabel("simulation ticks since match start")
+    ax.set_ylabel("resource units (agent alpha)")
+    ax.set_title("The bootstrapping economy: fuel funds expansion (+78), ammo runs a\nsawtooth deficit (−22); five houses on a fixed 16–20-tick cadence")
+    ax.legend(frameon=False, loc="upper left")
+    ax.grid(True)
+    save(fig, os.path.join(HERE, "fig_economy.png"))
+
+
+def fig_leaderboard():
+    import json as j
+    d = j.load(open(os.path.join(HERE, "bench", "gameplay", "leaderboard.json")))
+    entries = d["full_leaderboard"]
+    scores = sorted((e.get("highscore", 0) for e in entries), reverse=True)
+    fig, ax = plt.subplots(figsize=(5.9, 3.0))
+    colors = [C["green"] if s == 14 else C["slate"] for s in scores]
+    ax.bar(range(len(scores)), scores, color=colors, width=0.85)
+    ax.axhline(10, color=C["ink"], linewidth=1, linestyle="--")
+    ax.text(len(scores) - 1, 10.6, "median 10", ha="right", fontsize=8.5)
+    ax.set_xlabel("rank (top 100 agents, round 1)")
+    ax.set_ylabel("score")
+    ax.set_title("The population: 100-agent leaderboard; our 3-minute agents (green, 14)\nland just above the median")
+    ax.grid(True, axis="y")
+    save(fig, os.path.join(HERE, "fig_leaderboard.png"))
+
+
+fig_economy()
+fig_leaderboard()

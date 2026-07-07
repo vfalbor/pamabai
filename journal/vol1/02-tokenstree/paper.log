@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.7.3)  7 JUL 2026 08:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.7.3)  7 JUL 2026 10:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -431,40 +431,54 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 c/dvips/lm/lm-ec.enc}
 
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}]
-<fig_scale.png, id=51, 459.1554pt x 237.0456pt>
-File: fig_scale.png Graphic file (type png)
-<use fig_scale.png>
-Package pdftex.def Info: fig_scale.png  used on input line 39.
-(pdftex.def)             Requested size: 366.40831pt x 189.17374pt.
+<fig_degrees.png, id=60, 415.7934pt x 200.9106pt>
+File: fig_degrees.png Graphic file (type png)
+<use fig_degrees.png>
+Package pdftex.def Info: fig_degrees.png  used on input line 53.
+(pdftex.def)             Requested size: 310.04001pt x 149.81192pt.
+<fig_diurnal.png, id=63, 451.4466pt x 200.9106pt>
+File: fig_diurnal.png Graphic file (type png)
+<use fig_diurnal.png>
+Package pdftex.def Info: fig_diurnal.png  used on input line 66.
+(pdftex.def)             Requested size: 357.0112pt x 158.88316pt.
 
-[2 <./fig_scale.png>] [3] (./paper.bbl) [4] (./paper.aux)
+[2]
+<fig_weekly.png, id=72, 456.7464pt x 208.1376pt>
+File: fig_weekly.png Graphic file (type png)
+<use fig_weekly.png>
+Package pdftex.def Info: fig_weekly.png  used on input line 79.
+(pdftex.def)             Requested size: 366.40831pt x 166.98033pt.
+
+Underfull \vbox (badness 1152) has occurred while \output is active []
+
+ [3 <./fig_degrees.png> <./fig_diurnal.png>] [4 <./fig_weekly.png>] (./paper.bb
+l) [5]
+(./paper.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: E46917F5338D42A21895A2F7C3BBE1B7;1298.
+(rerunfilecheck)             Checksum: 66D78839D2ADA3AE9EAE79F1B7131E3B;1796.
  ) 
 Here is how much of TeX's memory you used:
- 10548 strings out of 476182
- 158961 string characters out of 5795596
- 1938975 words of memory out of 5000000
- 32365 multiletter control sequences out of 15000+600000
+ 10569 strings out of 476182
+ 159287 string characters out of 5795596
+ 1940975 words of memory out of 5000000
+ 32380 multiletter control sequences out of 15000+600000
  620567 words of font info for 78 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,11n,79p,1593b,445s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,11n,79p,2086b,445s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/ty
 pe1/public/lm/lmbx9.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr
-/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/publi
-c/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri9.pfb></usr/share/t
-exmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm
-/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy9.pfb></usr/share/texmf
-/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtti
-10.pfb>
-Output written on paper.pdf (4 pages, 295295 bytes).
+/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/pub
+lic/lm/lmri9.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/sha
+re/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/
+lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtti10.pfb>
+Output written on paper.pdf (5 pages, 343823 bytes).
 PDF statistics:
- 139 PDF objects out of 1000 (max. 8388607)
- 107 compressed objects within 2 object streams
- 19 named destinations out of 1000 (max. 500000)
- 62 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 153 PDF objects out of 1000 (max. 8388607)
+ 120 compressed objects within 2 object streams
+ 25 named destinations out of 1000 (max. 500000)
+ 88 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -67,7 +67,15 @@ System requirements & 5 & 4.57 & 560 \\
 \end{center}
 \end{table}
 
-Scores are tightly unimodal: mean 58.05, median 58, p10--p90 spanning 46--70, max \textbf{82, reached once} (Figure~\ref{fig:scores}). Badges: 55.8\% \emph{worth-watching}, 39.7\% \emph{niche}, 3.7\% \emph{skip}, 0.7\% \emph{strong-candidate}. The criterion decomposition (Table~\ref{tab:criteria}, Figure~\ref{fig:criteria}) carries the corpus's sharpest sentence: the criteria that measure \emph{attention} (novelty, sentiment, relevance) score 7+, the criteria that measure \emph{adoption} (ease of use, integration, requirements, community) score $\leq$5 --- the median front-page LLM tool is novel, timely, and hard to use.
+Volume first: 30--55 reviews per week for thirteen consecutive weeks with no gaps (Figure~\ref{fig:weekly}; funnel: 562 found $\to$ 542 tested + 20 duplicate skips across 88 runs) --- HN's front page genuinely surfaces $\sim$43 new LLM tools weekly, and the pipeline kept pace unattended. Scores are tightly unimodal: mean 58.05, median 58, p10--p90 spanning 46--70, max \textbf{82, reached once} (Figure~\ref{fig:scores}). Badges: 55.8\% \emph{worth-watching}, 39.7\% \emph{niche}, 3.7\% \emph{skip}, 0.7\% \emph{strong-candidate}. The criterion decomposition (Table~\ref{tab:criteria}, Figure~\ref{fig:criteria}) carries the corpus's sharpest sentence: the criteria that measure \emph{attention} (novelty, sentiment, relevance) score 7+, the criteria that measure \emph{adoption} (ease of use, integration, requirements, community) score $\leq$5 --- the median front-page LLM tool is novel, timely, and hard to use.
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{fig_weekly.png}
+\end{center}
+\caption{Weekly review volume across the corpus's life: a stable unattended cadence.}
+\label{fig:weekly}
+\end{figure}
 
 \begin{figure}[t]
 \begin{center}

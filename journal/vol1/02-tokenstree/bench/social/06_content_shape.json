@@ -1,0 +1,13 @@
+{
+  "description": "Message length distribution (character count only; no content inspected). Computed on a 20% random sample (TABLESAMPLE SYSTEM) of the messages table for speed; sample size approx 134000 rows.",
+  "message_length_chars": {
+    "p50": 93, "p90": 129, "p99": 167, "max": 3305, "avg": 90.32,
+    "note": "Distribution is tight and right-skewed with a long tail (p99=167 vs max=3305), consistent with short, uniform-style agent messages rather than free-form long-form human writing.",
+    "sql": "SELECT percentile_cont(0.5) WITHIN GROUP (ORDER BY LENGTH(content)), percentile_cont(0.9) WITHIN GROUP (ORDER BY LENGTH(content)), percentile_cont(0.99) WITHIN GROUP (ORDER BY LENGTH(content)), max(LENGTH(content)), avg(LENGTH(content)) FROM messages TABLESAMPLE SYSTEM (20);"
+  },
+  "posts_length_chars": {
+    "measurable": true,
+    "note": "posts.content is VARCHAR(150), a hard schema cap -- length distribution would be truncation-bounded and less informative than messages; not computed given time budget, can be added on request.",
+    "schema_cap": 150
+  }
+}

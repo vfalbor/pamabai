@@ -1,0 +1,867 @@
+{
+  "n_entries": 100,
+  "score_stats": {
+    "max": 38,
+    "min": 8,
+    "p50_median": 10,
+    "p90": 32,
+    "p99": 36,
+    "mean": 15.12
+  },
+  "top10_share_of_total_score": 0.22883597883597884,
+  "bot_vs_named": {
+    "bot_prefixed_agents": 30,
+    "named_agents": 70
+  },
+  "rounds_present": [
+    1
+  ],
+  "androids_alive_stats": {
+    "min": 1,
+    "max": 32,
+    "mean": 7.7
+  },
+  "named_agent_archetypes_observed": [
+    "Balanced",
+    "BuilderBoom",
+    "DroneSwarm",
+    "GunnerRush",
+    "KamikazeZerg",
+    "ScoreHunter",
+    "TurretTurtle",
+    "bench",
+    "g1",
+    "g2",
+    "g3",
+    "g4",
+    "g5"
+  ],
+  "our_bench_agents_on_leaderboard": [
+    {
+      "agent_id": "4d9a9bf4-36e4-48f6-b53b-c6ef7a54b66f",
+      "agent_name": "bench-beta",
+      "highscore": 14,
+      "round": 1,
+      "androids_alive": 14,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "caef1000-c84d-45df-af0a-1213f0899d2c",
+      "agent_name": "bench-alpha-1783330015",
+      "highscore": 14,
+      "round": 1,
+      "androids_alive": 14,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "83e263e0-7d99-49ef-bb28-5efd6956265b",
+      "agent_name": "bench-alpha",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    }
+  ],
+  "full_leaderboard": [
+    {
+      "agent_id": "2d7cc98d-7b4c-4df3-8efd-64d90a8e9fe3",
+      "agent_name": "bot_1777279501_12",
+      "highscore": 38,
+      "round": 1,
+      "androids_alive": 6,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "7e1daa12-94be-4154-9464-df4755b34502",
+      "agent_name": "bot_1777279501_15",
+      "highscore": 36,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "1089f3e7-87db-405c-8552-b061c98ef203",
+      "agent_name": "bot_1777279501_01",
+      "highscore": 36,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "61f797c0-fd61-4d95-9d96-484dbafb05f8",
+      "agent_name": "bot_1777279501_04",
+      "highscore": 35,
+      "round": 1,
+      "androids_alive": 4,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "6f0f420b-66c0-4c96-8c94-82910a880e51",
+      "agent_name": "bot_1777279501_02",
+      "highscore": 35,
+      "round": 1,
+      "androids_alive": 6,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "5cf0aab4-0d8b-42fe-85bb-ed4931429269",
+      "agent_name": "bot_1777279501_18",
+      "highscore": 35,
+      "round": 1,
+      "androids_alive": 18,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "a7f4425f-18fb-4c9b-9f5e-296b11f3a494",
+      "agent_name": "bot_1777279501_20",
+      "highscore": 34,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "76a511b3-d49e-45a4-ae86-9b7fa4a36b09",
+      "agent_name": "bot_1777279501_07",
+      "highscore": 33,
+      "round": 1,
+      "androids_alive": 14,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "0a85988a-3021-45c3-a638-c36d8b1f72a7",
+      "agent_name": "bot_1777279501_08",
+      "highscore": 32,
+      "round": 1,
+      "androids_alive": 5,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "807e5f9a-a9bf-4285-a0c3-d049d344ae44",
+      "agent_name": "bot_1777279501_00",
+      "highscore": 32,
+      "round": 1,
+      "androids_alive": 5,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "c9f5f94d-443b-459d-9803-7868231c6e8a",
+      "agent_name": "bot_1777279501_29",
+      "highscore": 32,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "bdba9007-c1d9-490f-ad3e-9231e73c774c",
+      "agent_name": "TurretTurtle-7626",
+      "highscore": 32,
+      "round": 1,
+      "androids_alive": 32,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "f7b0689b-1044-4124-b7d4-485303787235",
+      "agent_name": "bot_1777279501_09",
+      "highscore": 29,
+      "round": 1,
+      "androids_alive": 13,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "aba92990-233c-467b-9021-8d9b71b58f30",
+      "agent_name": "bot_1777279501_23",
+      "highscore": 28,
+      "round": 1,
+      "androids_alive": 3,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "507ce2c5-62da-4525-a0b9-25d8135b3bd8",
+      "agent_name": "bot_1777279501_21",
+      "highscore": 28,
+      "round": 1,
+      "androids_alive": 12,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "3eb9c0fd-88f6-49e0-8ea3-479793bf5723",
+      "agent_name": "bot_1777279501_03",
+      "highscore": 27,
+      "round": 1,
+      "androids_alive": 1,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "e163318f-ed0b-4f71-b9d7-40dc6fdf8a98",
+      "agent_name": "bot_1777279501_05",
+      "highscore": 27,
+      "round": 1,
+      "androids_alive": 4,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "8fc33759-1401-4763-a10b-6bcacf9ab927",
+      "agent_name": "bot_1777279501_19",
+      "highscore": 26,
+      "round": 1,
+      "androids_alive": 6,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "51b36fdc-09ad-4e9d-bb8d-c4dd2f0aa24b",
+      "agent_name": "bot_1777279501_17",
+      "highscore": 26,
+      "round": 1,
+      "androids_alive": 6,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "73e92184-5fa2-4492-a246-2412d1865f1a",
+      "agent_name": "bot_1777279501_06",
+      "highscore": 25,
+      "round": 1,
+      "androids_alive": 13,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "83b0667a-07d0-4f65-9cea-d44ab5db0191",
+      "agent_name": "bot_1777279501_24",
+      "highscore": 25,
+      "round": 1,
+      "androids_alive": 10,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "cbdd8362-c0c6-46ca-bc59-2e3819cce964",
+      "agent_name": "bot_1777279501_25",
+      "highscore": 25,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "9b68b923-1ee1-4116-b7dd-f92e26f81656",
+      "agent_name": "bot_1777279501_11",
+      "highscore": 24,
+      "round": 1,
+      "androids_alive": 8,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "dea9356f-c570-410d-be96-57661fee1bd5",
+      "agent_name": "BuilderBoom-9952",
+      "highscore": 21,
+      "round": 1,
+      "androids_alive": 5,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "3f542ddf-fc2f-4555-9346-edce2e254b0c",
+      "agent_name": "TurretTurtle-1638",
+      "highscore": 21,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "7de4574f-195a-4c5f-9520-dc16adca6795",
+      "agent_name": "bot_1777279501_28",
+      "highscore": 20,
+      "round": 1,
+      "androids_alive": 5,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "4d3e7c12-6c2b-497a-8bdb-2e3f2a64bf24",
+      "agent_name": "bot_1777279501_22",
+      "highscore": 20,
+      "round": 1,
+      "androids_alive": 6,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "7b72d32a-3f6e-4f96-99ab-a621cb609bc9",
+      "agent_name": "bot_1777279501_26",
+      "highscore": 18,
+      "round": 1,
+      "androids_alive": 2,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "37b5653b-8906-4c7d-be97-8bddce158f85",
+      "agent_name": "bot_1777279501_14",
+      "highscore": 17,
+      "round": 1,
+      "androids_alive": 11,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "92331b15-5ef1-427a-82e7-9f47c49172ee",
+      "agent_name": "bot_1777279501_27",
+      "highscore": 16,
+      "round": 1,
+      "androids_alive": 5,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "5087a903-7101-4ecd-90e8-d47c9fdebee0",
+      "agent_name": "bot_1777279501_13",
+      "highscore": 16,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "862265c2-298e-482a-a9df-dd049bd19ce4",
+      "agent_name": "bot_1777279501_16",
+      "highscore": 16,
+      "round": 1,
+      "androids_alive": 11,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "6015b4c8-84c1-42c1-8cdb-11125add557f",
+      "agent_name": "bot_1777279501_10",
+      "highscore": 15,
+      "round": 1,
+      "androids_alive": 5,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "7052ebef-3053-46bd-9e0b-14b59e0b885f",
+      "agent_name": "g4-melee-00",
+      "highscore": 14,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "b00c6f6e-16e5-465e-893b-2c9b94786cd9",
+      "agent_name": "g4-melee-06",
+      "highscore": 14,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "d31da6c4-a20d-4479-9dbb-ddacbb9790b0",
+      "agent_name": "g3-crowded-03",
+      "highscore": 14,
+      "round": 1,
+      "androids_alive": 14,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "6e8fab56-201e-4673-bb69-7f599f64d613",
+      "agent_name": "g4-melee-09",
+      "highscore": 14,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "d7672d0f-1f64-4911-ac8e-48bb4c40463d",
+      "agent_name": "ScoreHunter-2578",
+      "highscore": 14,
+      "round": 1,
+      "androids_alive": 4,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "c930750e-d5f0-4615-bdc5-4b6e41ee5782",
+      "agent_name": "GunnerRush-1091",
+      "highscore": 14,
+      "round": 1,
+      "androids_alive": 14,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "4d9a9bf4-36e4-48f6-b53b-c6ef7a54b66f",
+      "agent_name": "bench-beta",
+      "highscore": 14,
+      "round": 1,
+      "androids_alive": 14,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "caef1000-c84d-45df-af0a-1213f0899d2c",
+      "agent_name": "bench-alpha-1783330015",
+      "highscore": 14,
+      "round": 1,
+      "androids_alive": 14,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "e5bd895a-7a18-4bb4-b710-a187092889fa",
+      "agent_name": "Balanced-8215",
+      "highscore": 14,
+      "round": 1,
+      "androids_alive": 13,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "f6404d2d-4371-4580-8a59-224037b96faf",
+      "agent_name": "TurretTurtle-4317",
+      "highscore": 14,
+      "round": 1,
+      "androids_alive": 13,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "7009d8d5-1d27-4a85-af6d-5d50c280618d",
+      "agent_name": "DroneSwarm-4733",
+      "highscore": 13,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "ee6cc2c0-0baa-4deb-b867-f14705232bd0",
+      "agent_name": "GunnerRush-4569",
+      "highscore": 13,
+      "round": 1,
+      "androids_alive": 13,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "d38f7168-18e0-4cd7-b2ab-9e3204070448",
+      "agent_name": "DroneSwarm-4680",
+      "highscore": 12,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "a266abea-9cb6-494b-a961-ea1bd369dfed",
+      "agent_name": "DroneSwarm-5067",
+      "highscore": 12,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "473d25d8-7528-4ab1-8126-958a3bd431f5",
+      "agent_name": "DroneSwarm-3677",
+      "highscore": 12,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "85a2a708-5dac-4ef2-a45a-f4e3e3f06692",
+      "agent_name": "KamikazeZerg-6145",
+      "highscore": 10,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "cc33f21e-6d44-4e4f-ba6f-239c22ab9758",
+      "agent_name": "Balanced-2945",
+      "highscore": 10,
+      "round": 1,
+      "androids_alive": 5,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "888403b6-1910-4310-9954-9a91ea80ca0c",
+      "agent_name": "KamikazeZerg-2928",
+      "highscore": 10,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "9ba0ec21-dd42-4032-ba97-5ed254a88cd2",
+      "agent_name": "Balanced-2398",
+      "highscore": 10,
+      "round": 1,
+      "androids_alive": 5,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "98d4f419-10ee-423c-85cc-6726c6c091cc",
+      "agent_name": "KamikazeZerg-1068",
+      "highscore": 10,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "87650b43-6138-42cc-9a7a-36343ac0f40d",
+      "agent_name": "KamikazeZerg-7090",
+      "highscore": 10,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "0b06598f-7c16-4939-838c-3d95c549cc69",
+      "agent_name": "GunnerRush-3509",
+      "highscore": 9,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "079fbd8b-f900-4ab2-9a1c-9e292024627a",
+      "agent_name": "GunnerRush-7013",
+      "highscore": 9,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "82431f78-2f53-4a27-a3be-fe2b93bbeb61",
+      "agent_name": "g1-small_duel-02",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "61b38ea1-5619-41ca-b7e2-6b78da59f6b1",
+      "agent_name": "g1-small_duel-00",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "10f46bb1-6c66-4a3c-bccd-6f73049dd125",
+      "agent_name": "g1-small_duel-01",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "7f55a853-32b2-42ba-8b25-c1ac5caa6e8f",
+      "agent_name": "g2-standard-01",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "20ef6618-efa2-4a0f-9975-8fee83d9b384",
+      "agent_name": "g3-crowded-01",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "ff1347f1-c16f-4134-8a99-96c3eeb34f3c",
+      "agent_name": "g2-standard-02",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "ad977834-7e5e-4335-aa0a-57227a0fbea3",
+      "agent_name": "g3-crowded-02",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "99f95ef0-662b-4104-b880-d577b976803a",
+      "agent_name": "g2-standard-00",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "f268b232-ecde-46d6-986d-fc1ba5926efd",
+      "agent_name": "g2-standard-03",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "8f5d4fb5-859c-4606-8194-5ed5c9be0afe",
+      "agent_name": "g3-crowded-05",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "c0670851-519a-45c3-8121-9b709b66d4a7",
+      "agent_name": "g3-crowded-00",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "e76a9650-95be-4d29-8e1b-bb1727ea8c33",
+      "agent_name": "g3-crowded-04",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "fa7eb9f2-6009-4913-8c6e-fc50827a106b",
+      "agent_name": "g3-crowded-06",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "8131755f-d931-4fb3-bdb4-573214910b48",
+      "agent_name": "g4-melee-03",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "685cc092-04d6-4417-ae37-4c86c42539cd",
+      "agent_name": "g4-melee-01",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 6,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "955a2705-14f3-4cc1-b53b-a4bde283dc24",
+      "agent_name": "g4-melee-05",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "4211e5b1-e104-4a28-a246-49dd21980c98",
+      "agent_name": "g5-mega-17",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "43fea1b7-0dad-49a6-b894-6127d6a001da",
+      "agent_name": "g4-melee-11",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "e32bbfed-0e48-4b5c-922e-a52cd83553f0",
+      "agent_name": "g4-melee-08",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "418ea00f-4e06-43c7-bb44-88e4273d56e4",
+      "agent_name": "g4-melee-10",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "ea73df6f-7ece-45ca-a4ef-b48039bc1889",
+      "agent_name": "g5-mega-00",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "8c6491dd-c925-4f88-98d8-489ddb0f0b6c",
+      "agent_name": "g5-mega-05",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 6,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "723f5443-18d1-42a4-ba65-fed7ce172923",
+      "agent_name": "g5-mega-11",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "536986ad-d6eb-481d-b7ce-5a9f7a7fa907",
+      "agent_name": "g5-mega-12",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "b8de95d1-bad3-464e-b77d-5dea4f009afe",
+      "agent_name": "g2-standard-04",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "16a97d2d-d95a-4c40-809d-47913fae9c4c",
+      "agent_name": "g5-mega-08",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "43a9c6e5-a464-4fb9-a906-e0898c3fc554",
+      "agent_name": "g5-mega-15",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "35c44cd2-9882-4b33-9595-b343cbea17c0",
+      "agent_name": "g4-melee-02",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 6,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "0ef76d7e-e210-48f8-98fe-134a87f0bfda",
+      "agent_name": "g5-mega-02",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "62b7aaa4-2958-4c90-ad76-521bab191e7b",
+      "agent_name": "g5-mega-18",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "27c09cb5-3471-496f-b76c-ced889583a09",
+      "agent_name": "g5-mega-03",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "1100cfa7-d83e-49d2-8f20-666aa57ff653",
+      "agent_name": "g5-mega-06",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "74ce1714-8ab4-49ac-abfa-d5a43c57cbda",
+      "agent_name": "g5-mega-09",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "80b3a497-9b0f-4fd5-875e-433696202d04",
+      "agent_name": "BuilderBoom-5318",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "233031df-8bb1-44cd-9d4d-b03695abadb4",
+      "agent_name": "g3-crowded-07",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "2633cb25-1edf-4ad7-987f-8b9467566a3d",
+      "agent_name": "g5-mega-19",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "244b5702-6d89-470e-a3e3-4dfbe9068243",
+      "agent_name": "g5-mega-01",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "849685c4-11e0-4b23-9ff4-08b17d0db289",
+      "agent_name": "g5-mega-04",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "9ede9fa4-4c17-4e40-9cb7-d18b53341948",
+      "agent_name": "g4-melee-07",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "859c2f50-e8f1-40ac-bd61-ff81aea3a447",
+      "agent_name": "g5-mega-13",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "1d831d69-11fa-4a86-acd9-b917752cf49d",
+      "agent_name": "g5-mega-10",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "1d64688f-6564-41a2-8103-dd6ddef36f72",
+      "agent_name": "g4-melee-04",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "0c9f68f3-7702-4718-b36f-7b6132f65be5",
+      "agent_name": "g5-mega-16",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    },
+    {
+      "agent_id": "83e263e0-7d99-49ef-bb28-5efd6956265b",
+      "agent_name": "bench-alpha",
+      "highscore": 8,
+      "round": 1,
+      "androids_alive": 7,
+      "alliances_active": 0
+    }
+  ]
+}

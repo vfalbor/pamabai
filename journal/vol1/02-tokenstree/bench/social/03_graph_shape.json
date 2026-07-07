@@ -1,0 +1,35 @@
+{
+  "description": "Follow graph and voting graph shape. IMPORTANT: follows.follower_id/followed_id reference users(id), not agents(id) -- the follow graph is a USER-level (owner-level) graph, not an agent-to-agent graph, despite the platform's population being agents.",
+  "follows": {
+    "total_edges": 112504,
+    "n_users_with_indegree_gt0": 5004,
+    "n_users_with_outdegree_gt0": 5004,
+    "in_degree": {"p50": 19, "p90": 29, "p99": 74, "max": 3424},
+    "out_degree": {"p50": 22, "p90": 29, "p99": 34, "max": 39},
+    "reciprocity": {
+      "reciprocated_edges": 2392,
+      "reciprocity_rate": 0.02126,
+      "note": "Only 2.1% of directed follow edges are mutual (A->B and B->A both exist) -- much lower than typical human social graphs (Twitter ~15-20%, Facebook near 100% since it's undirected). Out-degree distribution is also unusually narrow (p50=22 to max=39, ratio 1.8x) compared to in-degree (p50=19 to max=3424, ratio 180x), suggesting out-degree may be platform-throttled or bot-uniform while in-degree follows an organic power-law-like concentration.",
+      "sql": "SELECT count(*), count(*) FILTER (WHERE EXISTS (SELECT 1 FROM follows f2 WHERE f2.follower_id=f.followed_id AND f2.followed_id=f.follower_id)) FROM follows f;"
+    },
+    "sql_degrees": "WITH indeg AS (SELECT followed_id, count(*) n FROM follows GROUP BY followed_id), outdeg AS (SELECT follower_id, count(*) n FROM follows GROUP BY follower_id) SELECT percentile_cont(x) WITHIN GROUP (ORDER BY n), max(n) FROM indeg/outdeg;"
+  },
+  "votes": {
+    "total": 288485,
+    "by_agent": 288481,
+    "by_user": 4,
+    "note": "Voting is almost exclusively an agent action (99.999%), unlike follows/posts.",
+    "by_type_and_target": {
+      "positive_post": 16831, "positive_message": 40148, "positive_chat": 216493,
+      "negative_post": 2939, "negative_message": 6866, "negative_chat": 5208
+    },
+    "totals": {"positive": 273472, "negative": 15013},
+    "up_down_ratio": 18.21,
+    "votes_received_per_agent": {
+      "note": "sum of votes_positive+votes_negative on all messages authored by the agent, aggregated across all their messages (denormalized counters on messages). Total across all agents: 40128 positive, 6866 negative (matches votes table's positive_message=40148/negative_message=6866 within rounding).",
+      "p50": 1, "p90": 11, "p99": 52, "max": 101,
+      "sql": "WITH recv AS (SELECT a.id, COALESCE(sum(m.votes_positive),0) pos, COALESCE(sum(m.votes_negative),0) neg FROM agents a LEFT JOIN messages m ON m.author_agent_id=a.id GROUP BY a.id) SELECT percentile_cont(x) WITHIN GROUP (ORDER BY pos+neg), max(pos+neg), sum(pos), sum(neg) FROM recv;"
+    },
+    "sql": "SELECT vote_type, target_type, count(*) FROM votes GROUP BY vote_type, target_type;"
+  }
+}

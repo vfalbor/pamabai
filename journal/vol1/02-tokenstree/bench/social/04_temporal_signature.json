@@ -1,0 +1,37 @@
+{
+  "description": "Temporal signature of agent messaging activity (UTC). 671494 messages spanning 2025-02-06 to 2026-04-27.",
+  "messages_per_hour_of_day_utc": {
+    "0": 7349, "1": 5738, "2": 4282, "3": 4059, "4": 5822, "5": 8488,
+    "6": 22674, "7": 30226, "8": 36478, "9": 50166, "10": 50478, "11": 43582,
+    "12": 40548, "13": 36061, "14": 32102, "15": 29430, "16": 29673, "17": 26630,
+    "18": 36163, "19": 43355, "20": 46843, "21": 41599, "22": 23526, "23": 16222,
+    "note": "A clear diurnal pattern exists (trough at 02:00-04:00 UTC ~4000-4300 msgs/hr, peak at 09:00-10:00 UTC ~50000/hr, ~12x range), resembling a human circadian rhythm rather than flat 24/7 machine activity. Given 11529 agents worldwide with no stated timezone constraint, this most likely reflects when the human operators/owners run or schedule their agents, or shared infrastructure/API-cost incentives aligned to certain hours, not agents operating autonomously around the clock.",
+    "sql": "SELECT EXTRACT(HOUR FROM created_at), count(*) FROM messages GROUP BY 1 ORDER BY 1;"
+  },
+  "messages_per_week": {
+    "note": "Weekly counts (week starting date, UTC) from 2025-02-03 through 2026-05-04 (partial). Growth is super-exponential (accelerating) from Feb 2025 through late March 2026, then collapses sharply: from 52832 messages in the week of 2026-03-23 to 1806 in the week of 2026-03-30, and further down to 206 in the final partial week of 2026-04-27. This is a step-change, not a gradual decline or partial-week artifact (four consecutive full weeks all sit in the 1400-1800 range before trailing off). Data ends 2026-04-27 -- no explanation is asserted here, only the pattern as measured.",
+    "series": {
+      "2025-02-03": 8, "2025-02-10": 83, "2025-02-17": 224, "2025-02-24": 342,
+      "2025-03-03": 557, "2025-03-10": 710, "2025-03-17": 897, "2025-03-24": 1106,
+      "2025-03-31": 1282, "2025-04-07": 1554, "2025-04-14": 1750, "2025-04-21": 1992,
+      "2025-04-28": 2155, "2025-05-05": 2479, "2025-05-12": 2670, "2025-05-19": 2900,
+      "2025-05-26": 3156, "2025-06-02": 3506, "2025-06-09": 3671, "2025-06-16": 3988,
+      "2025-06-23": 4183, "2025-06-30": 4567, "2025-07-07": 4754, "2025-07-14": 5089,
+      "2025-07-21": 5463, "2025-07-28": 5731, "2025-08-04": 6005, "2025-08-11": 6269,
+      "2025-08-18": 6604, "2025-08-25": 7045, "2025-09-01": 7394, "2025-09-08": 7854,
+      "2025-09-15": 8387, "2025-09-22": 8645, "2025-09-29": 9062, "2025-10-06": 9491,
+      "2025-10-13": 9942, "2025-10-20": 10362, "2025-10-27": 10861, "2025-11-03": 11460,
+      "2025-11-10": 11911, "2025-11-17": 12440, "2025-11-24": 13124, "2025-12-01": 13932,
+      "2025-12-08": 14490, "2025-12-15": 15285, "2025-12-22": 16194, "2025-12-29": 17016,
+      "2026-01-05": 17781, "2026-01-12": 18964, "2026-01-19": 20079, "2026-01-26": 22558,
+      "2026-02-02": 24967, "2026-02-09": 26402, "2026-02-16": 28466, "2026-02-23": 30436,
+      "2026-03-02": 33697, "2026-03-09": 41245, "2026-03-16": 48598, "2026-03-23": 52832,
+      "2026-03-30": 1806, "2026-04-06": 1695, "2026-04-13": 1434, "2026-04-20": 1738,
+      "2026-04-27": 206
+    },
+    "sql": "SELECT date_trunc('week', created_at), count(*) FROM messages GROUP BY 1 ORDER BY 1;"
+  },
+  "inter_message_interval_per_agent": {
+    "measurable": "skipped per instructions (flagged as potentially heavy: would require windowed lag() over 671k rows partitioned by 11529 agents). Can be computed on request if needed."
+  }
+}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.7.3)  7 JUL 2026 08:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.7.3)  7 JUL 2026 10:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -413,19 +413,29 @@ Package pdftex.def Info: fig_testability.png  used on input line 36.
 c/dvips/lm/lm-ec.enc}
 
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}]
-<fig_scores.png, id=51, 444.2196pt x 215.3646pt>
+<fig_weekly.png, id=52, 423.0204pt x 179.2296pt>
+File: fig_weekly.png Graphic file (type png)
+<use fig_weekly.png>
+Package pdftex.def Info: fig_weekly.png  used on input line 74.
+(pdftex.def)             Requested size: 328.82706pt x 139.32538pt.
+<fig_scores.png, id=53, 444.2196pt x 215.3646pt>
 File: fig_scores.png Graphic file (type png)
 <use fig_scores.png>
-Package pdftex.def Info: fig_scores.png  used on input line 74.
+Package pdftex.def Info: fig_scores.png  used on input line 82.
 (pdftex.def)             Requested size: 338.22415pt x 163.98769pt.
-<fig_criteria.png, id=52, 433.1382pt x 237.0456pt>
+<fig_criteria.png, id=54, 433.1382pt x 237.0456pt>
 File: fig_criteria.png Graphic file (type png)
 <use fig_criteria.png>
-Package pdftex.def Info: fig_criteria.png  used on input line 82.
+Package pdftex.def Info: fig_criteria.png  used on input line 90.
 (pdftex.def)             Requested size: 347.62126pt x 190.24799pt.
 
-[2{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc} <./fig_testability.png>]
-[3 <./fig_scores.png> <./fig_criteria.png>] (./paper.bbl) [4] (./paper.aux)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc} <./fig_testability.png>]
+ [3 <./fig_weekly.png> <./fig_scores.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4 <./fig_criteria.png>] (./paper.bbl) [5] (./paper.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -434,13 +444,13 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 203C24079AA553844FF8F853B194D16F;1097.
  ) 
 Here is how much of TeX's memory you used:
- 10028 strings out of 476182
- 153199 string characters out of 5795596
+ 10038 strings out of 476182
+ 153371 string characters out of 5795596
  1941975 words of memory out of 5000000
- 31861 multiletter control sequences out of 15000+600000
+ 31869 multiletter control sequences out of 15000+600000
  618814 words of font info for 69 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,11n,79p,1777b,467s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,11n,79p,1777b,542s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/ty
 pe1/public/lm/lmbx9.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></us
 r/share/texmf/fonts/type1/public/lm/lmmi9.pfb></usr/share/texmf/fonts/type1/pub
@@ -450,10 +460,10 @@ mri9.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf
 /fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt1
 0.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt9.pfb></usr/share/texmf/fonts
 /type1/public/lm/lmtti10.pfb>
-Output written on paper.pdf (4 pages, 387006 bytes).
+Output written on paper.pdf (5 pages, 415748 bytes).
 PDF statistics:
- 152 PDF objects out of 1000 (max. 8388607)
- 112 compressed objects within 2 object streams
- 20 named destinations out of 1000 (max. 500000)
- 64 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 160 PDF objects out of 1000 (max. 8388607)
+ 117 compressed objects within 2 object streams
+ 22 named destinations out of 1000 (max. 500000)
+ 69 words of extra memory for PDF output out of 10000 (max. 10000000)
 

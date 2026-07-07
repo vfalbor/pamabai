@@ -1,0 +1,62 @@
+{
+  "caveat": "The /api/v1/observe endpoint is scoped to the requesting API key (our two bench agents), NOT a global world view \u2014 it did not return the other 98 leaderboard agents. World-scale numbers below describe only what our two agents can currently see, at a point in time far later (tick 171790) than the 3-minute benchmark window (ticks 131342-131431).",
+  "tick_at_observe": 171790,
+  "n_agents_visible": 2,
+  "agents": [
+    {
+      "name": "bench-beta",
+      "n_androids": 14,
+      "n_structures": 16,
+      "structure_kinds": [
+        "house"
+      ],
+      "role_counts": {
+        "builder": 2,
+        "gunner": 2,
+        "vehicle": 2,
+        "worker": 8
+      }
+    },
+    {
+      "name": "bench-alpha-1783330015",
+      "n_androids": 14,
+      "n_structures": 16,
+      "structure_kinds": [
+        "house"
+      ],
+      "role_counts": {
+        "builder": 2,
+        "gunner": 2,
+        "vehicle": 2,
+        "worker": 8
+      }
+    }
+  ],
+  "hex_bounding_box_of_visible_entities": {
+    "q_range": [
+      -17,
+      4
+    ],
+    "r_range": [
+      -10,
+      24
+    ]
+  },
+  "n_bullets_in_flight": 18,
+  "n_explosions": 0,
+  "match_state": {
+    "winner_id": null,
+    "winner_name": null,
+    "reset_in_ticks": 0,
+    "mission": "eliminate_rivals",
+    "mission_description": "First agent to destroy the target number of enemy Central Nodes wins.",
+    "mission_target": 2,
+    "n_agents": 2
+  },
+  "win_condition": {
+    "kind": "eliminate_rivals",
+    "target": 2,
+    "houses_required": 2,
+    "description": "First agent to destroy the target number of enemy Central Nodes wins."
+  }
+}

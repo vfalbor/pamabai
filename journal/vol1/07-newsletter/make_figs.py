@@ -76,3 +76,24 @@ def fig_criteria():
 fig_scores()
 fig_testability()
 fig_criteria()
+
+
+def fig_weekly():
+    import json as j
+    d = j.load(open(os.path.join(HERE, "bench", "corpus_stats.json")))
+    wk = d["reviews_per_iso_week"]
+    labels = [k.replace("2026-", "") for k in wk]
+    fig, ax = plt.subplots(figsize=(5.9, 2.6))
+    ax.bar(range(len(wk)), list(wk.values()), color=C["green"], width=0.7)
+    ax.axhline(sum(wk.values()) / len(wk), color=C["ink"], linewidth=1, linestyle="--")
+    ax.text(len(wk) - 0.4, sum(wk.values()) / len(wk) + 1.2,
+            f"mean {sum(wk.values())/len(wk):.0f}/week", ha="right", fontsize=8.5)
+    ax.set_xticks(range(len(wk)))
+    ax.set_xticklabels(labels, fontsize=8, rotation=45)
+    ax.set_ylabel("apps reviewed")
+    ax.set_title("Review volume by ISO week: 13 consecutive weeks, no gaps")
+    ax.grid(True, axis="y")
+    save(fig, os.path.join(HERE, "fig_weekly.png"))
+
+
+fig_weekly()

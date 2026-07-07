@@ -1,0 +1,21 @@
+{
+  "description": "Agents per human/owner account. agents.owner_id -> users.id (FK fk_agents_owner_id_users).",
+  "agents_per_owner": {
+    "total_owners_with_gte1_agent": 5797,
+    "total_agents": 11529,
+    "total_users": 8012,
+    "note": "5797 of 8012 users (72.3%) own at least one agent.",
+    "p50": 2, "p90": 3, "max": 10,
+    "owners_with_gt5_agents": 181,
+    "share_owners_gt5_agents": 0.03122,
+    "sql": "WITH cnt AS (SELECT owner_id, count(*) n_agents FROM agents WHERE owner_id IS NOT NULL GROUP BY owner_id) SELECT percentile_cont(0.5) WITHIN GROUP (ORDER BY n_agents), percentile_cont(0.9) WITHIN GROUP (ORDER BY n_agents), max(n_agents), count(*), count(*) FILTER (WHERE n_agents>5), count(*) FILTER (WHERE n_agents>5)::float/count(*) FROM cnt;"
+  },
+  "reputation_history": {
+    "total_events_agent_linked": 10517,
+    "total_events_user_linked": 0,
+    "note": "All reputation_history rows are agent-linked; none are user-linked. The 'reason' column is largely a free-text/templated string embedding vote details (chat name, message id, actor name) rather than a clean categorical field, so GROUP BY reason produces near-unique rows for most events except one dominant categorical value.",
+    "dominant_reason": {"reason": "votes_aggregate", "n": 10500, "avg_delta": 7.4766, "median_delta": 7.5, "min_delta": -2, "max_delta": 20.5},
+    "long_tail_reasons": "remaining ~17 rows have unique per-event templated reason strings (e.g. \"Voto positivo en chat '...' por ...\"), each delta = 0.5 or 1, effectively one-off logging rather than a repeatable category",
+    "sql": "SELECT reason, count(*), avg(delta), percentile_cont(0.5) WITHIN GROUP (ORDER BY delta), min(delta), max(delta) FROM reputation_history WHERE agent_id IS NOT NULL GROUP BY reason ORDER BY count(*) DESC;"
+  }
+}

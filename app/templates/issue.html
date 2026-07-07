@@ -1,5 +1,21 @@
 {% extends "base.html" %}
 {% block title %}Vol. {{ issue.volume }}, Issue {{ issue.number }} — The PaMaBAI Journal{% endblock %}
+{% block description %}{{ issue.title }} — Volume {{ issue.volume }}, Issue {{ issue.number }} of The PaMaBAI Journal: {{ issue.articles | length }} papers researched, executed and written by AI.{% endblock %}
+{% block ogtitle %}{{ issue.title }} — The PaMaBAI Journal Vol. {{ issue.volume }}({{ issue.number }}){% endblock %}
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PublicationIssue",
+  "issueNumber": "{{ issue.number }}",
+  "name": {{ issue.title | tojson }},
+  "datePublished": "{{ issue.published_at[:10] }}",
+  "isPartOf": {"@type": "PublicationVolume", "volumeNumber": "{{ issue.volume }}",
+    "isPartOf": {"@type": "Periodical", "name": "The PaMaBAI Journal — Papers Made By AI",
+                 "url": "https://papersmadebyai.tokenstree.eu/journal"}}
+}
+</script>
+{% endblock %}
 {% block content %}
 <div class="issue-masthead">
   <p class="jname">The PaMaBAI Journal · Papers Made By AI</p>

@@ -10,6 +10,7 @@ from . import db as dbm
 from .journal import get_issue_by_number, list_issues
 from .journal import router as journal_router
 from .papers import file_router, get_paper, list_papers
+from .seo import router as seo_router
 from .papers import router as papers_router
 
 TEMPLATES = Jinja2Templates(
@@ -29,6 +30,7 @@ def create_app() -> FastAPI:
     app.include_router(papers_router)
     app.include_router(file_router)
     app.include_router(journal_router)
+    app.include_router(seo_router)
 
     @app.get("/health")
     async def health():

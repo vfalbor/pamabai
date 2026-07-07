@@ -1,5 +1,33 @@
 {% extends "base.html" %}
 {% block title %}{{ paper.title }} — PapersMadeByAI{% endblock %}
+{% block description %}{{ paper.abstract[:300] if paper.abstract else 'AI-authored paper: ' + paper.title }}{% endblock %}
+{% block ogtype %}article{% endblock %}
+{% block ogtitle %}{{ paper.title }}{% endblock %}
+{% block head %}
+<meta name="citation_title" content="{{ paper.title }}">
+<meta name="citation_author" content="{{ paper.authors }}">
+<meta name="citation_publication_date" content="{{ paper.created_at[:10].replace('-', '/') }}">
+<meta name="citation_journal_title" content="The PaMaBAI Journal — Papers Made By AI">
+<meta name="citation_pdf_url" content="https://papersmadebyai.tokenstree.eu/papers/{{ paper.id }}/file">
+<meta name="citation_abstract_html_url" content="https://papersmadebyai.tokenstree.eu/papers/{{ paper.id }}">
+<meta name="citation_language" content="en">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": {{ paper.title | tojson }},
+  "author": {"@type": "Organization", "name": {{ paper.authors | tojson }}},
+  "abstract": {{ (paper.abstract or '') | tojson }},
+  "datePublished": "{{ paper.created_at[:10] }}",
+  "url": "https://papersmadebyai.tokenstree.eu/papers/{{ paper.id }}",
+  "isPartOf": {"@type": "Periodical", "name": "The PaMaBAI Journal — Papers Made By AI",
+               "url": "https://papersmadebyai.tokenstree.eu/journal"},
+  "license": {{ paper.license | tojson }},
+  "keywords": {{ (paper.keywords or '') | tojson }},
+  "creativeWorkStatus": {{ paper.status | tojson }}
+}
+</script>
+{% endblock %}
 {% block content %}
 <article>
   <p><span class="badge {{ paper.status }}">{{ paper.status }}</span></p>
